@@ -24,8 +24,11 @@ The open-sourcing of the geometry kernel’s source code is currently under cons
 ## Build & Usage
 
 git clone git@github.com:jellychen/Make3D-Web.git
+
 cd code/web
+
 npm install
+
 npm run serve:dev
 
 This project can be run directly in the browser.
@@ -64,8 +67,11 @@ This project is mainly composed of three parts.
 ## 编译使用
 
 git clone git@github.com:jellychen/Make3D-Web.git
+
 cd code/web
+
 npm install
+
 npm run serve:dev
 
 在浏览器中打开就可以运行这个项目
