@@ -1,0 +1,20 @@
+<style>
+    :host {
+        display: flex;
+    }
+
+    :host([enable="false"]) {
+        pointer-events: none;
+        opacity: 0.3;
+        background: transparent !important;
+    }
+
+    #container {
+        display: flex;
+        align-items: center;
+    }
+</style>
+
+<div id="container">
+    <slot></slot>
+</div>

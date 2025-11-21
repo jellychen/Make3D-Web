@@ -1,0 +1,84 @@
+<style>
+    :host {
+        position: relative;
+    }
+
+    #container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    #container #sub-container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        scrollbar-width: none; /* Firefox */
+    }
+
+    #container #sub-container #content {
+        width: min-content;
+        height: min-content;
+    }
+
+    #container #sub-container::-webkit-scrollbar {
+        display: none; /* Chrome, Safari 和 Opera */
+    }
+
+    #container #scrollbar-v {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 2px;
+        width: 5px;
+    }
+
+    #container #scrollbar-v[aside="true"] {
+        bottom: 8px !important;
+    }
+
+    #container #scrollbar-h {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 2px;
+        height: 5px;
+    }
+
+    #container #scrollbar-h[aside="true"] {
+        right: 8px !important;
+    }
+
+    #container .scrollbar {
+        z-index: 10000000;
+        opacity: 0.3;
+        transition: opacity 0.3s;
+    }
+
+    #container:hover .scrollbar {
+        opacity: 1;
+    }
+
+</style>
+
+<div id="container">
+
+    <!-- 内部容器 -->
+    <div id="sub-container">
+        <div id="content">
+            <slot></slot>
+        </div>
+    </div>
+
+    <!-- 竖直-->
+    <x-scrollbar-container class="scrollbar" id="scrollbar-v" dir="v"></x-scrollbar-container>
+
+    <!-- 水平 -->
+    <x-scrollbar-container class="scrollbar" id="scrollbar-h" dir="h"></x-scrollbar-container>
+</div>

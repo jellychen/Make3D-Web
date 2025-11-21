@@ -1,0 +1,86 @@
+<style>
+    :host {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    #container {
+        height: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container[enable="false"] {
+        opacity: 0.2;
+        pointer-events: none;
+    }
+
+    #container #switcher {
+        appearance: none;
+        background-color: var(--switcher-bg-color);
+        border-radius: 3px;
+        border-style: none;
+        flex-shrink: 0;
+        height: 13px;
+        margin: 0;
+        position: relative;
+        width: 24px;
+    }
+
+    #container #switcher::before {
+        bottom: -6px;
+        content: "";
+        left: -6px;
+        position: absolute;
+        right: -6px;
+        top: -6px;
+    }
+
+    #container #switcher,
+    #container #switcher::after {
+        transition: all 100ms ease-out;
+    }
+
+    #container #switcher::after {
+        background-color: #fff;
+        border-radius: 2px;
+        content: "";
+        height: 7px;
+        left: 3px;
+        position: absolute;
+        top: 3px;
+        width: 7px;
+    }
+
+    #container #switcher {
+        cursor: default;
+        background-color: var(--switcher-bg-color);
+    }
+
+    #container #switcher:hover {
+        background-color: var(--switcher-bg-color);
+        transition-duration: 0s;
+    }
+
+    #container #switcher:checked::after {
+        left: 13px;
+    }
+
+    #container :focus:not(.focus-visible) {
+        outline: 0;
+    }
+
+    #container #switcher:checked {
+        background-color: var(--switcher-checked-bg-color);
+    }
+
+    #container #switcher:checked:hover {
+        background-color: var(--switcher-checked-hover-bg-color);
+    }
+</style>
+
+<div id="container" enable="true">
+    <input id="switcher" type="checkbox" class="input-checkout" />
+</div>

@@ -1,0 +1,124 @@
+<style>
+    :host {
+        z-index: 1000000000;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-items: stretch;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(6px);
+        border-radius: 6px;
+        padding: 14px;
+        gap: 12px;
+        box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
+        border: solid 1px #323232;
+        transition: border 300ms;
+    }
+
+    #container #header {
+        display: flex;
+        flex-direction: row;
+        gap: 6px;
+        align-items: center;
+    }
+
+    #container #header #logo {
+        width: 14px;
+        height: 14px;
+    }
+
+    #container #content {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        margin-left: 32px;
+        margin-right: 32px;
+        min-width: 240px;
+    }
+
+    #container #content #label {
+
+    }
+
+    #container #content #sw {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+    }
+
+    #container #btn-container {
+        align-self: stretch;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 6px;
+        justify-content: flex-end;
+        margin-top: 12px;
+    }
+
+    #container #btn-container .btn {
+        opacity: 1;
+        transition: opacity 300ms;
+    }
+
+    #container #btn-container .btn:hover {
+        opacity: 0.8;
+    }
+</style>
+
+<div id="container">
+    <!-- 头 -->
+    <div id="header">
+        <x-svg id="logo" color="var(--default-svg-color)" icon="ui/merge.svg"></x-svg>
+        <x-text color="var(--default-font-color)" token="merge" size="var(--font-size-0)"></x-text>
+    </div>
+    
+    <!-- 内容 -->
+    <div id="content">
+        <x-icon-label id="label" icon="ui/warn-0.svg" token="merge.only.editable"></x-icon-label>
+        <div id="sw">
+            <x-switcher id="switcher"></x-switcher>
+            <x-text color="var(--default-font-color)" token="merge.recursion" size="var(--font-size-0)"></x-text>
+        </div>
+    </div>
+
+    <!-- 按钮 -->
+    <div id="btn-container">
+        <x-button class="btn" 
+                  id="cancel"
+                  enable-icon="true" 
+                  icon="ui/delete.svg" 
+                  text-token="cancel" 
+                  text-size="10px"
+                  btn-style="red"
+                  btn-size="small">
+        </x-button>
+
+        <x-button class="btn" 
+                  id="commit"
+                  enable-icon="true"
+                  icon="ui/selected.svg" 
+                  text-token="confirm" 
+                  text-size="10px"
+                  btn-style="green"
+                  btn-size="small">
+        </x-button>
+    </div>
+</div>

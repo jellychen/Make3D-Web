@@ -1,0 +1,115 @@
+<style>
+    :host {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    #container #label-container {
+        height: 22px;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container #label-container #name {
+        align-self: flex-end;
+        max-width: 100px;
+        height: 100%;
+        margin-right: 8px;
+    }
+
+    #container #texture-preview {
+        position: relative;
+        width: 84px;
+        height: 84px;
+        cursor: pointer;
+        border-radius: 3px;
+        overflow: hidden;
+        background-color: #363636;
+        background-image: conic-gradient(rgba(0, 0, 0, .3) 0 25%, transparent 0 50%, rgba(0, 0, 0, .3) 0 75%, transparent 0);
+        background-size: 12px 12px;
+        transition: border .2s, transform .2s;
+    }
+
+    #container #texture-preview #texture {
+        position: absolute;
+        width: 84px;
+        height: 84px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+
+    #container #texture-preview:hover #remove {
+        opacity: 1!important;
+        background-color: var(--color-principal-red) !important;
+    } 
+
+    #container #texture-preview #remove {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 4px;
+        right: 4px;
+        opacity: 0.8;
+        border-radius: 10px;
+        background-color: var(--color-gray-500);
+        transition: opacity 500ms, background 300ms;
+    }
+
+    #container #file {
+        width: 16px;
+        height: 16px;
+        align-self: flex-end;
+        margin-left: 8px;
+        opacity: 0.7;
+        cursor: pointer;
+        transition: opacity 100ms, transform 100ms;
+    }
+
+    #container #file:hover {
+        opacity: 1;
+    }
+
+    #container #file:hover:active {
+        transform: translateY(1px);
+    }
+
+    #container #file-input {
+        width: 0;
+        height: 0;
+    }
+</style>
+
+<div id="container">
+
+    <!-- label -->
+    <div id="label-container">
+        <x-text id="name" color="var(--default-font-color)" token="texture" size="var(--font-size-2)"></x-text>
+    </div>
+
+    <!-- 纹理 -->
+    <div id="texture-preview">
+
+        <!-- 图片 -->
+        <x-image-advanced id="texture"></x-image-advanced>
+
+        <!-- 移除 -->
+        <x-icon-button-borderless id="remove" icon="ui/delete.svg"></x-icon-button-borderless>
+
+    </div>
+
+    <!-- 点选的按钮 -->
+    <x-svg id="file" color="var(--default-svg-color)" icon="ui/fold-dir.svg"></x-svg>
+
+    <!-- 文件选择入口 -->
+    <input type="file" id="file-input" accept=".png, .jpg, image/png, image/jpeg" style="display:none;">
+
+</div>

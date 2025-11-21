@@ -1,0 +1,65 @@
+<style>
+    :host {
+        position: absolute;
+        z-index: 999999999;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container {
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        padding-right: 0;
+        border-radius: 4px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .8);
+        background-color: var(--color-principal);
+        border: 1px solid #323232;
+    }
+
+    #container #scrollable-container {
+        display: none;
+        width: 110px;
+        height: 360px;
+        pointer-events: auto;
+    }
+
+    #container #scrollable-container #scrollable-container-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+    }
+
+    #container #loading {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        border-radius: 6px;
+    }
+
+    #container #loading #progress {
+        position: absolute;
+        width: 80px;
+        height: 2px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<div id="container">
+
+    <!-- 滚动 -->
+    <x-scrollable-container id="scrollable-container" stop-pointer-event-propagation="true">
+        <div id="scrollable-container-content"></div>
+    </x-scrollable-container>
+
+    <!-- 异步加载的时候显示 -->
+    <div id="loading">
+        <x-progress-infinite-line id="progress" color="#c1c1c1"></x-progress-infinite-line>
+    </div>
+
+</div>

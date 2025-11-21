@@ -1,0 +1,8 @@
+
+======== 开启tips
+
+onCreate() {
+    this.setEnableTips(this.getChild('#container'));
+    this.setTipsLocationDock('top');
+    this.setTipsTextData('guodong');
+}

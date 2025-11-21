@@ -1,0 +1,43 @@
+<style>
+    :host {
+        position: relative;
+    }
+
+    #container {
+        position: absolute;
+        left: 4px;
+        right: 4px;
+        top: 2px;
+        bottom: 2px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #container #title {
+        margin-left: 4px;
+        margin-right: 4px;
+        align-self: center;
+    }
+
+    #container #input {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        height: 100%;
+        vertical-align: middle;
+        margin-left: 6px;
+        margin-right: 6px;
+    }
+
+    #container .compactness {
+        margin-left: 0px!important;
+        margin-right: 0px!important;
+    }
+</style>
+
+<div id="container">
+    <x-text id="title" size="10" token="X" color="var(--default-font-color)"></x-text>
+    <x-text-input id="input" type="number"></x-text-input>
+</div>

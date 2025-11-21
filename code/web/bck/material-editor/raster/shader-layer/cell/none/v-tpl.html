@@ -1,0 +1,35 @@
+<style>
+    :host {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding-top: 6px;
+    }
+
+    #container {
+        position: relative;
+        height: 84px;
+        background: repeating-linear-gradient(135deg, #232323 0, #282828 1px, transparent 1px, transparent 5px);
+        border-radius: 6px;
+        border: 1px dashed var(--color-frame-border);
+        transition: border 200ms;
+    }
+
+    #container:hover {
+        border: 1px dashed var(--color-frame-border-lightness);
+    }
+
+    #icon {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<div id="container">
+    <x-svg id="icon" icon="ui/empty.svg" color="var(--default-svg-color)"></x-svg>
+</div>

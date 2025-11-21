@@ -1,0 +1,50 @@
+<style>
+    :host {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container #canvas {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container #progress-bar {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 1px;
+    }
+
+    #container #tips {
+        max-width: 800px;
+        position: absolute;
+        color: white;
+        right: 5px;
+        bottom: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 10px;
+        padding-left: 6px;
+        padding-right: 6px;
+        border-radius: 4px;
+        backdrop-filter: blur(6px);
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+</style>
+
+<div id="container">
+    <canvas id="canvas"></canvas>
+
+    <!-- 进度条 -->
+    <x-biz-rt-renderder-dashboard-progress-bar id="progress-bar"></x-biz-rt-renderder-dashboard-progress-bar>
+</div>

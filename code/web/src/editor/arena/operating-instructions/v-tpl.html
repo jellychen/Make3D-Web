@@ -1,0 +1,55 @@
+<style>
+    :host {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 99999999999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        padding-bottom: 38px;
+        user-select: none;
+        pointer-events: none;
+    }
+
+    #container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 6px;
+        border: 1px solid #848484;
+        background-color: rgba(0, 0, 0, 0.2);
+        box-shadow: var(--shadow-090);
+        overflow: hidden;
+        pointer-events: auto;
+    }
+
+    #container #close {
+        position: absolute;
+        right: 6px;
+        top: 6px;
+        width: 18px;
+        height: 18px;
+        opacity: 0.6;
+    }
+
+    #container #close:hover {
+        opacity: 1;
+    }
+
+    #container #video {
+        width: 240px;
+        height: 240px;
+    }
+</style>
+
+<div id="container">
+    <x-video id="video"></x-video>
+    <x-icon-button-borderless id="close" icon="ui/close.svg"></x-icon-button-borderless>
+    <x-biz-operating-instructions-desc></x-biz-operating-instructions-desc>
+</div>

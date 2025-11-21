@@ -1,0 +1,50 @@
+<style>
+    :host {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 9999999999999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        backdrop-filter: blur(3px);
+        border: 1px solid var(--color-frame-border);
+        border-radius: 6px;
+        background-color: rgba(0, 0, 0, 0.8);
+        box-shadow: var(--shadow-100);
+        align-items: center;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    #container #label {
+        max-width: 240px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+
+    #container #btns {
+        align-self: stretch;
+        margin-bottom: 16px;
+        height: 42px;
+        display: flex;
+        flex-direction: row;
+        border-top: 1px solid var(--color-frame-border);
+        gap: 8px;
+        justify-content: flex-end;
+        align-items: center;
+    }
+</style>
+
+<div id="container">
+    <x-text-multiline id="label" color="var(--default-font-color)" token="" size="var(--font-size-0)"></x-text-multiline>
+    <div id="btns">
+        <x-button id="cancel" enable-icon="false" text-token="cancel" btn-size="small"></x-button>
+    </div>
+</div>

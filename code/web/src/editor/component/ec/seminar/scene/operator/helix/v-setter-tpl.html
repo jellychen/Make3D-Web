@@ -1,0 +1,86 @@
+<style>
+    :host {
+        max-width: 360px;
+        display: flex;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    #container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding-left: 16px;
+        padding-right: 16px;
+        gap: 3px;
+    }
+
+    #container #commit {
+        margin-top: 16px;
+    }
+</style>
+
+<div id="container">
+    <!-- 半径 -->
+    <x-biz-ec-cell-number
+        id="r0"
+        name-token="r0"
+        default="1"
+        min="0.001">
+    </x-biz-ec-cell-number>
+
+    <!-- 半径 -->
+    <x-biz-ec-cell-number
+        id="r1"
+        name-token="r1"
+        default="1"
+        min="0.001">
+    </x-biz-ec-cell-number>
+
+    <!-- malposition -->
+    <x-biz-ec-cell-number
+        id="malposition"
+        name-token="malposition"
+        default="1"
+        min="0.1">
+    </x-biz-ec-cell-number>
+
+    <!-- 圆环细分 -->
+    <x-biz-ec-cell-integer
+        id="subdivisions"
+        name-token="subdivisions"
+        default="3"
+        min="3">
+    </x-biz-ec-cell-integer>
+
+    <!-- 截面细分 -->
+    <x-biz-ec-cell-integer
+        id="steps"
+        name-token="steps"
+        default="3"
+        min="3">
+    </x-biz-ec-cell-integer>
+
+    <!-- 起始角度 -->
+    <x-biz-ec-cell-number
+        id="angle-start"
+        name-token="angle-start"
+        default="0"
+        min="0"
+        max="360">
+    </x-biz-ec-cell-number>
+
+    <!-- 结束角度 -->
+    <x-biz-ec-cell-number
+        id="angle-end"
+        name-token="angle-end"
+        default="0"
+        min="0"
+        max="72000000000">
+    </x-biz-ec-cell-number>
+
+    <!-- 提交 -->
+    <x-biz-ec-cell-commit id="commit">
+    </x-biz-ec-cell-commit>
+</div>

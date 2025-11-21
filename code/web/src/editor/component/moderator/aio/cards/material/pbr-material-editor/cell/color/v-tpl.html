@@ -1,0 +1,68 @@
+<style>
+    :host {
+        position: relative;
+        height: 22px;
+    }
+
+    #container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container #label-container {
+        height: 100%;
+        width: 120px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container #label-container #name {
+        align-self: flex-end;
+        max-width: 100px;
+        height: 100%;
+        margin-right: 8px;
+    }
+
+    #container #color-container {
+        width: 14px;
+        height: 14px;
+        border-radius: 4px;
+        background-color: #363636;
+        background-image: conic-gradient(
+            rgba(0, 0, 0, 0.3) 0 25%,
+            transparent 0 50%,
+            rgba(0, 0, 0, 0.3) 0 75%,
+            transparent 0
+        );
+        background-size: 6px 6px;
+    }
+
+    #container #color-container:hover {
+        border: 1px dashed var(--color-gray-900);
+        transition: border 300ms
+    }
+
+    #container #color {
+        width: 14px;
+        height: 14px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
+
+<div id="container">
+
+    <!-- label -->
+    <div id="label-container">
+        <x-text id="name" color="var(--default-font-color)" data="undefined" size="var(--font-size-2)"></x-text>
+    </div>
+
+    <!-- 数值调整 -->
+    <div id="color-container">
+        <div id="color"></div>
+    </div>
+</div>

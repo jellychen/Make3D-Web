@@ -1,0 +1,61 @@
+<style>
+    :host {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+        padding-left: 6px;
+        padding-right: 8px;
+        border-bottom: 1px solid var(--color-frame-border);
+    }
+
+    #container #l {
+        display: flex;
+        flex-direction: row;
+        gap: 2px;
+        align-items: center;
+    }
+
+    #container #l #icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    #container #l #uproot {
+        height: 16px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container #l #uproot #more {
+        width: 10px;
+        height: 10px;
+        opacity: 0.6;
+        cursor: pointer;
+        transition: opacity 200ms, transform 100ms;
+    }
+
+    #container #l #uproot #more:hover {
+        opacity: 1;
+    }
+
+    #container #l #uproot #more:hover:active {
+        transform: translateY(1px);
+    }
+</style>
+
+<div id="container">
+    <div id="l">
+        <x-biz-moderator-cards-animation-events-icon id="icon"></x-biz-moderator-cards-animation-events-icon>
+        <div id="uproot">
+            <x-svg id="more" color="var(--default-svg-color)" icon="ui/down-more.svg"></x-svg>
+        </div>
+    </div>
+    <div id="r"></div>
+</div>

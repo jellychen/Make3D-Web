@@ -1,0 +1,71 @@
+<style>
+    :host {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    #container .row {
+        align-self: stretch;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        height: 22px;
+        gap: 4px;
+    }
+
+    #container .row .cell {
+        flex: 1;
+        height: 100%;
+    }
+
+    #container .row .change {
+        width: 14px;
+        height: 14px;
+        opacity: 0.3;
+    }
+
+    #container .row .title {
+        width: 84px!important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        color: #F1F1F1;
+        font-size: 10px;
+    }
+
+    #container .row .input {
+        height: 20px;
+        border-radius: 4px;
+        flex: 2!important;
+        background-color: var(--color-bg-0);
+    }
+</style>
+
+<div id="container">
+    <div class="row">
+        <div class="title">X</div>
+        <x-text-input-number class="cell input" enable-title="false"></x-text-input-number>
+        <x-svg class="change" color="var(--default-svg-color)" icon="ui/next.svg"></x-svg>
+        <x-text-input-number class="cell input" enable-title="false"></x-text-input-number>
+    </div>
+    <div class="row">
+        <div class="title">Y</div>
+        <x-text-input-number class="cell input" enable-title="false"></x-text-input-number>
+        <x-svg class="change" color="var(--default-svg-color)" icon="ui/next.svg"></x-svg>
+        <x-text-input-number class="cell input" enable-title="false"></x-text-input-number>
+    </div>
+    <div class="row">
+        <div class="title">Z</div>
+        <x-text-input-number class="cell input" enable-title="false"></x-text-input-number>
+        <x-svg class="change" color="var(--default-svg-color)" icon="ui/next.svg"></x-svg>
+        <x-text-input-number class="cell input" enable-title="false"></x-text-input-number>
+    </div>
+</div>

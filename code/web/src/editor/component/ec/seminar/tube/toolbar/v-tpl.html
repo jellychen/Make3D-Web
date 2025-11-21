@@ -1,0 +1,85 @@
+<style>
+    :host {
+        display: flex;
+        height: 100%;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        gap: 18px;
+    }
+
+    #container .btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    #container .separator {
+        width: 2px;
+        height: 12px;
+        align-self: center;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    #container .switcher-container {
+        height: 100%;
+    }
+
+    #container .switcher-container .icon-switcher {
+        width: 46px;
+        height: 100%;
+    }
+
+</style>
+
+<div id="container">
+
+    <!-- 各种按钮 -->
+    <x-icon-status-switcher-container id="switcher" direction="row" gap="8px" enable="true" class="switcher-container">
+
+        <!-- 分割 -->
+        <x-separator class="separator"></x-separator>
+
+        <!-- 选择点 -->
+        <x-icon-status-switcher 
+            token="select-point"
+            class="icon-switcher" 
+            icon="curve-oper/select-point.svg"
+            selected="true">
+        </x-icon-status-switcher>
+        
+        <!-- 选择边 -->
+        <x-icon-status-switcher 
+            token="select-curve"
+            class="icon-switcher" 
+            icon="curve-oper/select-curve.svg">
+        </x-icon-status-switcher>
+
+        <!-- 中心分拆 -->
+        <x-icon-status-switcher 
+            token="subdivision"
+            class="icon-switcher" 
+            icon="curve-oper/curve-center-subdivision.svg">
+        </x-icon-status-switcher>
+
+        <!-- 挤出 -->
+        <x-icon-status-switcher 
+            token="extrude"
+            class="icon-switcher" 
+            icon="curve-oper/extrude.svg">
+        </x-icon-status-switcher>
+
+        <!-- 删除边 -->
+        <x-icon-status-switcher 
+            token="curve-delete"
+            class="icon-switcher" 
+            icon="curve-oper/curve-delete.svg">
+        </x-icon-status-switcher>
+
+    </x-icon-status-switcher-container>
+
+</div>

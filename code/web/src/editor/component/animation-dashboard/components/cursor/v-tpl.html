@@ -1,0 +1,50 @@
+<style>
+    :host {
+        position: absolute;
+        width: 0px;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    #container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container #cursor {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        transform: translate(-50%, -2px);
+        cursor: grab;
+        opacity: 0.8;
+        transition: opacity 200ms;
+    }
+
+    #container #cursor:active {
+        cursor: grabbing;
+        opacity: 1;
+    }
+
+    #container #line {
+        position: absolute;
+        transform: translateX(-50%);
+        width: 1px;
+        top: 10px;
+        bottom: 0;
+        background-color: var(--color-principal-green);
+        pointer-events: none;
+    }
+
+    #container #timer {
+
+    }
+</style>
+
+<div id="container">
+    <x-svg id="cursor" color="var(--color-principal-green)" icon="ui/down-cursor.svg"></x-svg>
+    <div id="line"></div>
+    <x-biz-animation-dashboard-cursor-timer id="timer"></x-biz-animation-dashboard-cursor-timer>
+</div>

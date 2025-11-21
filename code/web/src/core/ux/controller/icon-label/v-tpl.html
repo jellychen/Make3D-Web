@@ -1,0 +1,27 @@
+<style>
+    :host {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 6px;
+    }
+
+    #icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    #text {
+        flex: 1;
+    }
+</style>
+
+<div id="container">
+    <x-svg  id="icon" color="var(--default-svg-color)"></x-svg>
+    <x-text id="text" color="var(--default-font-color)" size="var(--font-size-0)"></x-text>
+</div>

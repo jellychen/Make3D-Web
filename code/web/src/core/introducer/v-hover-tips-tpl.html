@@ -1,0 +1,110 @@
+<style>
+    :host {
+        position: absolute;
+        left: 100px;
+        top: 100px;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        padding: 6px;
+        padding-left: 12px;
+        padding-right: 12px;
+        box-shadow: var(--shadow-050);
+        border-radius: 8px;
+        border: 1px solid var(--color-principal-green);
+        background-color: rgba(0, 0, 0, 0.8);
+        gap: 8px;
+        min-width: 120px;
+        user-select: none;
+    }
+
+    #container #header {
+        display: flex;
+        flex-direction: row;
+        height: 32px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #container #header #icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    #container #header #close {
+        width: 14px;
+        height: 14px;
+        opacity: 0.6;
+        transition: opacity 100ms, transform 100ms;
+        cursor: pointer;
+    }
+
+    #container #header #close:hover {
+        opacity: 1;
+    }
+
+    #container #header #close:hover:active {
+        transform: translateY(1px);
+    }
+
+    #container .s {
+        align-self: stretch;
+        border-bottom: 1px dashed #212121;
+    }
+
+    #container #bottom {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #container #bottom #l {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #EFEFEF;
+        font-size: 8px;
+    }
+
+    #container #bottom #r {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+    }
+
+    #container #bottom #r .btn {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        transition: transform 100ms;
+    }
+
+    #container #bottom #r .btn:active {
+        transform: translateY(1px);
+    }
+</style>
+
+<div id="container">
+    <div id="header">
+        <x-svg id="icon"  color="var(--default-svg-color)" src="ui/guide.svg"></x-svg>
+        <x-svg id="close" color="var(--default-svg-color)" src="ui/close.svg"></x-svg>
+    </div>
+    <x-text-multiline id="text" size="10px" raw="undefined"></x-text-multiline>
+    <div class="s"></div>
+    <div id="bottom">
+        <div id="l">0/5</div>
+        <div id="r">
+            <x-svg id="last" class="btn" color="var(--default-svg-color)" src="ui/left.svg"></x-svg>
+            <x-svg id="next" class="btn" color="var(--default-svg-color)" src="ui/right.svg"></x-svg>
+        </div>
+    </div>
+</div>

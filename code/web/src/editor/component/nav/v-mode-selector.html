@@ -1,0 +1,64 @@
+<style>
+    :host {
+        display: flex; 
+        border-radius: 4px;
+        border: 1px dashed #158d57;
+        transition: border 300ms;
+    }
+
+    :host(:hover) {
+        border: 1px solid var(--color-principal-green);
+    }
+
+    :host(:active:hover) {
+        transform: translateY(1px);
+    }
+
+    :host(:hover) .hover {
+        opacity: 1 !important;
+    }
+
+    #container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+    }
+
+    #container #icon {
+        pointer-events: none;
+        margin-left: 8px;
+        width: 14px;
+        height: 14px;
+    }
+
+    #container #text {
+        margin-left: 12px;
+        margin-right: 12px;
+        flex: 1;
+        height: 18px;
+        width: 80px;
+    }
+
+    #container #more {
+        width: 14px;
+        height: 14px;
+        margin-right: 8px;
+        opacity: 0.3;
+        transition: opacity 300ms;
+    }
+</style>
+
+<div id="container">
+    
+    <!-- icon -->
+    <x-svg id="icon" icon="ui/down-more.svg" color="var(--default-svg-color)"></x-svg>
+
+    <!-- title -->
+    <x-text id="text" color="var(--default-font-color)" raw="undefined"></x-text>
+
+    <!-- more -->
+    <x-svg id="more" class="hover" color="var(--default-svg-color)" icon="ui/down-more.svg"></x-svg>
+
+</div>

@@ -1,0 +1,39 @@
+<style>
+    :host {
+        width: 22px;
+        height: 22px;
+    }
+
+    #container {
+        width: 22px;
+        height: 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        transition: background 200ms, transform 200ms;
+        cursor: pointer;
+    }
+
+    #container[selected='false']:hover {
+        background-color: rgba(255,255,255,0.02);
+    }
+
+    #container[selected='false']:hover:active {
+        transform: translateY(1px);
+    }
+
+    #container[selected='true'] {
+        background-color: rgba(255,255,255,0.15);
+    }
+
+    #container #icon {
+        width: 18px;
+        height: 18px;
+    }
+</style>
+
+<div id="container" selected="false">
+    <x-svg id="icon" icon="" color="var(--default-svg-color)"></x-svg>
+</div>

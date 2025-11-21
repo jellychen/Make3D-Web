@@ -1,0 +1,86 @@
+<style>
+    :host {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container #cls {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 24px;
+        margin-left: 8px;
+    }
+
+    #container #cls #icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    #container #cls #label {
+        height: 24px;
+        margin-left: 8px;
+    }
+
+    #container #cls #btns {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 6px;
+        align-items: center;
+    }
+
+    #container #cls #btns .btn {
+        width: 16px;
+        height: 16px;
+        opacity: 0.8;
+        cursor: pointer;
+        transition: opacity 100ms, transform 100ms;
+    }
+
+    #container #cls #btns .btn:hover {
+        opacity: 1;
+    }
+
+    #container #cls #btns .btn:hover:active {
+        transform: translateY(1px);
+    }
+
+    #container #content {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        margin-top: 12px;
+        margin-left: 24px;
+    }
+</style>
+
+<div id="container">
+
+    <div id="cls">
+        <x-svg id="icon" color="var(--default-svg-color)" src="ui/effect.svg"></x-svg>
+        <x-text id="label" color="var(--default-font-color)" token="material.effects" size="var(--font-size-2)"></x-text>
+        <div id="btns">
+            <x-svg id="add" class="btn" olor="var(--default-svg-color)" src="ui/add.svg"></x-svg>
+        </div>
+    </div>
+
+    <div id="content"></div>
+
+    <!-- 空白 -->
+    <x-biz-material-shader-layer-none id="none"></x-biz-material-shader-layer-none>
+
+</div>

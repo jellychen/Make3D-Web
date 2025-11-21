@@ -1,0 +1,50 @@
+<style>
+    :host {
+        position: relative;
+        display: flex;
+        height: 28px;
+        align-self: flex-end;
+    }
+
+    #container {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container #name {
+        width: 60px;
+        height: 100%;
+    }
+
+    #container #controller-container {
+        width: 220px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container #button {
+        height: 24px;
+        align-items: start;
+        margin-left: 8px;
+        min-width: 86px;
+    }
+
+    
+</style>
+
+<div id="container">
+
+    <!-- label -->
+    <x-text id="name" color="var(--default-font-color)" data="XXX" size="var(--font-size-0)"></x-text>
+
+    <!-- -->
+    <div id="controller-container">
+
+        <x-button id="button" text-token="X"></x-button>
+
+    </div>
+
+</div>

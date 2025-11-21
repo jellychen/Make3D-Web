@@ -1,0 +1,85 @@
+<style>
+    :host {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        z-index: 10000000;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        padding: 32px;
+        padding-bottom: 22px;
+        min-width: 320px;
+        max-width: 480px;
+        backdrop-filter: blur(8px);
+        background-color: var(--alert-box-background-color);
+        border: solid 1px var( --alert-box-border-color);
+        box-shadow: var(--alert-box-shadow);
+        border-radius: 8px;
+        color: var(--alert-box-text-color);
+        font-size: 12px;
+        opacity: 0;
+    }
+
+    #container #content {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-top: 16px;
+        margin-bottom: 32px;
+    }
+
+    #container #content #icon {
+        align-self: flex-start;
+        width: 28px;
+        height: 28px;
+        margin-right: 18px;
+        opacity: 0.4;
+    }
+
+    #container #content #text {
+        margin-top: 4px;
+        max-width: 320px;
+    }
+
+    #container #btn_container {
+        border-top: solid 1px var(--alert-box-btn-border-color);
+        width: 100%;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+
+    #container #btn_container #btn {
+        margin-top: 16px;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 内容 -->
+    <div id="content">
+
+        <!-- 图标 -->
+        <x-status id="icon" value="success"></x-status>
+
+        <!-- 显示的内容 -->
+        <x-text-multiline id="text" raw="undefined" color="var(--default-font-color)"></x-text-multiline>
+
+    </div>
+
+    <div id="btn_container">
+
+        <!-- 按钮 -->
+        <x-button id="btn" text-data="OK"></x-button>
+
+    </div>
+</div>

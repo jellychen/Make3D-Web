@@ -1,0 +1,29 @@
+<style>
+    :host {
+        position: relative;
+    }
+
+    #icon {
+        width: 100%;
+        height: 100%;
+        fill: currentcolor;
+    }
+
+    #icon[status="success"] {
+        color: #52c41a;
+    }
+
+    #icon[status="info"] {
+        color: #1677ff;
+    }
+
+    #icon[status="warn"] {
+        color: #faad14;
+    }
+
+    #icon[status="error"] {
+        color: #ff4d4f;
+    }
+</style>
+
+<x-svg id="icon" status=""></x-svg>

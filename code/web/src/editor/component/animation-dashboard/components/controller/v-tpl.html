@@ -1,0 +1,93 @@
+<style>
+    :host {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid var(--color-frame-border);
+    }
+
+    #container {
+        height: 48px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        background-color: rgba(0,0,0,0.3);
+    }
+
+    #container #sub-container {
+        display: flex;
+        flex-direction: row;
+        gap: 22px;
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        align-items: center;
+    }
+
+    #container .item {
+        width: 20px;
+        height: 20px;
+        opacity: 1;
+        transition: opacity 150ms, transform 150ms;
+        cursor: pointer;
+    }
+
+    #container .item:hover {
+        opacity: 0.8;
+    }
+
+    #container .item:hover:active {
+        transform: translateY(1px);
+    }
+
+    #container #curve {
+        width: 16px;
+        height: 16px;
+        opacity: 1;
+        transition: opacity 150ms, transform 150ms, border 150ms;
+        cursor: pointer;
+        border: 1px dashed #484848;
+        border-radius: 4px;
+    }
+
+    #container #curve:hover {
+        opacity: 0.8;
+        border: 1px dashed #A8A8A8;
+    }
+
+    #container #curve:hover:active {
+        transform: translateY(1px);
+    }
+
+</style>
+
+<div id="container">
+    
+    <div id="sub-container">
+
+        <!-- 开始或者停止的按钮 -->
+        <x-biz-animation-dashboard-controller-btn-play class="item" id="btn-play"></x-biz-animation-dashboard-controller-btn-play>
+
+        <!-- 退到开始的按钮 -->
+        <x-svg class="item" id="reset-to-front" color="var(--color-white)" icon="ui/reset-to-front.svg"></x-svg>
+
+        <!-- 添加按钮 -->
+        <x-svg class="item" id="add-marker" color="var(--color-white)" icon="ui/add-0.svg"></x-svg>
+
+        <!-- 曲线 -->
+        <x-biz-animation-dashboard-tween id="curve"></x-biz-animation-dashboard-tween>
+        
+        <!-- 时间 range -->
+        <x-biz-animation-dashboard-controller-range id="range"></x-biz-animation-dashboard-controller-range>
+
+        <!-- loop -->
+        <x-biz-animation-dashboard-controller-loop id="loop"></x-biz-animation-dashboard-controller-loop>
+
+        <!-- 完成 -->
+        <x-svg class="item" id="ok" color="var(--color-white)" icon="ui/ok-0.svg"></x-svg>
+
+    </div>
+</div>

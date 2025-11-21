@@ -1,0 +1,51 @@
+<style>
+    #container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,0.1);
+        gap: 3px;
+        padding-left: 6px;
+        padding-right: 6px;
+        transition: background 100ms;
+        height: 22px;
+    }
+
+    #container:hover {
+        background-color: rgba(255,255,255,0.18);
+    }
+
+    #container #text {
+        min-width: 64px;
+    }
+
+    #container #icon {
+        width: 12px;
+        height: 12px;
+    }
+
+    #container #more {
+        cursor: pointer;
+        width: 14px;
+        height: 14px;
+        pointer-events: auto;
+        transition: opacity 150ms, transform 100ms;
+    }
+
+    #container #more:hover {
+        opacity: 0.8;
+    }
+
+    #container #more:hover:active {
+        transform: translateY(1px);
+    }
+</style>
+
+<div id="container">
+    <x-svg id="icon" icon="ui/raster.svg" color="white"></x-svg>
+    <x-text id="text" color="var(--default-font-color)" token="rt.quality.preview" size="10px" align="center"></x-text>
+    <x-svg id="more" icon="ui/down-more.svg" color="white"></x-svg>
+</div>

@@ -1,0 +1,40 @@
+<style>
+    :host {
+        position: relative;
+        display: flex;
+        align-self: flex-start;
+        height: 22px;
+    }
+
+    #container {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container #name {
+        width: 84px;
+        margin-right: 8px;
+    }
+
+    #container #controller-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container #color {
+        width: 14px;
+        height: 14px;
+        border-radius: 4px;
+        background-color: #fff;
+        cursor: pointer;
+    }
+</style>
+
+<div id="container">
+    <x-text id="name" color="var(--default-font-color)" data="XXX" size="var(--font-size-2)" align="end"></x-text>
+    <div id="controller-container">
+        <div id="color"></div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<style>
+    :host {
+        position: absolute;
+        display: flex;
+        z-index: 100000000;
+    }
+
+    #container {
+        display: flex;
+        border-radius: 4px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: stretch;
+        padding-top: 8px;
+        padding-bottom: 6px;
+        transition: border 0.3s; 
+    }
+
+    #container:hover {
+        border: solid 1px var(--color-gray-300);
+    }
+
+    /*
+     * 普通风格
+     */
+     #container[window-style='normal'] {
+        background-color: var(--color-bg);
+        border: solid 1px var(--color-gray-100);
+        box-shadow: var(--shadow-050);
+    }
+
+    /*
+     * 玻璃风格
+     */
+     #container[window-style='glass'] {
+        backdrop-filter: blur(8px);
+        background-color: var(--color-gray-200);
+        border: solid 1px var(--color-gray-300);
+        box-shadow: var(--shadow-060);
+    }
+</style>
+
+<div id="container" window-style="normal"></div>

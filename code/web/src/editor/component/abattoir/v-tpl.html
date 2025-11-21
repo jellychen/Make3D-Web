@@ -1,0 +1,264 @@
+<style>
+    :host {
+        position: relative;
+        min-width: 10px;
+        min-height: 10px;
+        user-select: none;
+    }
+
+    #container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        overflow: hidden;
+        background-color: var(--color-abattoir-main);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container .anchor {
+        position: absolute;
+        user-select: none;
+        pointer-events: none;
+        width: 0;
+        height: 0;
+    }
+
+    #container #anchor-left-top {
+        left: 20px;
+        top: 20px;
+    }
+
+    #container #anchor-left-center {
+        left: 20px;
+        top: 50%;
+    }
+
+    #container #anchor-left-bottom {
+        left: 20px;
+        bottom: 20px;
+    }
+
+    #container #anchor-top-center {
+        top: 20px;
+        left: 50%;
+    }
+
+    #container #anchor-right-top {
+        right: 20px;
+        top: 20px;
+    }
+
+    #container #anchor-right-top-inside {
+        right: 140px;
+        top: 140px;
+    }
+
+    #container #anchor-right-center {
+        right: 20px;
+        top: 50%;
+    }
+
+    #container #anchor-right-bottom {
+        right: 20px;
+        bottom: 20px;
+    }
+
+    #container #anchor-bottom-center {
+        bottom: 20px;
+        left: 50%;
+    }
+
+    #container #anchor-center {
+        left: 50%;
+        top: 50%;
+    }
+
+    #container #core {
+        position: relative;
+        align-self: stretch;
+        flex: 1;
+        min-width: 10px;
+        min-height: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container #core #upper-slots {
+        width: 100%;
+    }
+
+    #container #core #canvas-container {
+        position: relative;
+        flex: 1;
+        width: 100%;
+        min-height: 200px;
+        overflow: hidden;
+    }
+
+    #container #core #canvas {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container #core #canvas:focus {
+        outline: none;
+    }
+
+    #container #core #cavans-focused-mask {
+        position: absolute;
+        left: 1px;
+        right: 1px;
+        top: 1px;
+        bottom: 1px;
+        pointer-events: none;
+        user-select: none;
+        border: 1px dashed #3ecf8ea7;
+        opacity: 1;
+        border-radius: 6px;
+        transition: opacity 300ms;
+    }
+
+    #container #core #view-gizmo {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        z-index: 1000;
+        pointer-events: none;
+    }
+
+    #container #core #view-gizmo #gizmo-canvas {
+        margin-top: 36px;
+        margin-right: 56px;
+        transition: 500ms;
+        border: 1px solid #101010;
+        background-color: #3F3F3F;
+        border-radius: 50%;
+    }
+
+    #container #core #view-gizmo #gizmo-canvas:hover {
+        background-color: #454545!important;
+    }
+
+    #container #core #vision {
+        position: absolute;
+        right: 0;
+        top: 40%;
+        transform: translateY(-50%);
+        pointer-events: auto;
+    }
+
+    #container #core #right-extension-container {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-end;
+        margin-top: 24px;
+        pointer-events: auto;
+    }
+
+    #container #slots {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        user-select: none;
+        pointer-events: none;
+    }
+
+    #container #side-toolbar {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+    }
+
+    #container #keyboard {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+    }
+
+    #container #render-mode {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    #container #dashboard {
+        position: relative;
+        align-self: stretch;
+        max-height: 70%;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 核心渲染组件 -->
+    <div id="core" class="cursor-pointer">
+
+        <!-- 顶部 -->
+        <x-biz-upper-slots-container id="upper-slots"></x-biz-upper-slots-container>
+
+        <!-- 核心渲染器 -->
+        <div id="canvas-container">
+            <canvas id="canvas" tabindex="0"></canvas>
+
+            <!-- 用来展示元素的信息 -->
+            <x-biz-abattoir-information id="information"></x-biz-abattoir-information>
+
+        </div>
+
+        <!-- 用来显示是不是获得焦点 -->
+        <div id="cavans-focused-mask"></div>
+
+        <!-- 右上角 用来调整视野的按钮 -->
+        <div id="view-gizmo">
+            
+            <!-- 渲染的 Canvas -->
+            <canvas id="gizmo-canvas" width="86px" height="86px"></canvas>
+
+            <!-- 调整视野的一些控件 -->
+            <x-biz-vision id="vision"></x-biz-vision>
+            
+            <!-- 扩展 -->
+            <div id="right-extension-container"></div>
+
+        </div>
+
+        <!-- 位置点 -->
+        <div class="anchor" id="anchor-left-top"        ></div>
+        <div class="anchor" id="anchor-left-center"     ></div>
+        <div class="anchor" id="anchor-left-bottom"     ></div>
+        <div class="anchor" id="anchor-top-center"      ></div>
+        <div class="anchor" id="anchor-right-top"       ></div>
+        <div class="anchor" id="anchor-right-top-inside"></div>
+        <div class="anchor" id="anchor-right-center"    ></div>
+        <div class="anchor" id="anchor-right-bottom"    ></div>
+        <div class="anchor" id="anchor-bottom-center"   ></div>
+        <div class="anchor" id="anchor-center"          ></div>
+
+        <!-- 显示键盘功能键 -->
+        <x-biz-keyboard id="keyboard"></x-biz-keyboard>
+
+        <!-- 渲染模式切换 -->
+        <x-biz-raster-mode id="raster-mode"></x-biz-raster-mode>
+    </div>
+
+    <!-- 用来扩展 -->
+    <div id="slots"></div>
+
+    <!-- 在绘制面板的下方 -->
+    <x-biz-dashboard id="dashboard"></x-biz-dashboard>
+    
+    <!-- 底部 -->
+    <x-biz-bottom id="bottom"></x-biz-bottom>
+</div>

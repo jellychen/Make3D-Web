@@ -1,0 +1,173 @@
+<style>
+    :host {
+        display: flex;
+        height: 100%;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        gap: 18px;
+    }
+
+    #container .btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    #container .separator {
+        width: 2px;
+        height: 12px;
+        align-self: center;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    #container .switcher-container {
+        height: 100%;
+    }
+
+    #container .icon-switcher {
+        width: 46px;
+        height: 100%;
+    }
+
+    #container .icon-btn {
+        width: 24px;
+        height: 24px;
+        opacity: 0.8;
+        transition: opacity 200ms;
+    }
+
+    #container .icon-btn:hover {
+        opacity: 1;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 点线面 -->
+    <x-icon-status-switcher-container id="topo" direction="row" gap="8px" enable="true" class="switcher-container">
+
+        <!-- 点-->
+        <x-icon-status-switcher 
+            token="v"
+            id="p" 
+            class="icon-switcher" 
+            icon="plf/p.svg"
+            tips-placement="bottom"
+            tips-data-token="topo.edit.vertex"
+            selected="true">
+        </x-icon-status-switcher>
+
+        <!-- 线-->
+        <x-icon-status-switcher 
+            token="e"
+            id="e" 
+            class="icon-switcher" 
+            icon="plf/l.svg"
+            tips-placement="bottom"
+            tips-data-token="topo.edit.edge">
+        </x-icon-status-switcher>
+
+        <!-- 面 -->
+        <x-icon-status-switcher 
+            token="f"
+            id="f" 
+            class="icon-switcher" 
+            icon="plf/f.svg"
+            tips-placement="bottom"
+            tips-data-token="topo.edit.face">
+        </x-icon-status-switcher>
+
+    </x-icon-status-switcher-container>
+
+    <!-- 分割线 -->
+    <x-separator class="separator"></x-separator>
+
+    <!-- 设置 -->
+    <x-icon-button-borderless 
+        id="more" 
+        class="icon-btn" 
+        icon="ui/more.svg">
+    </x-icon-button-borderless>
+
+    <!-- 分割线 -->
+    <x-separator class="separator"></x-separator>
+
+    <!-- 操作 -->
+    <x-icon-status-switcher-container id="oper" direction="row" gap="8px" enable="true" class="switcher-container">
+
+        <!-- 鼠标 -->
+        <x-icon-status-switcher 
+            id="pointer"
+            token="none"
+            class="icon-switcher"
+            icon="ui/pointer.svg"
+            selected="true">
+        </x-icon-status-switcher>
+
+        <!-- 点-面挤出-->
+        <x-icon-status-switcher
+            id="extrude-vertex"
+            token="extrude.vertex"
+            class="icon-switcher" 
+            icon="topo/extrude-vertex.svg" 
+            tips-placement="bottom"
+            tips-data-token="topo.edit.extrusion">
+        </x-icon-status-switcher>
+        
+        <!-- 面挤出-->
+        <x-icon-status-switcher
+            id="extrude"
+            token="extrude"
+            class="icon-switcher" 
+            icon="topo/extrude.svg" 
+            tips-placement="bottom"
+            tips-data-token="topo.edit.extrusion">
+        </x-icon-status-switcher>
+
+        <!-- 内插-->
+        <x-icon-status-switcher
+            id="inset"
+            token="inset"
+            class="icon-switcher" 
+            icon="topo/inset.svg" 
+            tips-placement="bottom"
+            tips-data-token="topo.edit.extrusion">
+        </x-icon-status-switcher>
+
+        <!-- 环切-->
+        <x-icon-status-switcher
+            id="circumcidere"
+            token="circumcidere"
+            class="icon-switcher" 
+            icon="topo/loop-cut.svg" 
+            tips-placement="bottom"
+            tips-data-token="topo.edit.circumcidere">
+        </x-icon-status-switcher>
+
+        <!-- 倒角 -->
+        <x-icon-status-switcher 
+            id="bevel"
+            token="bevel"
+            class="icon-switcher" 
+            icon="topo/chamfer.svg" 
+            tips-placement="bottom"
+            tips-data-token="topo.edit.bevel">
+        </x-icon-status-switcher>
+
+        <!-- 链接 -->
+        <x-icon-status-switcher 
+            id="linkup"
+            token="linkup"
+            class="icon-switcher" 
+            icon="topo/cutter.svg" 
+            tips-placement="bottom"
+            tips-data-token="topo.edit.free.cutter">
+        </x-icon-status-switcher>
+
+    </x-icon-status-switcher-container>
+</div>

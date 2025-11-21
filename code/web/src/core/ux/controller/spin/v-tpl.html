@@ -1,0 +1,54 @@
+<style>
+    :host {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @keyframes rotate {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+
+        25% {
+            -webkit-transform: rotate(90deg);
+        }
+
+        50% {
+            -webkit-transform: rotate(180deg);
+        }
+
+        75% {
+            -webkit-transform: rotate(270deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    #container {
+        display: grid;
+        gap: 3px;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .animation {
+        animation: rotate 3s infinite;
+        animation-timing-function: linear;
+    }
+
+    #container .circle {
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+        background-color: var(--progress-circle-bg-color);
+    }
+</style>
+
+<div id="container" class="animation">
+    <div id="i0" class="circle" style="opacity: 1"></div>
+    <div id="i1" class="circle" style="opacity: 0.75"></div>
+    <div id="i2" class="circle" style="opacity: 0.25"></div>
+    <div id="i3" class="circle" style="opacity: 0.5"></div>
+</div>

@@ -1,0 +1,122 @@
+<style>
+    :host {
+        width: 100%;
+        min-height: 100%;
+        background-color: #1B1B1F;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #container {
+        margin-top: 32px;
+        margin-bottom: 32px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        border-radius: 12px;
+        border: 1px dashed #626262;
+        min-width: 600px;
+    }
+
+    #container #header {
+        align-self: stretch;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #container #header #icon {
+        width: 64px;
+        height: 64px;
+    }
+
+    #container #header #date {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+        padding: 3px;
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    #container #content {
+        align-self: stretch;
+        margin-top: 32px;
+        margin-bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #container #content #add {
+        padding: 4px;
+        padding-left: 12px;
+        padding-right: 12px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2px;
+        cursor: pointer;
+        padding: 4px;
+        padding-left: 8px;
+        padding-right: 8px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        transition: background 100ms, transform 100ms;
+    }
+
+    #container #content #add:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    #container #content #add:hover:active {
+        transform: translateY(1px);
+    }
+
+    #container #content #add .icon {
+        width: 16px;
+        height: 16px;
+        pointer-events: none;
+    }
+
+    #container #preview {
+        max-width: 860px;
+    }
+
+    #container #input {
+        display: none;
+    }
+
+    #container #footer {
+        align-self: stretch;
+        border-top: 1px dashed #626262;
+        padding-top: 2px;
+    }
+</style>
+
+<div id="container">
+    <div id="header">
+        <x-svg id="icon" color="var(--default-svg-color)" src="ui/logo.svg"></x-svg>
+        <x-text id="date" color="var(--default-font-color)" raw="undefined" size="12px"></x-text>
+    </div>
+
+    <div id="content">
+        <div id="add">
+            <x-svg class="icon" color="var(--default-svg-color)" src="ui/add.svg" style="width: 12px; height: 12px;"></x-svg>
+            <x-svg class="icon" color="var(--default-svg-color)" src="ui/image-1.svg"></x-svg>
+        </div>
+
+        <img id="preview" src="#" alt="图片预览" style="display: none;" />
+
+    </div>
+
+    <input id="input" type="file" id="fileInput" accept="image/*" />
+
+    <div id="footer">
+        <x-text id="date" color="var(--default-font-color)" raw="https://make3d.online" size="12px"></x-text>
+    </div>
+
+</div>

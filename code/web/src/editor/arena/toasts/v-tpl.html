@@ -1,0 +1,62 @@
+<style>
+    :host {
+        position: absolute;
+        right: 48px;
+        top: 32px;
+        display: flex;
+        flex-direction: column;
+        max-width: 320px;
+        min-width: 280px;
+        min-height: 64px;
+        align-items: stretch;
+        background-color: #121212;
+        border-radius: 8px;
+        border: 1px solid #262626;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.60);
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container #header {
+        position: relative;
+        align-self: stretch;
+        height: 32px;
+    }
+
+    #container #header #close-btn {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        right: 8px;
+        top: 8px;
+    }
+
+    #container #content {
+        display: flex;
+        flex-direction: column;
+        align-self: stretch;
+        margin-bottom: 24px;
+        background: repeating-linear-gradient(135deg, #161616 0, #242424 1px, transparent 1px, transparent 5px);
+    }
+
+    #container #content #text {
+        align-self: stretch;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        margin-left: 12px;
+        margin-right: 12px;
+        opacity: 0.7;
+    }
+</style>
+
+<div id="container">
+    <div id="header">
+        <x-icon-button-borderless id="close-btn" icon="ui/close.svg"></x-icon-button-borderless>
+    </div>
+    <div id="content">
+        <x-text-multiline id="text" data=""></x-text-multiline>
+    </div>
+</div>

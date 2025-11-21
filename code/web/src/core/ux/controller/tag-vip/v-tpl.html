@@ -1,0 +1,66 @@
+<style>
+    #icon {
+        position: absolute;
+        width: 14px;
+        height: 10px;
+    }
+
+    #icon[small=true] {
+        width: 11px!important;
+        height: 8px!important;
+    }
+
+    #icon[location=l] {
+        left: 6px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #icon[location=r] {
+        right: 6px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #icon[location=t] {
+        left: 50%;
+        top: 6px;
+        transform: translateX(-50%);
+    }
+
+    #icon[location=b] {
+        left: 50%;
+        bottom: 6px;
+        transform: translateX(-50%);
+    }
+
+    #icon[location=tl],
+    #icon[location=lt] {
+        left: 0;
+        top: 0;
+        transform: translate(-50%, -50%);
+    }
+
+    #icon[location=tr],
+    #icon[location=rt] {
+        right: 0;
+        top: 0;
+        transform: translate(50%, -50%);
+    }
+
+    #icon[location=bl],
+    #icon[location=lb] {
+        left: 0;
+        bottom: 0;
+        transform: translate(-50%, 50%);
+    }
+
+    #icon[location=br],
+    #icon[location=rb] {
+        right: 0;
+        bottom: 0;
+        transform: translate(50%, 50%);
+    }
+</style>
+
+<x-svg id="icon" icon="ui/vip-tag.svg" location="tr"></x-svg>

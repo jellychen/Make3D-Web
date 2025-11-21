@@ -1,0 +1,47 @@
+<style>
+    :host {
+        width: 28px;
+        height: 28px;
+    }
+
+    #btn {
+        position: relative;
+        appearance: none;
+        border-width: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: var(--btn-border-radius);
+        border-width: 0;
+        background: var(--btn-bg-color);
+        box-shadow: var(--btn-box-shadow);
+        color: var(--btn-font-color);
+        border-radius: var(--btn-border-radius);
+        line-height: 1rem;
+        cursor: pointer;
+        transition: background 400ms;
+    }
+
+    #btn:hover:enabled {
+        background: var(--btn-bg-hover-color);
+    }
+
+    #btn:active:hover:enabled {
+        background: var(--btn-bg-active-color);
+    }
+
+    #btn:disabled {
+        opacity: 0.5;
+    }
+
+    #btn #icon {
+        position: absolute;
+        left: 7px;
+        right: 7px;
+        top: 7px;
+        bottom: 7px;
+    }
+</style>
+
+<button id="btn" type="button">
+    <x-svg id="icon" color="var(--default-svg-color)"></x-svg>
+</button>

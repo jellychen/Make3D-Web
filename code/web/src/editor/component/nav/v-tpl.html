@@ -1,0 +1,82 @@
+<style>
+    :host {
+        position: relative;
+        display: flex;
+        align-self: stretch;
+        height: var(--nav-h);
+        z-index: 1;
+        user-select: none;
+        border-bottom: 1px solid var(--color-frame-border);
+    }
+
+    #container {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    #container[transparent="true"] {
+        opacity: 0.3!important;
+    }
+
+    #container #mode-selector {
+        height: 24px;
+    }
+
+    #container #return-to-scene {
+        margin-left: 20px;
+        display: none;
+    }
+
+    #container #toolbar {
+        height: 100%;
+        flex: 1;
+        overflow: hidden;
+        margin-left: 20px;
+    }
+
+    #container #modal-container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: var(--color-principal);
+        display: none;
+    }
+
+    #container #mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: none;
+        z-index: 10000000;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 模式选择按钮 -->
+    <x-biz-nav-mode-selector id="mode-selector"></x-biz-nav-mode-selector>
+
+    <!-- 返回到场景 -->
+    <x-icon-button id="return-to-scene" icon="ui/last.svg"></x-icon-button>
+
+    <!-- 导航条中部的工具栏 -->
+    <div id="toolbar"></div>
+
+    <!-- 模态遮罩层 -->
+    <!-- 正常是隐藏的，必要的用来遮罩后面的元素 -->
+    <div id="modal-container"></div>
+
+    <!-- 遮罩 -->
+    <div id="mask"></div>
+
+</div>

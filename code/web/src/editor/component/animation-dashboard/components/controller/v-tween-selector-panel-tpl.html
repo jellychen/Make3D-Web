@@ -1,0 +1,27 @@
+<style>
+    :host {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        z-index: 10000000;
+        background-color: var(--color-bg);
+        border: solid 1px var(--color-gray-100);
+        box-shadow: var(--shadow-050);
+        border-radius: 6px;
+        padding: 6px;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        width: 160px;
+    }
+
+    #container #selector {
+        width: 100%;
+    }
+</style>
+
+<div id="container">
+    <x-biz-animation-dashboard-tween-selector id="selector"></x-biz-animation-dashboard-tween-selector>
+</div>

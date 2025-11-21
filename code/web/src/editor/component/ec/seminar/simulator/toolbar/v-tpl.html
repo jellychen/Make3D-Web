@@ -1,0 +1,72 @@
+<style>
+    :host {
+        display: flex;
+        height: 100%;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        gap: 18px;
+    }
+
+    #container .btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    #container .separator {
+        width: 2px;
+        height: 12px;
+        align-self: center;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    #container .switcher-container {
+        height: 100%;
+    }
+
+    #container .switcher-container .icon-switcher {
+        width: 46px;
+        height: 100%;
+    }
+
+</style>
+
+<div id="container">
+
+    <!-- 各种按钮 -->
+    <x-icon-status-switcher-container 
+        id="switcher-container"
+        direction="row"
+        gap="8px" 
+        enable="true" 
+        class="switcher-container">
+
+        <!-- 鼠标 -->
+        <x-icon-status-switcher 
+            id="pointer" 
+            class="icon-switcher"
+            icon="ui/pointer.svg"
+            selected="true">
+        </x-icon-status-switcher>
+
+        <!-- 分割 -->
+        <x-separator class="separator"></x-separator>
+
+        <!-- 布料 -->
+        <x-icon-status-switcher
+            token="cloth"
+            id="cloth" 
+            class="icon-switcher" 
+            icon="simulator/cloth.svg"
+            tips-placement="bottom-start"
+            tips-data-token="modifier.flip">
+        </x-icon-status-switcher>
+
+    </x-icon-status-switcher-container>
+
+</div>

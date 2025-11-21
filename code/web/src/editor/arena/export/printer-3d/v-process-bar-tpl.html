@@ -1,0 +1,49 @@
+<style>
+    :host {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        backdrop-filter: blur(6px);
+    }
+
+    #container {
+        padding: 6px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        border-radius: 6px;
+        border: 1px solid #434343;
+        gap: 12px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container #label {
+        align-self: flex-start;
+        margin-bottom: 12px;
+    }
+
+    #container #animation {
+        display: block;
+        width: 240px;
+        height: 32px;
+    }
+
+    #container #cancel {
+        margin-top: 18px;
+    }
+</style>
+
+<div id="container">
+    <x-text id="label" color="var(--default-font-color)" token="processing" size="10px"></x-text>
+    <x-lottie id="animation" src="scan-files.json" autoplay="true" loop="true"></x-lottie>
+    <x-progress id="progress"></x-progress>
+    <x-button id="cancel" fullwidth="true" text-token="cancel" btn-style="normal"></x-button>
+</div>

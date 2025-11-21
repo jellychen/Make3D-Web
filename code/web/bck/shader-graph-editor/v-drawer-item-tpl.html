@@ -1,0 +1,26 @@
+<style>
+    :host {
+        min-width: 120px;
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 200ms;
+    }
+
+    :host(:hover) {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    #text {
+        font-size: 11px;
+        color: #FFF;
+        height: 26px;
+        line-height: 26px;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+</style>
+
+<div id="text"></div>

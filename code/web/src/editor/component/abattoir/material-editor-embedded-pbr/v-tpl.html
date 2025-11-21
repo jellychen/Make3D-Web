@@ -1,0 +1,47 @@
+<style>
+    :host {
+        position: absolute;
+        z-index: 999999999;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container {
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        padding: 6px;
+        padding-right: 0;
+        border-radius: 4px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .8);
+        background-color: var(--color-principal);
+        border: 1px solid var(--color-principal-green);
+    }
+
+    #container #scrollable-container {
+        width: 260px;
+        height: 200px;
+        pointer-events: auto;
+    }
+
+    #container #scrollable-container #scrollable-container-content {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 6px;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 滚动 -->
+    <x-scrollable-container 
+        id="scrollable-container"
+        enable-scroll-h="false"
+        stop-pointer-event-propagation="true">
+        <div id="scrollable-container-content"></div>
+    </x-scrollable-container>
+
+</div>

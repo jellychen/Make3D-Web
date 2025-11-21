@@ -1,0 +1,55 @@
+<style>
+    :host {
+        position: relative;
+    }
+
+    #container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container #markers {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container #back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container #back #waitting {
+        position: absolute;
+        display: none;
+        left: 0;
+        width: 100px;
+        top: 21px;
+        border: 0;
+        height: 5px;
+        opacity: 0.4;
+        border: 1px solid white;
+        border-top: 0;
+        border-bottom: 0;
+        background: repeating-linear-gradient(135deg, #F1F1F1 0px, transparent 1px, transparent 2px);
+    }
+
+    #container #back #range-line {
+        position: absolute;
+        display: none;
+        left: 0;
+        width: 1px;
+        top: 23px;
+        border-bottom: 1px dashed #434343;
+    }
+</style>
+
+<div id="container">
+    <div id="back">
+        <div id="waitting"></div>
+        <div id="range-line"></div>
+    </div>
+    <div id="markers"></div>
+</div>

@@ -1,0 +1,64 @@
+<style>
+    :host {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6;
+        width: 160px;
+    }
+
+    #container .item {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 200ms, transform 100ms;
+    }
+
+    #container .item:hover {
+        background-color: var(--color-principal-blue);
+    }
+
+    #container .item:hover:active {
+        transform: translateY(1px);
+    }
+
+    #container .item[selected="true"] {
+        background-color: var(--color-principal-green);
+    }
+</style>
+
+<div id="container">
+    <x-biz-animation-dashboard-tween class="item" type="linear"              ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="back-in-out"         ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="back-in"             ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="back-out"            ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="bounce-in-out"       ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="bounce-in"           ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="bounce-out"          ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="circular-in-out"     ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="circular-in"         ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="circular-out"        ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="cubic-in-out"        ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="cubic-in"            ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="cubic-out"           ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="elastic-in-out"      ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="elastic-in"          ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="elastic-out"         ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="exponential-in-out"  ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="exponential-in"      ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="exponential-out"     ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="quadratic-in-out"    ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="quadratic-in"        ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="quadratic-out"       ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="quartic-in-out"      ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="quartic-in"          ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="quartic-out"         ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="sinusoidal-in-out"   ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="sinusoidal-in"       ></x-biz-animation-dashboard-tween>
+    <x-biz-animation-dashboard-tween class="item" type="sinusoidal-out"      ></x-biz-animation-dashboard-tween>
+</div>

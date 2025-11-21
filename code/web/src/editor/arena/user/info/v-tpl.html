@@ -1,0 +1,110 @@
+<style>
+    :host {
+        position: fixed;
+        left: 10px;
+        top: 10px;
+        z-index: 999999999999;
+        backdrop-filter: blur(8px);
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        border-radius: 6px;
+        padding-bottom: 32px;
+        border: 1px solid var(--color-principal-green);
+        background-color: rgba(0, 0, 0, 0.3);
+        box-shadow: var(--shadow-060);
+        justify-content: center;
+        padding-top: 36px;
+        padding-bottom: 24px;
+        overflow: hidden;
+    }
+
+    #container #avatar {
+        align-self: center;
+        width: 48px;
+        height: 48px;
+        margin-bottom: 32px;
+    }
+
+    #container .item {
+        min-width: 180px;
+        height: 26px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 32px;
+        margin-right: 32px;
+    }
+
+    #container .item .icon {
+        width: 18px;
+        height: 18px;
+        margin-left: 32px;
+        opacity: 0.5;
+    }
+
+    #container .item .text {
+        color: #f1f1f1;
+        font-size: 10px;
+        margin-left: 16px;
+        user-select: auto!important;
+    }
+
+    #container #close-btn {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        top: 8px;
+        right: 8px;
+        opacity: 0.6;
+        transition: opacity 400ms;
+    }
+
+    #container #close-btn:hover {
+        opacity: 1;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 头像 -->
+    <x-avatar id="avatar"></x-avatar>
+
+    <!-- 用户名 -->
+    <div class="item">
+        <x-svg class="icon" icon="ui/user.svg"></x-svg>
+        <div id="name" class="text"></div>
+    </div>
+
+    <!-- 用户邮箱 -->
+    <div class="item">
+        <x-svg class="icon" icon="ui/email.svg"></x-svg>
+        <div id="email" class="text"></div>
+    </div>
+
+    <!-- 加入时间 -->
+    <div class="item">
+        <x-svg class="icon" icon="ui/user-created-time.svg"></x-svg>
+        <div id="create_time" class="text"></div>
+    </div>
+
+    <!-- VIP 到期日期 -->
+    <div class="item">
+        <x-svg class="icon" icon="ui/vip-0.svg"></x-svg>
+        <div id="vip" class="text"></div>
+    </div>
+
+    <!-- 用户ID -->
+    <div class="item">
+        <x-svg class="icon" icon="ui/user-id.svg"></x-svg>
+        <div id="id" class="text"></div>
+    </div>
+
+    <!-- 关闭按钮 -->
+    <x-icon-button-borderless id="close-btn" icon="ui/close.svg"></x-icon-button-borderless>
+</div>

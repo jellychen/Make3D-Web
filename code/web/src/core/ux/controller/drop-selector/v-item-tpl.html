@@ -1,0 +1,73 @@
+<style>
+    :host {
+        display: flex;
+        flex-direction: column;
+        height: 26px;
+        font-size: 12px;
+        font-weight: 500px;
+        font: var(-font);
+        align-items: stretch;
+        pointer-events: auto;
+        gap: 3px;
+    }
+
+    #container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-left: 8px;
+        padding-right: 12px;
+        height: 100%;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: backgroundColor 200ms linear;
+        -ms-transition: background-color 200ms linear;
+        -webkit-transition: background-color 200ms linear;
+    }
+
+    #container #selected {
+        width: 10px;
+        height: 10px;
+        margin-right: 12px;
+        color: #fff;
+        fill: currentcolor;
+        pointer-events: none;
+    }
+
+    #container #icon {
+        width: 14px;
+        height: 14px;
+        margin-right: 12px;
+        color: #fff;
+        fill: currentcolor;
+        display: none;
+        pointer-events: none;
+    }
+
+    #container #text {
+        pointer-events: none;
+    }
+
+    #container[enable="false"] {
+        pointer-events: none;
+        opacity: 0.3;
+    }
+
+    #container:hover {
+        background-color: var(--color-principal-green);
+    }
+</style>
+
+<div id="container" enable="true">
+
+    <!-- 有没有被选择 -->
+    <x-svg id="selected" icon="ui/selected.svg" color="var(--default-svg-color)"></x-svg>
+
+    <!-- 图标 -->
+    <x-svg id="icon" icon="" color="var(--default-svg-color)"></x-svg>
+
+    <!-- 文本 -->
+    <x-text id="text" color="var(--default-font-color)" size="var(--font-size-0)" raw="drop-menu-item"></x-text>
+    
+</div>

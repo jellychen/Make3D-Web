@@ -1,0 +1,332 @@
+<style>
+    :host {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 9999999999999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: wait;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(6px);
+    }
+
+    #outside {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #animation {
+        position: absolute;
+        width: 620px;
+        height: 620px;
+        right: 0;
+        bottom: 0;
+    }
+
+    #container {
+        position: relative;
+        cursor: default;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        z-index: 100;
+    }
+
+    #container #lt {
+        position: absolute;
+        width: 32px;
+        height: 46px;
+        right: 100%;
+        bottom: 100%;
+        border-bottom: solid 1px var(--color-gray-500);
+        border-right: solid 1px var(--color-gray-500);
+    }
+
+    #container #rt {
+        position: absolute;
+        width: 32px;
+        height: 28px;
+        left: 100%;
+        bottom: 100%;
+        border-bottom: solid 1px var(--color-gray-500);
+        border-left: solid 1px var(--color-gray-500);
+    }
+
+    #container #lb {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        right: 100%;
+        top: 100%;
+        border-top: solid 1px var(--color-gray-300);
+        border-right: solid 1px var(--color-gray-300);
+    }
+
+    #container #rb {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        left: 100%;
+        top: 100%;
+        border-top: solid 1px var(--color-gray-300);
+        border-left: solid 1px var(--color-gray-300);
+    }
+
+    #container #r0 {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        left: 0;
+        bottom: 0;
+        transform: translate(-50%, 50%);
+        background-color: rgba(100, 0, 146, 0.3);
+        border-radius: 60px;
+    }
+
+    #container #r1 {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        right: 0;
+        top: 0;
+        transform: translate(50%, -50%);
+        border: 26px solid rgba(3, 135, 75, 0.5);
+        border-radius: 80px;
+    }
+
+    #container #r2 {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        left: 0;
+        top: 60px;
+        transform: translate(50%, -50%);
+        border: 18px solid rgba(239, 123, 7, 0.3);
+        border-radius: 80px;
+    }
+
+    #container #close-btn {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        right: 5px;
+        top: 5px;
+    }
+
+    #container #header {
+        position: relative;
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #container #header #icon {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 80px;
+        width: 120px;
+        height: 120px;
+        flex-shrink: 0;
+        opacity: 0.8;
+    }
+
+    #container #content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 36px;
+    }
+
+    #container #content .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        border-radius: 16px;
+        border-top-left-radius: 64px;
+        border-bottom-right-radius: 64px;
+        padding: 16px;
+        padding-left: 32px;
+        padding-right: 32px;
+        opacity: 0.9;
+        box-shadow: var(--shadow-090);
+    }
+
+    #container #content .item:last-child {
+        border: 0;
+    }
+
+    #container #content .item .benfits-items {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        min-height: 64px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        gap: 8px;
+    }
+
+    #container #content .item .title {
+        margin-left: 24px;
+        align-self: flex-start;
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+
+    #container #content .item .s {
+        align-self: stretch;
+        border-top: 1px solid var(--color-gray-300);
+    }
+
+    #container #content .item #slots {
+        align-self: stretch;
+        display: flex;
+        flex-direction: row;
+        margin-top: 12px;
+    }
+
+    #container #content .prices {
+        margin-right: 18px;
+        align-self: flex-end;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        background-color: rgba(255,255,255,0.1);
+        border-radius: 32px;
+        padding: 4px;
+        padding-left: 12px;
+        padding-right: 12px;
+        border: 1px dashed #A8A8A8;
+    }
+
+    #container #content .prices .data {
+        font-size: 16px;
+        color: #F1F1F1;
+        font-weight: bold;
+    }
+
+    #container #content .prices .m {
+        font-size: 10px;
+        color: #BFBFBF;
+    }
+
+    #container #content #subscribe {
+        align-self: stretch;
+        margin-left: 18px;
+        margin-right: 18px;
+        margin-top: 24px;
+        margin-bottom: 12px;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        height: 28px;
+        background-color: rgba(255,255,255,0.1);
+        transition: background 200ms, transform 100ms;
+        cursor: pointer;
+        border-radius: 120px;
+        border: 1px dashed #A8A8A8;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #container #content #subscribe:hover {
+        background-color: rgba(255,255,255,0.3);
+    }
+
+    #container #content #subscribe:hover:active {
+        transform: translateY(1px);
+    }
+
+    #container #content #subscribe .icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    #container #bottom {
+        height: 8px;
+    }
+</style>
+
+<div id="outside">
+    
+    <!-- 背后的烟花 -->
+    <x-lottie id="animation" src="firework.json" autoplay="true" loop="false"></x-lottie>
+
+    <div id="container">
+        <!-- <div id="lt"></div>
+        <div id="rt"></div>
+        <div id="lb"></div>
+        <div id="rb"></div> -->
+        <div id="r0"></div>
+        <div id="r1"></div>
+        <div id="r2"></div>
+
+        <div id="header">
+            <x-svg id="icon" src="ui/vip-2.svg"></x-svg>
+
+            <!-- 关闭按钮 -->
+            <x-icon-button-borderless id="close-btn" icon="ui/close.svg"></x-icon-button-borderless>
+
+        </div>
+
+        <!-- 中间 -->
+        <div id="content">
+            <!-- 免费 -->
+            <div class="item">
+                <x-text class="title" align="center" color="#383838" token="vip.plan.free" size="26px" bold="true"></x-text>
+                <div class="benfits-items">
+                    <x-biz-paid-membership-benefits-item color="#383838" token="vip.benefit.import"></x-biz-paid-membership-benefits-item>
+                    <x-biz-paid-membership-benefits-item color="#383838" token="vip.benefit.import-svg"></x-biz-paid-membership-benefits-item>
+                    <x-biz-paid-membership-benefits-item color="#383838" token="vip.benefit.export-object"></x-biz-paid-membership-benefits-item>
+                    <x-biz-paid-membership-benefits-item color="#383838" token="vip.benefit.rt-hd"></x-biz-paid-membership-benefits-item>
+                    <x-biz-paid-membership-benefits-item color="#383838" token="vip.benefit.rt-save-png"></x-biz-paid-membership-benefits-item>
+                    <x-biz-paid-membership-benefits-item color="#383838" token="vip.benefit.modifiers"></x-biz-paid-membership-benefits-item>
+                </div>
+            </div>
+
+            <!-- 付费 -->
+            <div class="item" id="payed" style="background: var(--color-principal-purple);">
+                <x-text class="title" align="center" color="#F1F1F1" token="vip.plan" size="26px" bold="true"></x-text>
+                <div class="prices">
+                    <div class="data">$12.0</div><div class="m">/month</div>
+                </div>
+                <div id="slots">
+                    <div class="benfits-items">
+                        <x-biz-paid-membership-benefits-item color="#F1F1F1" token="vip.benefit.import"></x-biz-paid-membership-benefits-item>
+                        <x-biz-paid-membership-benefits-item color="#F1F1F1" token="vip.benefit.import-svg"></x-biz-paid-membership-benefits-item>
+                        <x-biz-paid-membership-benefits-item color="#F1F1F1" token="vip.benefit.export-object"></x-biz-paid-membership-benefits-item>
+                        <x-biz-paid-membership-benefits-item color="#F1F1F1" token="vip.benefit.export-gltf"></x-biz-paid-membership-benefits-item>
+                        <x-biz-paid-membership-benefits-item color="#F1F1F1" token="vip.benefit.rt-hd"></x-biz-paid-membership-benefits-item>
+                        <x-biz-paid-membership-benefits-item color="#F1F1F1" token="vip.benefit.resolution"></x-biz-paid-membership-benefits-item>
+                        <x-biz-paid-membership-benefits-item color="#F1F1F1" token="vip.benefit.rt-save-png"></x-biz-paid-membership-benefits-item>
+                        <x-biz-paid-membership-benefits-item color="#F1F1F1" token="vip.benefit.denoise"></x-biz-paid-membership-benefits-item>
+                        <x-biz-paid-membership-benefits-item color="#F1F1F1" token="vip.benefit.repair"></x-biz-paid-membership-benefits-item>
+                        <x-biz-paid-membership-benefits-item color="#F1F1F1" token="vip.benefit.uv"></x-biz-paid-membership-benefits-item>
+                        <x-biz-paid-membership-benefits-item color="#F1F1F1" token="vip.benefit.modifiers"></x-biz-paid-membership-benefits-item>
+                        <x-biz-paid-membership-benefits-item color="#F1F1F1" token="vip.benefit.experimental"></x-biz-paid-membership-benefits-item>
+                        <x-biz-paid-membership-benefits-item color="#F1F1F1" token="vip.benefit.advanced"></x-biz-paid-membership-benefits-item>
+                    </div>
+                </div>
+
+                <!-- 订阅按钮 -->
+                <div id="subscribe">
+                    <x-svg class="icon" src="ui/upgrad-0.svg"></x-svg>
+                    <x-text color="var(--default-font-color)" token="subscriber" size="10px"></x-text>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <div id="bottom"></div>
+    </div>
+</div>

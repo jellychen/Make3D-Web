@@ -1,0 +1,34 @@
+<style>
+    #container {
+        display: flex;
+        width: 32px;
+        height: 32px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    #container #icon {
+        width: 16px;
+        height: 16px;
+        color: #888;
+        fill: currentcolor;
+        transition: 300ms;
+    }
+
+    #container:hover #icon {
+        color: #fff;
+        fill: currentcolor;
+        transition: 300ms;
+        transform: rotateZ(0deg);
+    }
+
+    #container #icon[folded="true"] {
+        transform: rotateZ(-90deg);
+        transition: 300ms;
+    }
+</style>
+
+<div id="container">
+    <x-svg id="icon" icon="ui/fold.svg" folded="true" color="var(--default-svg-color)"></x-svg>
+</div>

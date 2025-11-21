@@ -1,0 +1,33 @@
+<style>
+    :host {
+        position: absolute;
+        pointer-events: none;
+        width: 100%;
+        bottom: 64px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #container {
+        padding: 6px;
+        border-radius: 6px;
+        box-shadow: var(--shadow-030);
+        background-color: #282828;
+        border: 1px solid #434343;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    #container #icon {
+        width: 12px;
+        height: 12px;
+    }
+</style>
+
+<div id="container">
+    <x-svg id="icon" color="var(--default-svg-color)" src="ui/error.svg"></x-svg>
+    <x-text id="label" color="var(--default-font-color)" size="10px"></x-text>
+</div>

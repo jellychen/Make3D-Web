@@ -1,0 +1,54 @@
+<style>
+    :host {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #board {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container #content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-top: 18px;
+        gap: 16px;
+    }
+
+    #container #content .s {
+        width: 100%;
+        border-bottom: solid 1px var(--color-frame-border);
+    }
+</style>
+
+<div id="board">
+
+    <!-- 内容 -->
+    <x-scrollable-container id="container" enable-scroll-h="false">
+
+        <div id="content">
+
+            <!-- 光栅 -->
+            <x-biz-moderator-cards-material-uniform-raster id="raster"></x-biz-moderator-cards-material-uniform-raster>
+            <div class="s"></div>
+
+            <!-- 光追 -->
+            <x-biz-moderator-cards-material-uniform-rt id="rt"></x-biz-moderator-cards-material-uniform-rt>
+            <div class="s"></div>
+            
+        </div>
+
+    </x-scrollable-container>
+
+</div>

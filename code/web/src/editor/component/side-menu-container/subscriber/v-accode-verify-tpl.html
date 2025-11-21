@@ -1,0 +1,98 @@
+<style>
+    :host {
+        width: 100%;
+        margin-top: 32px;
+        margin-bottom: 18px;
+    }
+
+    #container {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #container #content {
+        align-self: stretch;
+        margin-left: 24px;
+        margin-right: 24px;
+        margin-bottom: 12px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        border: 1px solid var(--color-gray-300);
+        transition: border 100ms;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container #content:focus-within {
+        border: 1px solid var(--color-principal-green);
+    }
+
+    #container #content #input {
+        height: 84px;
+    }
+
+    #container #content #prompt {
+        margin-top: 6px;
+        height: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container #content #prompt #l {
+        flex: 1;
+        border: 0;
+        padding-top: 1px;
+        background: linear-gradient(to right, transparent, #848484);
+    }
+
+    #container #content #prompt #r {
+        flex: 1;
+        border: 0;
+        padding-top: 1px;
+        background: linear-gradient(to left, transparent, #848484);
+    }
+
+    #container #content #prompt #text {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    #container #active {
+        align-self: center;
+        margin-left: 24px;
+        margin-right: 24px;
+        margin-bottom: 10px;
+    }
+
+    #container #checker[hidden] {
+        display: none;
+    }
+</style>
+
+<div id="container">
+
+    <div id="content">
+
+        <!-- 提示词 -->
+        <div id="prompt">
+            <div id="l"></div>
+            <x-text id="text" color="#848484" token="activation.code" size="var(--font-size-2)"></x-text>
+            <div id="r"></div>
+        </div>
+
+        <!-- 输入框 -->
+        <x-text-input-area id="input" font-size="10px"></x-text-input-area>
+
+    </div>
+
+    <x-button id="active" text-token="verify" btn-style="blue" enable-icon="true" icon="ui/update.svg"></x-button>
+
+    <!-- 检测 -->
+    <x-biz-side-menu-subscriber-accode-checker id="checker" hidden></x-biz-side-menu-subscriber-accode-checker>
+
+</div>

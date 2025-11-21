@@ -1,0 +1,88 @@
+<style>
+    :host {
+        position: absolute;
+        left: 50%;
+        bottom: 10px;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        border-radius: 5px;
+        overflow: hidden;
+        background-color: var(--color-principal);
+        overflow: hidden;
+    }
+
+    #container .item {
+        position: relative;
+        box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, .2), 0px 1px 0px 0px var(--color-white-020) inset;
+        opacity: 0.6;
+        height: 28px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 6px;
+        padding-left: 8px;
+        padding-right: 8px;
+        flex: 1;
+        transition: background 150ms, opacity 180ms;
+    }
+
+    #container .item:not([selected="true"]):hover {
+        background-color: rgba(255,255,255,0.05);
+    }
+
+    #container .item[selected="true"] {
+        opacity: 1;
+        background-color: var(--color-darken-green);
+        pointer-events: none!important;
+        cursor: default!important;
+    }
+
+    #container .item .icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    #container .item .underline {
+        position: absolute;
+        width: 0;
+        height: 1px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 3px;
+        background-color: var(--color-principal-green);
+        transition: width 300ms;
+    }
+
+    #container .item:hover .underline {
+        width: 32px!important;
+    }
+
+    #container .item .label {
+        min-width: 64px;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 实时渲染 -->
+    <div id="raster" class="item" selected="true">
+        <x-svg class="icon" color="var(--default-svg-color)" icon="ui/raster-0.svg"></x-svg>
+        <div class="underline"></div>
+        <x-text class="label" color="var(--default-font-color)" token="render.mode.material" size="var(--font-size-0)" align="center"></x-text>
+    </div>
+
+    <!-- 性能模式 -->
+    <div id="performance" class="item">
+        <x-svg class="icon" color="var(--default-svg-color)" icon="ui/raster-performance.svg"></x-svg>
+        <div class="underline"></div>
+        <x-text class="label" color="var(--default-font-color)" token="render.mode.performance" size="var(--font-size-0)" align="center"></x-text>
+    </div>
+
+</div>

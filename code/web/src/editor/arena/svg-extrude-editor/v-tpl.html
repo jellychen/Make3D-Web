@@ -1,0 +1,149 @@
+<style>
+    :host {
+        position: absolute;
+        z-index: 9999999999;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #container {
+        position: relative;
+        width: 860px;
+        border: 1px solid #383838;
+        border-radius: 6px;
+        background-color: var(--color-principal);
+        box-shadow: var(--shadow-100);
+        cursor: default;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container #header {
+        height: 36px;
+        border-bottom: 1px solid #383838;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    #container #header #l {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        gap: 8px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #container #header #l #icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    #container #header #r {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        gap: 8px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #container #header #r #close {
+        width: 14px;
+        height: 14px;
+        opacity: 0.4;
+        transition: opacity 200ms, transform 200ms;
+        cursor: pointer;
+    }
+
+    #container #header #r #close:hover {
+        opacity: 1;
+    }
+
+    #container #header #r #close:hover:active {
+        transform: translateY(1px);
+    }
+
+    #container #content {
+        position: relative;
+        width: 100%;
+        height: 480px;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    #container #content #l {
+        position: relative;
+        height: 100%;
+        flex: 1;
+    }
+
+    #container #content #l #canvas {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #242424 !important;
+        background-image: conic-gradient(rgba(0, 0, 0, .3) 0 25%, transparent 0 50%, rgba(0, 0, 0, .3) 0 75%, transparent 0) !important;
+        background-size: 20px 20px !important;
+    }
+
+    #container #content .s {
+        margin-top: 36px;
+        margin-bottom: 36px;
+        margin-left: 8px;
+        border: 0;
+        background: linear-gradient(to bottom, transparent, #383838, transparent);
+        padding-right: 1px;
+    }
+
+    #container #content #r {
+        position: relative;
+        width: 260px;
+        height: 100%;
+    }
+
+    #container #footer {
+        width: 100%;
+        min-height: 6px;
+        border-top: 1px solid #383838;
+    }
+</style>
+
+<div id="container">
+    <!-- 额头 -->
+    <div id="header">
+        <div id="l">
+            <x-svg id="icon" color="var(--default-svg-color)" src="ui/svg-0.svg"></x-svg>
+            <x-text id="label" color="var(--default-font-color)" token="svg.extruder" size="var(--font-size-0)"></x-text>
+        </div>
+
+        <div id="r">
+            <x-svg id="close" color="var(--default-svg-color)" src="ui/close-circle.svg"></x-svg>
+        </div>
+    </div>
+
+    <!-- content -->
+    <div id="content">
+        <div id="l">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="s"></div>
+        <div id="r">
+            <x-biz-svg-extrude-editor-conf id="conf"></x-biz-svg-extrude-editor-conf>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div id="footer"></div>
+</div>
+

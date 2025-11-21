@@ -1,0 +1,172 @@
+<style>
+    :host {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--color-frame-border);
+        border-radius: 6px;
+        transition: border 200ms;
+    }
+
+    #container:hover {
+        border: 1px solid var(--color-frame-border-lightness);
+    }
+
+    #container #header {
+        align-self: stretch;
+        height: 32px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--color-frame-border);
+        margin-bottom: 6px;
+    }
+
+    #container #header #l {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 6px;
+    }
+
+    #container #header #l #icon {
+        width: 14px;
+        height: 14px;
+        margin-left: 6px;
+    }
+
+    #container #header #l #title {
+        height: 18px;
+        border-bottom: 1px solid #262626;
+    }
+
+    #container #header #l #animation-more {
+        width: 10px;
+        height: 10px;
+        opacity: 0.6;
+        cursor: pointer;
+        transition: opacity 200ms, transform 100ms;
+    }
+
+    #container #header #l #animation-more:hover {
+        opacity: 1;
+    }
+
+    #container #header #l #animation-more:hover:active {
+        transform: translateY(1px);
+    }
+
+    #container #header #r {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-right: 6px;
+        gap: 10px;
+    }
+
+    #container #header #enable {
+        
+    }
+
+    #container #header .svg-btn {
+        position: relative;
+        width: 14px;
+        height: 14px;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: transform 100ms, opacity 200ms;
+    }
+
+    #container #header .svg-btn:hover {
+        opacity: 1;
+    }
+
+    #container #header .svg-btn:hover:active {
+        transform: translateY(1px);
+    }
+
+    #container #event-setter-container {
+        align-self: stretch;
+        margin-bottom: 6px;
+    }
+
+    #container #status-setter-container {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 6px;
+        border-bottom: 1px solid var(--color-frame-border);
+        padding-top: 6px;
+        padding-bottom: 12px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    #container #status-container {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-bottom: 6px;
+        border-bottom: 1px solid var(--color-frame-border);
+        padding-top: 6px;
+        padding-bottom: 12px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+</style>
+
+<div id="container">
+
+    <!-- 额头 -->
+    <div id="header">
+
+        <!-- 左侧 -->
+        <div id="l">
+            <!-- 图标 -->
+            <x-biz-moderator-cards-animation-icon id="icon"></x-biz-moderator-cards-animation-icon>
+
+            <!-- 名称 -->
+            <x-text id="title" color="var(--default-font-color)" token="ani.translate" size="var(--font-size-2)"></x-text>
+
+            <!-- more -->
+            <x-svg id="animation-more" color="var(--default-svg-color)" icon="ui/down-more.svg"></x-svg>
+        </div>
+
+        <!-- 右侧图标 -->
+        <div id="r">
+            <!-- 可用 -->
+            <x-switcher id="enable" checked="true" style="margin-right: 6px;"></x-switcher>
+
+            <!-- 动画设置 -->
+            <x-svg class="svg-btn" id="ani-setter" color="var(--default-svg-color)" icon="ui/setting.svg"></x-svg>
+            
+            <!-- 按钮 -->
+            <x-svg class="svg-btn" id="header-more" color="var(--default-svg-color)" icon="ui/more-0.svg"></x-svg>
+        </div>
+
+    </div>
+
+    <!-- 事件设置 -->
+    <x-biz-moderator-cards-animation-event-editor-panel id="event-setter-container">
+    </x-biz-moderator-cards-animation-event-editor-panel>
+
+    <!-- 动画参数设置 -->
+    <div id="status-setter-container"></div>
+
+    <!-- 动画事件激发 -->
+    
+
+    <!-- 状态 -->
+    <div id="status-container">
+        <x-biz-moderator-cards-status id="status"></x-biz-moderator-cards-status>
+    </div>
+</div>

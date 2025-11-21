@@ -1,0 +1,112 @@
+<style>
+    :host {
+        position: absolute;
+        left: 90%;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-principal);
+        z-index: 10000001;
+    }
+
+    #container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container #twill {
+        width: 100%;
+        height: 4px;
+        border-bottom: 1px solid var(--color-frame-border);
+        margin-bottom: 48px;
+    }
+
+    #container #exit {
+        position: absolute;
+        padding: 3px;
+        left: 16px;
+        top: 16px;
+        opacity: 0.6;
+        background-color: #323232;
+        border-radius: 4px;
+        transition: opacity 150ms, transform 100ms;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    #container #exit:hover {
+        opacity: 1;
+    }
+
+    #container #exit:hover:active {
+        transform: translateY(1px);
+    }
+
+    #container #exit-icon {
+        width: 16px;
+        height: 16px;
+        pointer-events: none;
+    }
+
+    #container #notice {
+        margin-bottom: 20px;
+    }
+
+    #container #scrollable {
+        width: 100%;
+        flex: 1;
+    }
+
+    #container #scrollable #content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 28px;
+    }
+
+    #container #scrollable #content #s {
+        height: 1px;
+        background: linear-gradient(to right, transparent, var(--color-frame-border), transparent);
+        margin-left: 18px;
+        margin-right: 18px;
+    }
+
+</style>
+
+<div id="container">
+
+    <!-- 分割线 -->
+    <div id="twill"></div>
+
+    <!-- 退出 -->
+    <div id="exit">
+        <x-svg id="exit-icon" color="var(--default-svg-color)" icon="ui/last.svg"></x-svg>
+    </div>
+
+    <!-- 提示框 -->
+    <x-biz-shader-layer-notice id="notice"></x-biz-shader-layer-notice>
+
+    <!-- 内容 -->
+    <x-scrollable-container id="scrollable" enable-scroll-h="false">
+
+        <div id="content">
+
+            <!-- 颜色层 -->
+            <x-biz-shader-layer-component id="layer-component"></x-biz-shader-layer-component>
+
+            <!-- 分割线 -->
+            <div id="s"></div>
+
+            <!-- pbr 效果层 -->
+            <x-biz-shader-layer-effect id="effect-component"></x-biz-shader-layer-effect>
+
+        </div>
+
+    </x-scrollable-container>  
+
+</div>

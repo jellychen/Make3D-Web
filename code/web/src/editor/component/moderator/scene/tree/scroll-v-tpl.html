@@ -1,0 +1,42 @@
+<style>
+    :host {
+        position: relative;
+    }
+
+    #container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    #container #bar {
+        position: absolute;
+        min-height: 28px;
+        left: 1px;
+        right: 0px;
+        top: 0px;
+        opacity: 0.6;
+        border-radius: 10px;
+        background-color: var(--color-principal-green);
+        transition: opacity 0.5s;
+        pointer-events: auto;      
+    }
+
+    #container #bar:hover{
+        opacity: 1;
+    }
+
+    #container #bar:active:hover{
+        opacity: 1;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 拖动 -->
+    <div id="bar"> </div>
+
+</div>

@@ -1,0 +1,100 @@
+<style>
+    :host {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    #container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
+        padding-left: 16px;
+        padding-right: 16px;
+        gap: 12px;
+    }
+
+    #container #selector {
+        align-self: stretch;
+        height: 32px;
+        width: unset;
+        background-color: rgba(255,255,255,0.05);
+        border-radius: 6px;
+    }
+
+    #container #only-selected {
+        align-self: stretch;
+        height: 16px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 6px;
+    }
+
+    #container #detail {
+        background-color: rgba(255,255,255,0.05);
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        border-radius: 6px;
+        padding: 8px;
+        gap: 8px;
+    }
+
+    #container #detail .label {
+        margin-left: 8px;
+        opacity: 0.8;
+    }
+
+    #container #download {
+        position: absolute;
+        bottom: 4px;
+        left: 6px;
+        right: 6px;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 格式 -->
+    <x-selector id="selector">
+        <x-selector-item icon="ui/dot.svg" token="model.format.glb"  data="glb" ></x-selector-item>
+        <x-selector-item icon="ui/dot.svg" token="model.format.gltf" data="gltf"></x-selector-item>
+        <x-selector-item icon="ui/dot.svg" token="model.format.obj"  data="obj" ></x-selector-item>
+        <x-selector-item icon="ui/dot.svg" token="model.format.usdz" data="usdz"></x-selector-item>
+    </x-selector>
+
+    <!-- 只有自己选择 -->
+    <div id="only-selected">
+        <x-text color="var(--default-font-color)" token="selected.only" size="var(--font-size-0)"></x-text>
+        <x-switcher id="selected-only" checked="false"></x-switcher>
+    </div>
+    
+    <!-- 信息 -->
+    <div id="detail">
+        <x-text color="var(--default-font-color)" raw="GLB/USDZ" size="var(--font-size-0)"></x-text>
+        <x-icon-label class="label" icon="ui/tag-right.svg" token="mode.attr.geometry"></x-icon-label>
+        <x-icon-label class="label" icon="ui/tag-right.svg" token="mode.attr.normal"></x-icon-label>
+        <x-icon-label class="label" icon="ui/tag-right.svg" token="mode.attr.uv"></x-icon-label>
+        <x-icon-label class="label" icon="ui/tag-right.svg" token="mode.attr.material"></x-icon-label>
+        <x-icon-label class="label" icon="ui/tag-right.svg" token="mode.attr.material.texture"></x-icon-label>
+
+        <x-text color="var(--default-font-color)" raw="GLTF/OBJ" size="var(--font-size-0)"></x-text>
+        <x-icon-label class="label" icon="ui/tag-right.svg" token="mode.attr.geometry"></x-icon-label>
+        <x-icon-label class="label" icon="ui/tag-right.svg" token="mode.attr.normal"></x-icon-label>
+        <x-icon-label class="label" icon="ui/tag-right.svg" token="mode.attr.uv"></x-icon-label>
+        <x-icon-label class="label" icon="ui/tag-error.svg" token="mode.attr.material"></x-icon-label>
+        <x-icon-label class="label" icon="ui/tag-error.svg" token="mode.attr.material.texture"></x-icon-label>
+    </div>
+
+    <x-button id="download" fullwidth="true" enable-icon="true" icon="ui/download-2.svg" text-token="packing" btn-style="blue"></x-button>
+</div>

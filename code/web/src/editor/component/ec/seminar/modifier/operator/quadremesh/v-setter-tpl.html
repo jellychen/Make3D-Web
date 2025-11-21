@@ -1,0 +1,56 @@
+<style>
+    :host {
+        max-width: 360px;
+        display: flex;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    #container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding-left: 16px;
+        padding-right: 16px;
+        gap: 3px;
+    }
+
+    #container #commit {
+        margin-top: 16px;
+    }
+</style>
+
+<div id="container">
+    <!-- tips -->
+    <x-biz-ec-modifier-quadremesh-tips></x-biz-ec-modifier-quadremesh-tips>
+
+    <!-- 保留边界 -->
+    <x-biz-ec-cell-switcher
+        id="boundary"
+        name-token="modifier.boundary"
+        default="false">
+    </x-biz-ec-cell-switcher>
+
+    <!-- 形状保留 -->
+    <x-biz-ec-cell-switcher
+        id="sharp"
+        name-token="modifier.sharp"
+        default="false">
+    </x-biz-ec-cell-switcher>
+
+    <!-- 适应性缩放 -->
+    <x-biz-ec-cell-switcher
+        id="adaptive-scale"
+        name-token="modifier.adaptive.scale"
+        default="false">
+    </x-biz-ec-cell-switcher>
+
+    <!-- 目标的面数 -->
+    <x-biz-ec-modifier-quadremesh-faces-count
+        id="faces_count">
+    </x-biz-ec-modifier-quadremesh-faces-count>
+
+    <!-- 提交 -->
+    <x-biz-ec-cell-commit id="commit"> </x-biz-ec-cell-commit>
+</div>

@@ -1,0 +1,42 @@
+<style>
+    :host {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #container {
+        align-self: stretch;
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        justify-content: flex-start;
+        align-items: center;
+        margin-left: 12px;
+        margin-right: 12px;
+        user-select: none;
+    }
+
+    #container #icon {
+        width: 12px;
+        height: 12px;
+        border-radius: 6px;
+        background-color: rgba(255,255,255,0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #container #icon #icon-0 {
+        width: 10px;
+        height: 10px;
+    }
+</style>
+
+<div id="container">
+    <div id="icon">
+        <x-svg id="icon-0" color="var(--default-svg-color)" src="ui/selected-bold.svg"></x-svg>
+    </div>
+    <x-text-multiline id="text" raw="undefined" color="#848199" size="10px"></x-text-multiline>
+</div>

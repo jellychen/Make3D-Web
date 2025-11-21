@@ -1,0 +1,86 @@
+<style>
+    :host {
+        width: 100%;
+        display: flex;
+    }
+
+    #container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin-left: 8px;
+    }
+
+    #container #cls {
+        display: flex;
+        align-items: center;
+        height: 24px;
+        margin-bottom: 12px;
+    }
+
+    #container #cls #icon {
+        margin-left: 10px;
+        width: 10px;
+        height: 10px;
+    }
+
+    #container #cls #label {
+        height: 22px;
+        margin-left: 8px;
+    }
+
+    #container #content {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container #content .cell {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container #content .cell .key {
+        width: 84px;
+        height: 24px;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        margin-right: 8px;
+    }
+
+    #container #content .cell .key .text {
+        max-width: 76px;
+    }
+
+    #container #content .cell .value-content {
+        flex: 1;
+        height: 100%;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 分类 -->
+    <div id="cls">
+        <x-svg id="icon" color="var(--default-svg-color)" src="ui/classification.svg"></x-svg>
+        <x-text id="label" color="var(--default-font-color)" token="misc" size="var(--font-size-0)"></x-text>
+    </div>
+
+    <!-- 调节项目 -->
+    <div id="content">
+        
+        <!-- 性能指示器 -->
+        <div class="cell">
+            <div class="key">
+                <x-text class="text" color="var(--default-font-color)" token="preformance.indicator" size="var(--font-size-2)"></x-text>
+            </div>
+            
+            <!-- 开关 -->
+            <x-switcher id="switcher"></x-switcher>
+        </div>
+
+    </div>
+</div>

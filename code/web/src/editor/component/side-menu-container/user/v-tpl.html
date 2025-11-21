@@ -1,0 +1,36 @@
+<style>
+    :host {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+
+    #container #avatar {
+        width: var(--side-menu-avatar-w);
+        height: var(--side-menu-avatar-h);
+        cursor: pointer;
+    }
+
+    #container #subscriber {
+        margin-top: 16px;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 头像 -->
+    <x-avatar id="avatar"></x-avatar>
+
+    <!-- 头像小绿点 -->
+    <div id="user-notifer-dot"></div>
+
+    <!-- 订阅入口 -->
+    <x-biz-side-menu-subscriber id="subscriber"></x-biz-side-menu-subscriber>
+
+</div>

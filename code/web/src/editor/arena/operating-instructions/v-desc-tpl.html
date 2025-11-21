@@ -1,0 +1,39 @@
+<style>
+    :host {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        backdrop-filter: blur(3px);
+        background-color: rgba(255,255,255,0.05);
+        gap: 3px;
+    }
+
+    #container .icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    #container #add {
+        margin-right: 16px;
+        width: 12px;
+        height: 12px;
+    }
+</style>
+
+<div id="container">
+    <x-svg class="icon" color="var(--default-svg-color)" icon="ui/ctrl.svg"        ></x-svg>
+    <x-svg class="icon" color="var(--default-svg-color)" icon="ui/add.svg" id="add"></x-svg>
+    <x-svg class="icon" color="var(--default-svg-color)" icon="ui/mouse-l-btn.svg" ></x-svg>
+</div>

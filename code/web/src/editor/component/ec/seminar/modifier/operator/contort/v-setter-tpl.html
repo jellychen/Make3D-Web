@@ -1,0 +1,47 @@
+<style>
+    :host {
+        max-width: 360px;
+        display: flex;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    #container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding-left: 16px;
+        padding-right: 16px;
+        gap: 3px;
+    }
+
+    #container #commit {
+        margin-top: 16px;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 坐标轴 -->
+    <x-biz-ec-cell-coordinate-dir
+        id="coordinate-dir"
+        token="coordinate.dir"
+        name-token="coordinate.dir">
+    </x-biz-ec-cell-coordinate-dir>
+
+    <!-- 角度 -->
+    <x-biz-ec-cell-number
+        id="angle"
+        name-token="angle"
+        default="0"
+        min="-360"
+        max="360"
+        span="16"
+        one-span-subdivide="2">
+    </x-biz-ec-cell-number>
+
+    <!-- 提交 -->
+    <x-biz-ec-cell-commit id="commit"> </x-biz-ec-cell-commit>
+    
+</div>

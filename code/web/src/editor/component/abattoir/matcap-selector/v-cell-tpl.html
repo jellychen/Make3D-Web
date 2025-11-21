@@ -1,0 +1,45 @@
+<style>
+    :host {
+        position: relative;
+        width: 64px;
+        height: 64px;
+    }
+
+    #container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container #thumb {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        filter: brightness(70%);
+        border-radius: 2px;
+        overflow: hidden;
+        pointer-events: auto;
+        transition: transform 100ms, filter 300ms;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    #container #thumb:hover {
+        filter: brightness(100%);
+    }
+
+    #container #thumb:active:hover {
+        transform: scale(0.98);
+    }
+</style>
+
+<div id="container">
+
+    <!-- 微缩图 -->
+    <x-image id="thumb" object-fit="fill"></x-image>
+
+</div>

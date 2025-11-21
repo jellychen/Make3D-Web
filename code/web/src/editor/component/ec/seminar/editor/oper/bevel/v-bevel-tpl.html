@@ -1,0 +1,140 @@
+<style>
+    :host {
+        position: absolute;
+        display: flex;
+        z-index: 1000000000;
+        right: 20px;
+        bottom: 48px;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-items: stretch;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(6px);
+        border-radius: 6px;
+        padding: 14px;
+        gap: 12px;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+        border: solid 1px transparent;
+        transition: border 300ms;
+    }
+
+    #container:hover {
+        border: solid 1px var(--color-principal-green);
+    }
+
+    #container #header {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        align-items: center;
+    }
+
+    #container #header #logo {
+        width: 14px;
+        height: 14px;
+    }
+
+    #container #content {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 8px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    #container #content #label-container {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        align-items: flex-end;
+        margin-right: 16px;
+    }
+
+    #container #content #label-container .label {
+        height: 18px;
+    }
+
+    #container #content #items-container {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        align-items: stretch;
+        pointer-events: auto!important;
+    }
+
+    #container #content #items-container .item {
+        min-width: 180px;
+        height: 18px;
+    }
+
+    #container #content #items-container .item-stretch {
+        align-self: stretch !important;
+    }
+
+    #container #btn-container {
+        align-self: stretch;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 6px;
+        justify-content: flex-end;
+        margin-top: 12px;
+    }
+
+    #container #btn-container .btn {
+        opacity: 1;
+        transition: opacity 300ms;
+    }
+
+    #container #btn-container .btn:hover {
+        opacity: 0.8;
+    }
+</style>
+
+<div id="container">
+    <!-- 头 -->
+    <div id="header">
+        <x-svg id="logo" color="var(--default-svg-color)" icon="ui/setting.svg"></x-svg>
+        <x-text color="var(--default-font-color)" token="topo.edit.bevel" size="var(--font-size-0)"></x-text>
+    </div>
+    
+    <!-- 调节内容 -->
+    <div id="content">
+
+        <div id="label-container">
+            <x-text class="label" color="var(--default-font-color)" token="offset" size="var(--font-size-0)"></x-text>
+            <x-text class="label" color="var(--default-font-color)" token="segments" size="var(--font-size-0)"></x-text>
+        </div>
+    
+        <div id="items-container">
+            <x-numizer id="numizer" class="item"></x-numizer>
+            <x-integer id="subdivision" class="item" min="1" max="8" value="1"></x-integer>
+        </div>
+    </div>
+
+    <!-- 按钮 -->
+    <div id="btn-container">
+        <x-button class="btn" 
+                  id="cancel"
+                  enable-icon="true" 
+                  icon="ui/delete.svg" 
+                  text-token="cancel" 
+                  text-size="10px"
+                  btn-style="red">
+        </x-button>
+
+        <x-button class="btn" 
+                  id="commit"
+                  enable-icon="true"
+                  icon="ui/selected.svg" 
+                  text-token="confirm" 
+                  text-size="10px"
+                  btn-style="green">
+        </x-button>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<style>
+    :host {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 36px;
+    }
+
+    #container #btn-container {
+        display: flex;
+        flex-direction: row;
+        height: 26px;
+        gap: 8px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 6px;
+        background-color: #282828;
+        box-sizing: var(--shadow-050);
+        padding-left: 16px;
+        padding-right: 16px;
+        transition: background-color 200ms, transform 200ms;
+    }
+
+    #container #btn-container:hover {
+        background-color: #323232;
+    }
+
+    #container #btn-container:hover:active {
+        transform: translateY(1px);
+    }
+
+    #container #btn-container #icon {
+        width: 14px;
+        height: 14px;
+        pointer-events: none;
+    }
+</style>
+
+<div id="container">
+    <div id="btn-container">
+        <!-- 图标 -->
+        <x-svg id="icon" icon="ui/gear.svg" color="var(--default-svg-color)"></x-svg>
+
+        <!-- 文字 -->
+        <x-text id="text" raw="关键帧编辑" color="var(--default-font-color)"></x-text>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<style>
+    :host {
+        position: relative;
+    }
+
+    #container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    #container #bar {
+        position: absolute;
+        border-radius: 3px;
+        pointer-events: auto;
+        background-color: var(--color-gray-500);
+        transition: background-color 0.3s; 
+    }
+
+    #container #bar:hover {
+        background-color: var(--color-principal-green);
+        cursor: grab;
+    }
+
+    #container #bar:hover:active {
+        cursor: grabbing;
+    }
+
+    /**
+     *  竖直
+     */
+    #container #bar[direction="v"] {
+        min-height: 20px;
+        width: 100%;
+    }
+
+    /**
+     *  水平
+     */
+    #container #bar[direction="h"] {
+        min-width: 20px;
+        height: 100%;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 拖动 -->
+    <div id="bar"> </div>
+
+</div>

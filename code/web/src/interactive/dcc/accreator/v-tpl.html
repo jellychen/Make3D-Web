@@ -1,0 +1,111 @@
+<style>
+    :host {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--color-bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+    }
+
+    #container .label {
+        margin-left: 8px;
+        margin-bottom: 8px;
+    }
+
+    #container #auth {
+        width: 460px;
+        height: 120px;
+        border: 1px solid #323232;
+        border-radius: 6px;
+    }
+
+    #container #auth:hover {
+        border: 1px solid #A8A8A8;
+    }
+
+    #container #auth:focus {
+        border: 1px solid #A8A8A8;
+    }
+
+    #container #rest {
+        width: 460px;
+        height: 120px;
+        border: 1px solid #323232;
+        border-radius: 6px;
+    }
+
+    #container #ms {
+        display: flex;
+        flex-direction: row;
+        gap: 6px
+    }
+
+    #container #ms .item {
+        width: 24px;
+        height: 24px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    #container #ms .item[selected] {
+        background-color: #3ecf8e;
+        pointer-events: none;
+    }
+
+    #container #ms .item:not([selected]):hover {
+        background-color: #21704c;
+    }
+</style>
+
+<div id="container">
+    <x-text class="label" raw="Accode Creator" color="#FFF" size="12px" bold="true" align="center"></x-text>
+    <div style="height: 32px;"></div>
+
+    <x-text class="label" raw="Auth" color="#FFF" size="10px" align="start"></x-text>
+    <x-text-input-area id="auth"></x-text-input-area>
+    <div style="height: 32px;"></div>
+
+    <x-text class="label" raw="Months" color="#FFF" size="10px" align="start"></x-text>
+    <div id="ms" style="padding-left: 8px;">
+        <x-text class="item" raw="1"  color="#FFF" size="10px" align="center" selected></x-text>
+        <x-text class="item" raw="2"  color="#FFF" size="10px" align="center"></x-text>
+        <x-text class="item" raw="3"  color="#FFF" size="10px" align="center"></x-text>
+        <x-text class="item" raw="4"  color="#FFF" size="10px" align="center"></x-text>
+        <x-text class="item" raw="5"  color="#FFF" size="10px" align="center"></x-text>
+        <x-text class="item" raw="6"  color="#FFF" size="10px" align="center"></x-text>
+        <x-text class="item" raw="7"  color="#FFF" size="10px" align="center"></x-text>
+        <x-text class="item" raw="8"  color="#FFF" size="10px" align="center"></x-text>
+        <x-text class="item" raw="9"  color="#FFF" size="10px" align="center"></x-text>
+        <x-text class="item" raw="10" color="#FFF" size="10px" align="center"></x-text>
+        <x-text class="item" raw="11" color="#FFF" size="10px" align="center"></x-text>
+        <x-text class="item" raw="12" color="#FFF" size="10px" align="center"></x-text>
+    </div>
+
+    <div style="height: 32px;"></div>
+    <x-text class="label" raw="Accode" color="#FFF" size="10px" align="start"></x-text>
+    <x-text-input-area id="rest"></x-text-input-area>
+    <div style="height: 32px;"></div>
+    
+    <x-button 
+        id="create" 
+        btn-style="blue" 
+        text-data="Create" 
+        text-size="10px" 
+        fullwidth="true"
+        enable-icon="true"
+        icon="ui/upgrad-0.svg">
+    </x-button>
+</div>

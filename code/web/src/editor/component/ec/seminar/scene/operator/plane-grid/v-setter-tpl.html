@@ -1,0 +1,59 @@
+<style>
+    :host {
+        max-width: 360px;
+        display: flex;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    #container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding-left: 16px;
+        padding-right: 16px;
+        gap: 3px;
+    }
+
+    #container #commit {
+        margin-top: 16px;
+    }
+</style>
+
+<div id="container">
+    <!-- 宽 -->
+    <x-biz-ec-cell-number
+        id="w"
+        name-token="X"
+        default="1"
+        min="0.01">
+    </x-biz-ec-cell-number>
+
+    <!-- 高 -->
+    <x-biz-ec-cell-number
+        id="h"
+        name-token="Y"
+        default="1"
+        min="0.01">
+    </x-biz-ec-cell-number>
+
+    <!-- 纵向分段 -->
+    <x-biz-ec-cell-integer
+        id="v-segments"
+        name-token="X"
+        default="1"
+        min="0.01">
+    </x-biz-ec-cell-integer>
+
+    <!-- 横向分段 -->
+    <x-biz-ec-cell-integer
+        id="h-segments"
+        name-token="X"
+        default="1"
+        min="0.01">
+    </x-biz-ec-cell-integer>
+
+    <!-- 提交 -->
+    <x-biz-ec-cell-commit id="commit"></x-biz-ec-cell-commit>
+</div>

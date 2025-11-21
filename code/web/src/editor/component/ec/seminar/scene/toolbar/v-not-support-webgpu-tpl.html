@@ -1,0 +1,51 @@
+<style>
+    :host {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        z-index: 1000000;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--color-principal);
+        border-radius: 6px;
+        border: 1px solid var(--color-frame-border);
+        padding: 8px;
+        padding-top: 16px;
+        box-shadow: var(--shadow-090);
+        user-select: none;
+        gap: 16px;
+    }
+
+    #container #content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+    }
+
+    #container #content #icon {
+        width: 12px;
+        height: 12px;
+    }
+
+    #container #content #text {
+        color: white;
+        font-size: 10px;
+    }
+
+    #container #ok {
+        align-self: flex-end;
+    }
+</style>
+
+<div id="container">
+    <div id="content">
+        <x-svg id="icon" color="var(--default-svg-color)" src="ui/info.svg"></x-svg>
+        <div id="text">WebGPU is not supported</div>
+    </div>
+    <x-button id="ok" enable-icon="true" icon="ui/ok.svg" text-token="ok" btn-size="small" btn-style="blue"></x-button>
+</div>

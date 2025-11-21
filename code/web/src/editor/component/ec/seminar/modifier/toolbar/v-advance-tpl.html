@@ -1,0 +1,147 @@
+<style>
+    :host {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
+    .display-none-if-need {
+        display: var(--display-none-if-need)!important;
+    }
+
+    #container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        height: 100%;
+        width: 100%;
+        gap: 18px;
+        background-color: var(--color-principal);
+    }
+
+    #container .separator {
+        width: 2px;
+        height: 12px;
+        align-self: center;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    #container .switcher-container {
+        height: 100%;
+    }
+
+    #container .switcher-container .icon-switcher {
+        width: 46px;
+        height: 100%;
+    }
+
+    #container #btns {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        margin-right: 16px;
+    }
+
+    #container #btns .button {
+        width: 14px;
+        height: 14px;
+        cursor: pointer;
+        transition: transform 100ms;
+    }
+
+    #container #btns #close {
+        width: 12px;
+        height: 12px;
+        cursor: pointer;
+        transition: transform 100ms;
+        opacity: 0.5;
+    }
+
+    #container #btns #close:hover {
+        opacity: 1;
+    }
+
+    #container #btns .button:active {
+        transform: translateY(1px);
+    }
+
+    #container .separator {
+        width: 2px;
+        height: 12px;
+        align-self: center;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 分割 -->
+    <x-separator class="separator"></x-separator>
+
+    <!-- 各种按钮 -->
+    <x-icon-status-switcher-container 
+        id="switcher-container"
+        direction="row"
+        gap="8px" 
+        enable="true" 
+        class="switcher-container">
+
+        <!-- 实体化 -->
+        <x-icon-status-switcher
+            token="substantialization" 
+            id="substantialization" 
+            class="icon-switcher" 
+            icon="modifier/substantialization.svg"
+            tips-placement="bottom-start"
+            tips-data-token="modifier.substantialization">
+        </x-icon-status-switcher>
+
+        <!-- 细分 -->
+        <x-icon-status-switcher
+            token="subdivision" 
+            id="subdivision" 
+            class="icon-switcher" 
+            icon="modifier/subdivision.svg"
+            tips-placement="bottom-start"
+            tips-data-token="modifier.subdivision">
+        </x-icon-status-switcher>
+
+        <!-- 四边形重建 -->
+        <x-icon-status-switcher
+            token="quadremesh" 
+            id="quadremesh" 
+            class="icon-switcher" 
+            icon="modifier/quadremesh.svg"
+            tips-placement="bottom-start"
+            tips-data-token="modifier.quadremesh">
+        </x-icon-status-switcher>
+
+        <!-- 体素重建 -->
+        <x-icon-status-switcher
+            token="voxelremesh" 
+            id="voxelremesh" 
+            class="icon-switcher" 
+            icon="modifier/voxel.svg"
+            tips-placement="bottom-start"
+            tips-data-token="modifier.voxelremesh">
+        </x-icon-status-switcher>
+
+    </x-icon-status-switcher-container>
+
+    <!-- 分割 -->
+    <x-separator class="separator"></x-separator>
+
+    <!-- 右侧按钮 -->
+    <div id="btns">
+
+        <!-- 关闭按钮 -->
+        <x-svg id="close" class="button" color="var(--default-svg-color)" src="ui/swipe-right.svg"></x-svg>
+
+    </div>
+</div>

@@ -1,0 +1,140 @@
+<style>
+    :host {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-self: stretch;
+        width: 320px;
+        min-width: 320px;
+        max-width: 60%;
+        border-left: 1px solid var(--color-frame-border);
+        z-index: 1;
+        user-select: none;
+    }
+
+    #container {
+        position: absolute;
+        display: flex;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        flex-direction: column;
+    }
+
+    #container #forbidden-mask {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        pointer-events: auto;
+        z-index: 999999999;
+        cursor: not-allowed;
+    }
+
+    #container #scene-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        min-height: 30%;
+        max-height: 60%;
+        height: 35%;
+        border-bottom: 1px solid var(--color-frame-border);
+    }
+
+    #container #scene-container #scene {
+        height: 100%;
+    }
+
+    #container #scene-container #scene-container-modal {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: none;
+        flex-direction: column;
+        opacity: 0;
+        transition: opacity 300ms;
+    }
+
+    #container #scene-container #scene-container-modal[enable="true"] {
+        opacity: 1;
+        z-index: 100;
+        display: flex!important;
+        background-color: var(--color-principal);
+    }
+
+    #container #scene-container #scene-container-resize {
+        position: absolute;
+        bottom: -5px;
+        height: 8px;
+        left: 0;
+        right: 0;
+        z-index: 99999999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: row-resize;
+        z-index: 1000000000;
+    }
+
+    #container #scene-container #scene-container-resize #bar {
+        width: 60px;
+        height: 4px;
+        background-color: black;
+        border-radius: 4px;
+        transition: 300ms;
+    }
+
+    #container #scene-container #scene-container-resize:hover #bar {
+        background-color: var(--color-principal-green);
+    }
+
+    #container #aio {
+        width: 100%;
+        flex-grow: 1;
+    }
+
+    #container #resize {
+        position: absolute;
+        top: 0;
+        left: -6px;
+        bottom: 0;
+        width: 8px;
+        z-index: 99999999;
+        cursor: col-resize;
+    }
+</style>
+
+<div id="container">
+    
+    <!-- scene container -->
+    <div id="scene-container">
+
+        <!-- 场景 Tree  -->
+        <x-biz-scene id="scene"></x-biz-scene>
+
+        <!-- 场景的modal -->
+        <x-biz-moderator-scene-modal id="scene-container-modal" enable="false"></x-biz-moderator-scene-modal>
+
+        <!-- 用来模拟纵向缩放的 -->
+        <div id="scene-container-resize">
+            <div id="bar"></div>
+        </div>
+        
+    </div>
+    
+    <!-- AIO -->
+    <x-biz-moderator-aio id="aio"></x-biz-moderator-aio>
+
+    <!-- 用来模拟横向缩放的 -->
+    <div id="resize"></div>
+
+    <!-- 用来拦截 -->
+    <div id="forbidden-mask"></div>
+
+</div>

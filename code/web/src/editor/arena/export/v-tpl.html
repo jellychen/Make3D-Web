@@ -1,0 +1,185 @@
+<style>
+    :host {
+        position: absolute;
+        z-index: 1000000000;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        border-radius: 6px;
+        backdrop-filter: blur(8px);
+        border: solid 1px var(--color-gray-300);
+        box-shadow: var(--shadow-100);
+        overflow: hidden;
+        background-color: rgba(32, 32, 32, .2);
+        cursor: default;
+    }
+
+    .highlight {
+        border: solid 1px var(--color-principal-green)!important;
+    }
+
+    #container #title {
+        align-self: stretch;
+        display: flex;
+        flex-direction: row;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 6px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #container #title #icon-container {
+        display: flex;
+        flex-direction: row;
+        gap: 6px;
+    }
+
+    #container #title #icon-container .icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    #container #title #close-btn {
+        opacity: 0.6;
+        transition: opacity 300ms;
+    }
+
+    #container #title #close-btn:hover {
+        opacity: 1;
+    }
+
+    #container #zone {
+        position: relative;
+        border-radius: 6px;
+        border: 1px dashed #343434;
+        align-self: stretch;
+        margin: 10px;
+        margin-top: 6px;
+        background-color: rgba(36, 36, 36, .9);
+        transition: border 400ms;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        width: 480px;
+        height: 440px;
+    }
+
+    #container #zone #l {
+        width: 142px;
+        align-self: stretch;
+        background-color: rgba(255,255,255,0.01);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding-top: 16px;
+    }
+
+    #container #zone #l .item {
+        position: relative;
+        align-self: stretch;
+        height: 38px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-left: 16px;
+        padding-right: 16px;
+        opacity: 1;
+        transition: background 200ms, opacity 200ms;
+        gap: 6px;
+        user-select: none;
+    }
+
+    #container #zone #l .item .icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    #container #zone #l .item .label {
+        flex: 1;
+    }
+
+    #container #zone #l .item:not([selected]):hover {
+        background-color: rgba(255,255,255,0.01);
+        opacity: 1;
+    }
+
+    #container #zone #l .item[selected] {
+        background-color: #158d57;
+        opacity: 1;
+    }
+
+    #container #zone #content {
+        position: relative;
+        flex: 1;
+        align-self: stretch;
+    }
+
+</style>
+
+<div id="container">
+    
+    <!-- 标记 -->
+    <div id="title">
+        <div id="icon-container">
+            <x-svg 
+                class="icon" 
+                icon="ui/3d-object-0.svg">
+            </x-svg>
+        </div>
+
+        <x-icon-button-borderless 
+            id="close-btn" 
+            icon="ui/close.svg">
+        </x-icon-button-borderless>
+    </div>
+
+    <!-- 中间的区域 -->
+    <div id="zone">
+        
+        <!-- 左侧菜单 -->
+        <div id="l">
+
+            <!-- 三维 -->
+            <div class="item" id="model" selected>
+                <x-svg class="icon" icon="ui/3d-object.svg" color="var(--default-svg-color)"></x-svg>
+                <x-text class="label" color="var(--default-font-color)" token="export.model" size="var(--font-size-0)"></x-text>
+            </div>
+
+            <!-- 三维打印 -->
+            <div class="item" id="printer3d">
+                <x-svg class="icon" icon="ui/3d-printer.svg" color="var(--default-svg-color)"></x-svg>
+                <x-text class="label" color="var(--default-font-color)" token="export.printer3d" size="var(--font-size-0)"></x-text>
+                <x-tag-vip color="var(--color-vip)" location="r"></x-tag-vip>
+            </div>
+
+            <!-- 序列化 -->
+            <div class="item" id="bundle">
+                <x-svg class="icon" icon="ui/bundle.svg" color="var(--default-svg-color)"></x-svg>
+                <x-text class="label" color="var(--default-font-color)" token="export.bundle" size="var(--font-size-0)"></x-text>
+            </div>
+
+        </div>
+
+        <!-- 中间的区域 -->
+        <div id="content">
+
+        </div>
+
+    </div>
+    
+</div>

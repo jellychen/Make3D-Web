@@ -1,0 +1,133 @@
+<style>
+    :host {
+        position: absolute;
+        display: flex;
+        z-index: 1000000000;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-items: stretch;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(6px);
+        border-radius: 6px;
+        padding: 22px;
+        gap: 12px;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+        border: solid 1px transparent;
+        transition: border 300ms;
+    }
+
+    #container:hover {
+        border: solid 1px var(--color-principal-green);
+    }
+
+    #container #header {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        align-items: center;
+    }
+
+    #container #header #logo {
+        width: 16px;
+        height: 16px;
+    }
+
+    #container #slider-container {
+        position: relative;
+        min-width: 230px;
+        height: 64px;
+    }
+
+    #container #slider-container #line {
+        position: absolute;
+        pointer-events: none;
+        width: 100%;
+        height: 3px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: background 300ms;
+    }
+
+    #container #slider-container:hover #line {
+        background-color: rgba(255, 255, 255, 0.3) !important;
+    }
+
+    #container #slider-container #bar {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        top: 50%;
+        left: 50%;
+        border-radius: 6px;
+        transform: translate(-50%, -50%);
+        background-color: #A8A8A8;
+        transition: background 300ms;
+        box-shadow: 0px 0px 6px rgba(255, 255, 255, 0.15);
+        
+    }
+
+    #container #slider-container:active:hover #bar {
+        background-color: #FFFFFF;
+        box-shadow: 0px 0px 6px rgba(255, 255, 255, 0.8);
+    }
+
+    #container #btn-container {
+        align-self: stretch;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+    }
+
+    #container #btn-container .btn {
+        flex: 1 !important;
+        opacity: 0.6;
+        transition: opacity 300ms;
+    }
+
+    #container #btn-container .btn:hover {
+        opacity: 1;
+    }
+</style>
+
+<div id="container">
+    <!-- 头 -->
+    <div id="header">
+        <x-svg id="logo" color="var(--default-svg-color)" icon="ui/setting.svg"></x-svg>
+        <x-text color="var(--default-font-color)" token="topo.edit.slide" size="var(--font-size-0)"></x-text>
+    </div>
+    
+    <!-- 滑块的容器 -->
+    <div id="slider-container">
+        <div id="line"></div>
+        <div id="bar"></div>
+    </div>
+
+    <!-- 按钮 -->
+    <div id="btn-container">
+        <x-button class="btn" 
+                  id="cancel"
+                  enable-icon="true" 
+                  icon="ui/delete.svg" 
+                  text-token="cancel" 
+                  text-size="10px"
+                  btn-style="red">
+        </x-button>
+
+        <x-button class="btn" 
+                  id="commit"
+                  enable-icon="true"
+                  icon="ui/selected.svg" 
+                  text-token="confirm" 
+                  text-size="10px"
+                  btn-style="green">
+        </x-button>
+    </div>
+</div>

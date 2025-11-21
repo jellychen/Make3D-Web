@@ -1,0 +1,40 @@
+<style>
+    :host {
+        width: 100%;
+        display: flex;
+        margin: 8px;
+        margin-top: 0;
+        margin-bottom: 0px;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        margin: 8px;
+        margin-top: 0;
+        padding: 6px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        border-radius: 6px;
+        background-color: rgba(255,255,255,0.05);
+        font-size: 8px;
+        color: #FFF;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+    }
+
+    #container #icon {
+        width: 14px;
+        height: 14px;
+    }
+</style>
+
+<div id="container">
+    <x-svg id="icon" color="var(--default-svg-color)" src="ui/boundbox.svg"></x-svg>
+    <div id="text"></div>
+</div>

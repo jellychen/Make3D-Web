@@ -1,0 +1,45 @@
+<style>
+    :host {
+        display: flex;
+        user-select: none;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    :host([align="start"]) {
+        justify-content: flex-start!important;
+    }
+
+    :host([align="center"]) {
+        justify-content: center!important;
+    }
+
+    :host([align="end"]) {
+        justify-content: flex-end!important;
+    }
+
+    #container {
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        font-family: var(--font);
+        font-size: var(--font-size-0);
+        line-height: normal;
+    }
+
+    #container #content {
+        display: inline-block;
+        max-width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .clickable {
+        cursor: pointer;
+    }
+</style>
+
+<div id="container">
+    <div id="content"></div>
+</div>

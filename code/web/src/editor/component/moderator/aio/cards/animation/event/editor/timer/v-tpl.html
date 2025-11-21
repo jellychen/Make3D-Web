@@ -1,0 +1,44 @@
+<style>
+    :host {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding-top: 6px;
+        padding-bottom: 8px;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 6px;
+    }
+
+    #container #key {
+        border: 1px solid transparent;
+        transition: border 200ms;
+        height: 18px;
+        width: 86px;
+        border-radius: 4px;
+        background-color: var(--color-bg-0);
+    }
+
+    #container #key:focus {
+        outline: none;
+        border: 1px solid var(--color-principal-green);
+    }
+
+    #container #key:hover {
+        border: 1px solid var(--color-principal-green);
+    }
+</style>
+
+<div id="container">
+
+    <!-- 关键字 -->
+    <x-text id="text" raw="Time" color="var(--default-font-color)"></x-text>
+
+    <!-- key -->
+    <x-key id="key" tabindex="0"></x-key>
+
+</div>

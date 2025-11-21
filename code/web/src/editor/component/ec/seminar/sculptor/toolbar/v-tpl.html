@@ -1,0 +1,171 @@
+<style>
+    :host {
+        display: flex;
+        height: 100%;
+    }
+
+    .display-none-if-need {
+        display: var(--display-none-if-need)!important;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        gap: 18px;
+    }
+
+    #container .btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    #container .separator {
+        width: 2px;
+        height: 12px;
+        align-self: center;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    #container .switcher-container {
+        height: 100%;
+    }
+
+    #container .icon-switcher {
+        width: 46px;
+        height: 100%;
+    }
+
+    #container .icon-btn {
+        width: 24px;
+        height: 24px;
+        opacity: 0.8;
+        transition: opacity 200ms;
+    }
+
+    #container .icon-btn:hover {
+        opacity: 1;
+    }
+</style>
+
+<div id="container">
+    
+    <!-- 雕刻 -->
+    <x-icon-status-switcher-container id="type" direction="row" gap="8px" enable="true" class="switcher-container">
+
+        <!-- clay-->
+        <x-icon-status-switcher 
+            token="clay"
+            id="clay" 
+            class="icon-switcher" 
+            icon="sculptor/clay.svg"
+            tips-placement="bottom"
+            tips-data-token="sculptor.clay"
+            selected="true">
+        </x-icon-status-switcher>
+
+        <!-- smooth-->
+        <x-icon-status-switcher 
+            token="smooth"
+            id="smooth" 
+            class="icon-switcher" 
+            icon="sculptor/smooth.svg"
+            tips-placement="bottom"
+            tips-data-token="sculptor.smooth">
+        </x-icon-status-switcher>
+
+        <!-- drag -->
+        <x-icon-status-switcher 
+            token="drag"
+            id="drag" 
+            class="icon-switcher" 
+            icon="sculptor/drag.svg"
+            tips-placement="bottom"
+            tips-data-token="sculptor.drag">
+        </x-icon-status-switcher>
+
+        <!-- crease -->
+        <x-icon-status-switcher 
+            token="crease"
+            id="crease" 
+            class="icon-switcher" 
+            icon="sculptor/crease.svg"
+            tips-placement="bottom"
+            tips-data-token="sculptor.crease">
+        </x-icon-status-switcher>
+
+        <!-- expand -->
+        <x-icon-status-switcher 
+            token="expand"
+            id="expand" 
+            class="icon-switcher display-none-if-need" 
+            icon="sculptor/expand.svg"
+            tips-placement="bottom"
+            tips-data-token="sculptor.expand">
+        </x-icon-status-switcher>
+
+        <!-- flatten -->
+        <x-icon-status-switcher 
+            token="flatten"
+            id="flatten" 
+            class="icon-switcher" 
+            icon="sculptor/flatten.svg"
+            tips-placement="bottom"
+            tips-data-token="sculptor.flatten">
+        </x-icon-status-switcher>
+
+        <!-- inflate -->
+        <x-icon-status-switcher 
+            token="inflate"
+            id="inflate" 
+            class="icon-switcher" 
+            icon="sculptor/inflate.svg"
+            tips-placement="bottom"
+            tips-data-token="sculptor.inflate">
+        </x-icon-status-switcher>
+
+        <!-- pinch -->
+        <x-icon-status-switcher 
+            token="pinch"
+            id="pinch" 
+            class="icon-switcher .display-none-if-need" 
+            icon="sculptor/pinch.svg"
+            tips-placement="bottom"
+            tips-data-token="sculptor.pinch">
+        </x-icon-status-switcher>
+
+        <!-- stack -->
+        <x-icon-status-switcher 
+            token="stack"
+            id="stack" 
+            class="icon-switcher" 
+            icon="sculptor/stack.svg"
+            tips-placement="bottom"
+            tips-data-token="sculptor.stack">
+        </x-icon-status-switcher>
+
+        <!-- twist -->
+        <x-icon-status-switcher 
+            token="twist"
+            id="twist" 
+            class="icon-switcher" 
+            icon="sculptor/twist.svg"
+            tips-placement="bottom"
+            tips-data-token="sculptor.twist">
+        </x-icon-status-switcher>
+
+        <!-- masking -->
+        <x-icon-status-switcher 
+            token="masking"
+            id="masking" 
+            class="icon-switcher" 
+            icon="sculptor/masking.svg"
+            tips-placement="bottom"
+            tips-data-token="sculptor.masking">
+        </x-icon-status-switcher>
+
+    </x-icon-status-switcher-container>
+
+</div>

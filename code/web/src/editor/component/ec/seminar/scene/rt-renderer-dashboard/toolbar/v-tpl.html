@@ -1,0 +1,130 @@
+<style>
+    :host {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        overflow: hidden;
+    }
+
+    #container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-left: 18px;
+    }
+
+    #container .s {
+        height: 10px;
+        width: 2px;
+        border-radius: 1px;
+        background-color: #323232;
+    }
+
+    #container #bar-btns {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 36px;
+    }
+
+    #container #bar-btns .switcher {
+        width: 16px;
+        height: 16px;
+        pointer-events: auto;
+        cursor: pointer;
+        transition: opacity 300ms, transform 300ms;
+    }
+
+    #container #size {
+        
+    }
+
+    #container #mask {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(2px);
+        cursor: not-allowed;
+    }
+</style>
+
+<div id="container">
+    
+    <!-- 退出 -->
+    <x-icon-button-borderless 
+        id="return" 
+        class="icon-btn" 
+        icon="ui/return.svg">
+    </x-icon-button-borderless>
+
+    <!-- 分割 -->
+    <div class="s" style="margin-left: 22px; margin-right: 28px;"></div>
+
+    <!-- 按钮 -->
+    <div id="bar-btns">
+        
+        <!-- 渲染或者暂停 -->
+        <x-switcher-icon
+            id="play-pause"
+            class="switcher"
+            enable="true"
+            checked-icon="ui/play-2.svg"
+            unchecked-icon="ui/pause-2.svg"
+            checked="false"
+            tips-data-token="play-or-pause"
+            tips-placement="bottom">
+        </x-switcher-icon>
+
+        <!-- 刷新，重新开始渲染 -->
+        <x-icon-button-borderless 
+            id="refresh" 
+            class="icon-btn" 
+            icon="ui/refresh.svg"
+            tips-data-token="reset"
+            tips-placement="top">
+        </x-icon-button-borderless>
+
+        <!-- 保存图像 -->
+        <x-icon-button-borderless 
+            id="take-photo" 
+            class="icon-btn" 
+            icon="ui/take-photo.svg"
+            tips-data-token="take-photo"
+            tips-placement="top">
+
+            <!-- VIP -->
+            <x-tag-vip color="var(--color-principal-green)" location="tr" small="true"></x-tag-vip>
+            
+        </x-icon-button-borderless>
+
+    </div>
+
+    <!-- 分割 -->
+    <div class="s" style="margin-left: 22px; margin-right: 28px;"></div>
+
+    <!-- 渲染尺寸控制 -->
+    <x-biz-rt-renderder-dashboard-size id="size"></x-biz-rt-renderder-dashboard-size>
+
+    <!-- 分割 -->
+    <div class="s" style="margin-left: 22px; margin-right: 28px;"></div>
+
+    <!-- sample count -->
+    <x-biz-rt-renderder-dashboard-sample-count id="sample-count"></x-biz-rt-renderder-dashboard-sample-count>
+
+    <!-- 分割 -->
+    <div class="s" style="margin-left: 22px; margin-right: 28px;"></div>
+
+    <!-- 渲染质量控制 -->
+    <x-biz-rt-renderder-dashboard-quality id="quality"></x-biz-rt-renderder-dashboard-quality>
+
+    <!-- mask -->
+    <div id="mask"></div>
+</div>

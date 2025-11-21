@@ -1,0 +1,80 @@
+<style>
+    :host {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .loader {
+        position: relative;
+        width: 18px;
+        height: 18px;
+    }
+
+    .loader:before{
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-radius: 6px;
+        top: 50%;
+        left: 0;
+        transform: translate(-5px, -50%);
+        background: linear-gradient(to right, #fff 50%, var(--color-principal-green) 50%) no-repeat;
+        background-size: 200% auto;
+        background-position: 100% 0;
+        animation: colorBallMoveX 800ms linear infinite alternate;
+    }
+
+    .loader:after{
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 100%;
+        background: var(--color-principal-green);
+    }
+
+    @keyframes colorBallMoveX {
+        0%  {
+            background-position: 0% 0;
+            transform: translate(-3px, -50%);
+        }
+        15%  , 25% {
+            background-position: 0% 0;
+            transform: translate(0px, -50%);
+        }
+        75% , 85% {
+            background-position: 100% 0;
+            transform: translate(9px, -50%);
+        }
+        100% {
+            background-position: 100% 0;
+            transform: translate(10px, -50%);
+        }
+    }
+  
+    #container {
+        border-radius: 6px;
+        padding: 16px;
+        padding-left: 24px;
+        padding-right: 24px;
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(3px);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+    }
+</style>
+
+<div id="container">
+    <span id="loader" class="loader"></span>
+    <x-text id="text" raw="Denoise is processing" color="var(--default-font-color)"></x-text>
+</div>

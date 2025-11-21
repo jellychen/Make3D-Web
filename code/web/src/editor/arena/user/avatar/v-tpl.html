@@ -1,0 +1,93 @@
+<style>
+    :host {
+        position: relative;
+    }
+
+    #container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: #005DF2;
+        border-radius: 50%;
+        border: 1px solid #efefef;
+    }
+
+    #container #image {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        visibility: hidden;
+    }
+
+    #container #anonymous {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container #loading {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.3);
+    }
+
+    .loader {
+        border: 1px solid #ffffff;
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: relative;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+    }
+
+    .loader::after {
+        content: '';  
+        box-sizing: border-box;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        border-bottom-color: #FF3D00;
+    }
+
+    @keyframes rotation {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    } 
+</style>
+
+<div id="container" enable="true" has-border="true">
+
+    <!-- 匿名 -->
+    <x-svg id="anonymous" icon="ui/anonymous.svg"></x-svg>
+
+    <!-- 头像 -->
+    <img id="image" crossorigin="anonymous"/>
+
+    <!-- 加载 -->
+    <div id="loading" class="loader"></div>
+
+</div>

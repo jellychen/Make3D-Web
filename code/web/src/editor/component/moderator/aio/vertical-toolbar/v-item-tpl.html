@@ -1,0 +1,53 @@
+<style>
+    :host {
+        height: 32px;
+    }
+
+    #container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: 300ms;
+    }
+
+    #container[enable="false"] {
+        pointer-events: none;
+    }
+
+    #container[enable="true"][selected="false"]:hover {
+        opacity: 1;
+        transition: 300ms;
+        background-color: rgba(255,255,255,0.05);
+    }
+
+    #container[selected="true"] {
+        opacity: 1;
+        transition: 300ms;
+        background-color: #363636;
+    }
+
+    #container #icon {
+        width: 16px;
+        height: 16px;
+        transition: transform 300ms;
+    }
+
+    #container[enable="true"]:hover:active #icon {
+        transform: translateY(2px);
+    }
+
+    #container[enable="false"] #icon {
+        opacity: 0.2;
+    }
+</style>
+
+<div id="container" selected="false" enable="true">
+
+    <!-- icon -->
+    <x-svg id="icon" color="var(--default-svg-color)" color-1="var(--color-principal-green)"></x-svg>
+
+</div>

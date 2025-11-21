@@ -1,0 +1,164 @@
+<style>
+    :host {
+        display: flex;
+        height: 100%;
+    }
+
+    .display-none-if-need {
+        display: var(--display-none-if-need)!important;
+    }
+
+    #container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        gap: 18px;
+    }
+
+    #container .btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    #container .separator {
+        width: 2px;
+        height: 12px;
+        align-self: center;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    #container .switcher-container {
+        height: 100%;
+    }
+
+    #container .switcher-container .icon-switcher {
+        width: 46px;
+        height: 100%;
+    }
+
+    #container #advance {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        transition: transform 100ms;
+    }
+
+    #container #advance:active {
+        transform: translateY(1px);
+    }
+</style>
+
+<div id="container">
+
+    <!-- 各种按钮 -->
+    <x-icon-status-switcher-container 
+        id="switcher-container"
+        direction="row"
+        gap="8px" 
+        enable="true" 
+        class="switcher-container">
+
+        <!-- 鼠标 -->
+        <x-icon-status-switcher 
+            id="pointer" 
+            class="icon-switcher"
+            icon="ui/pointer.svg"
+            selected="true">
+        </x-icon-status-switcher>
+
+        <!-- 分割 -->
+        <x-separator class="separator"></x-separator>
+
+        <!-- 翻转 -->
+        <x-icon-status-switcher
+            token="flip"
+            id="flip" 
+            class="icon-switcher" 
+            icon="modifier/flip.svg"
+            tips-placement="bottom-start"
+            tips-data-token="modifier.flip">
+        </x-icon-status-switcher>
+
+        <!-- 法线缩放 -->
+        <x-icon-status-switcher 
+            token="normal-offset"
+            id="normal-offset" 
+            class="icon-switcher" 
+            icon="modifier/offset.svg"
+            tips-placement="bottom-start"
+            tips-data-token="modifier.offset.normal">
+        </x-icon-status-switcher>
+
+        <!-- 立体化 -->
+        <x-icon-status-switcher 
+            token="cubization"
+            id="cubization" 
+            class="icon-switcher" 
+            icon="modifier/cubization.svg"
+            tips-placement="bottom-start"
+            tips-data-token="modifier.cubization">
+        </x-icon-status-switcher>
+
+        <!-- 球体化 -->
+        <x-icon-status-switcher 
+            token="sphericize"
+            id="sphericize" 
+            class="icon-switcher" 
+            icon="modifier/sphericize.svg"
+            tips-placement="bottom-start"
+            tips-data-token="modifier.sphericize">
+        </x-icon-status-switcher>
+
+        <!-- 锥形化 -->
+        <x-icon-status-switcher 
+            token="taper" 
+            id="taper" 
+            class="icon-switcher" 
+            icon="modifier/taper.svg"
+            tips-placement="bottom-start"
+            tips-data-token="modifier.taper">
+        </x-icon-status-switcher>
+
+        <!-- 扭曲化 -->
+        <x-icon-status-switcher 
+            token="contort" 
+            id="contort" 
+            class="icon-switcher" 
+            icon="modifier/contort.svg"
+            tips-placement="bottom-start"
+            tips-data-token="modifier.contort">
+        </x-icon-status-switcher>
+
+        <!-- 平滑 -->
+        <x-icon-status-switcher
+            token="smooth"
+            id="smooth" 
+            class="icon-switcher display-none-if-need" 
+            icon="modifier/smooth.svg"
+            tips-placement="bottom-start"
+            tips-data-token="modifier.smooth">
+        </x-icon-status-switcher>
+
+        <!-- 高斯噪声 -->
+        <x-icon-status-switcher
+            token="noise"  
+            id="noise" 
+            class="icon-switcher display-none-if-need" 
+            icon="modifier/random.svg"
+            tips-placement="bottom-start"
+            tips-data-token="modifier.noise">
+        </x-icon-status-switcher>
+
+    </x-icon-status-switcher-container>
+
+    <!-- 分割 -->
+    <x-separator class="separator"></x-separator>
+
+    <!-- 高级功能 -->
+    <x-svg id="advance" color="var(--default-svg-color)" src="ui/more-1.svg"></x-svg>
+
+</div>

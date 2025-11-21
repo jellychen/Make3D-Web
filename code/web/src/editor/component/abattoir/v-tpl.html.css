@@ -1,0 +1,95 @@
+:host {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.cursor-none {
+    cursor: none !important;
+}
+
+.cursor-pointer {
+    cursor: -webkit-image-set(url("@/assets/cursor/cursor-pointer.png") 2x) 4 4,
+        auto !important;
+}
+
+.cursor-pointer-3d {
+    cursor: -webkit-image-set(url("@/assets/cursor/cursor-pointer-3d.png") 2x) 4 4,
+        auto !important;
+}
+
+.cursor-add {
+    cursor: -webkit-image-set(url("@/assets/cursor/cursor-add.png") 2x) 4 4,
+        auto !important;
+}
+
+.cursor-link {
+    cursor: -webkit-image-set(url("@/assets/cursor/cursor-link.png") 2x) 4 4,
+        auto !important;
+}
+
+.cursor-curve-move {
+    cursor: -webkit-image-set(url("@/assets/cursor/cursor-curve-move.png") 2x) 4
+            4,
+        auto !important;
+}
+
+.cursor-curve {
+    cursor: -webkit-image-set(url("@/assets/cursor/cursor-curve.png") 2x) 4 4,
+        auto !important;
+}
+
+.cursor-highlight {
+    cursor: -webkit-image-set(url("@/assets/cursor/cursor-highlight.png") 2x) 4
+            4,
+        auto !important;
+}
+
+.cursor-pen {
+    cursor: -webkit-image-set(url("@/assets/cursor/cursor-pen.png") 2x) 4 4,
+        auto !important;
+}
+
+.cursor-pen-point {
+    cursor: -webkit-image-set(url("@/assets/cursor/cursor-pen-point.png") 2x) 4
+            4,
+        auto !important;
+}
+
+.cursor-scissor {
+    cursor: -webkit-image-set(url("@/assets/cursor/cursor-scissor.png") 2x) 4 4,
+        auto !important;
+}
+
+.cursor-hand {
+    cursor: -webkit-image-set(url("@/assets/cursor/cursor-hand.png") 2x) 4 4,
+        auto !important;
+}
+
+.cursor-hand-closed {
+    cursor: -webkit-image-set(url("@/assets/cursor/cursor-hand-closed.png") 2x)
+            4 4,
+        auto !important;
+}
+
+.cursor-knife {
+    cursor: -webkit-image-set(url("@/assets/cursor/cursor-knife.png") 2x)
+            4 4,
+        auto !important;
+}
+
+.cursor-pencil {
+    cursor: -webkit-image-set(url("@/assets/cursor/cursor-pencil.png") 2x)
+            4 4,
+        auto !important;
+}
+
+#container {
+    position: absolute;
+    display: flex;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border: 0;
+}

@@ -1,0 +1,123 @@
+<style>
+    :host {
+        position: relative;
+        height: 24px;
+        border-radius: 3px;
+        border: solid 1px transparent;
+        background-color: var(--color-white-008);
+        transition: border 300ms;
+    }
+
+    #container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    #container #section {
+        margin-left: 3px;
+        width: 16px;
+        height: 16px;
+        cursor: move;
+    }
+
+    #container #combination {
+        margin-left: 5px;
+        width: 16px;
+        height: 16px;
+    }
+
+    #container #name {
+        margin-right: 6px;
+        margin-left: 12px;
+        flex-grow: 1;
+        color: #f1f1f1;
+        font-size: 10px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        pointer-events: auto;
+    }
+
+    #container #remove {
+        margin-left: 4px;
+        width: 12px;
+        height: 20px;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        background-color: var(--color-principal-red);
+        opacity: 0;
+        transition: opacity 500ms;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #container[can-hover="true"]:hover #remove {
+        opacity: 1;
+    }
+
+    #container #remove #remove-icon {
+        width: 7px;
+        height: 7px;
+        transition: 300ms;
+    }
+
+    #container #remove:hover:active #remove-icon {
+        transform: translateY(2px);
+    }
+
+    #container #line-up {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -1px;
+        background-color: #C1C1C1;
+        border-radius: 2px;
+        display: none;
+    }
+
+    #container #line-bottom {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -1px;
+        background-color: #C1C1C1;
+        border-radius: 2px;
+        display: none;
+    }
+
+</style>
+
+<div id="container" can-hover="true">
+
+    <!-- 上线 -->
+    <div id="line-up"></div>
+
+    <!-- 点 -->
+    <x-svg id="section" src="ui/section.svg" color="var(--default-svg-color)"></x-svg>
+
+    <!-- 组合 -->
+    <x-svg id="combination" src="ui/combination.svg" color="#6952DC"></x-svg>
+    
+    <!-- name -->
+    <div id="name"></div>
+
+    <!-- 删除 -->
+    <div id="remove">
+        <x-svg id="remove-icon" src="ui/close.svg"></x-svg>
+    </div>
+
+    <!-- 下线 -->
+    <div id="line-bottom"></div>
+
+</div>

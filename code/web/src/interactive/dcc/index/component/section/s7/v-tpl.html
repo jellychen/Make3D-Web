@@ -1,0 +1,71 @@
+<style>
+    :host {
+        display: flex;
+        justify-content: center;
+    }
+
+    #container {
+        width: 1120px;
+        min-height: 480px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 64px;
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    #container #content {
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #container #content #title {
+        align-self: stretch;
+        height: 48px;
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+        border-bottom: 2px solid #363636;
+        margin-bottom: 32px;
+    }
+
+    #container #content #list {
+        align-self: stretch;
+        color: #fff;
+        font-size: 18px;
+    }
+
+    #container #content ul {
+        list-style-type: disc;
+    }
+
+    #container #content ul li {
+        line-height: 36px;
+        font-weight: 100;
+    }
+
+    #container #img {
+        width: 480px;
+        height: 480px;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 文本 -->
+    <div id="content">
+        <div id="title">Sculptor</div>
+        <ul id="list">
+            <li>Fully online 3D engraving system</li>
+            <li>A variety of engraving tools are built in</li>
+            <li>Performance optimization</li>
+            <li>Voxel reconstruction solves topological problems</li>
+        </ul>
+    </div>
+
+    <!-- 图片 -->
+    <x-image id="img" object-fit="cover"></x-image>
+</div>

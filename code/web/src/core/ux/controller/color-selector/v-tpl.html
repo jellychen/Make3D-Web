@@ -1,0 +1,217 @@
+<style>
+    :host {
+        background: transparent;
+    }
+
+    #container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container #pan {
+        position: relative;
+        aspect-ratio: 1.4;
+        cursor: crosshair;
+        background-color: antiquewhite;
+        border-radius: 2px;
+        margin-bottom: 4px;
+        background-color: hsl(0, 100%, 100%);
+        background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #FFF, transparent);
+    }
+
+    #container #pan:active {
+        cursor: grabbing;
+    }
+
+    #container #pan-handle {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        left: 0px;
+        border: 2px solid #e1e1e1;
+        border-radius: 50%;
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transform: translate(-6px, -6px);
+        user-select: none;
+        pointer-events: none;
+    }
+
+    #container #pan-brief {
+        position: absolute;
+        pointer-events: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+        transform: translate(10px, -20px);
+        border: 1px solid rgba(255, 255, 255, 0.40);
+        box-shadow: 0px 0px 4px #000;
+        visibility: hidden;
+        z-index: 100000000;
+    }
+
+    #container #info-container {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 6px;
+        justify-content: space-between;
+    }
+
+    #container #info-container #hex-color {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #container #info-container #hex-color #text {
+        color: #b1b1b1;
+        height: 18px;
+        font-size: 10px;
+        line-height: 18px;
+        margin-right: 10px;
+    }
+
+    #container #info-container #hex-color input {
+        color: #e1e1e1;
+        font-size: 10px;
+        width: 20px;
+        height: 16px;
+        appearance: none;
+        border-radius: 3px;
+        outline-style: none;
+        border: 1px solid #3a3a3a;
+        background: transparent;
+        margin-right: 10px;
+    }
+
+    #container #info-container #hex-color input::-webkit-outer-spin-button,
+    #container #info-container #hex-color input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    #container #info-container #hex-color input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    #container #info-container #color-picker {
+        width: 22px;
+        height: 22px;
+    }
+
+    #container #info-container #color-picker[disable="true"] {
+        opacity: 0.25;
+        cursor: not-allowed!important;
+    }
+
+    #container #controllers {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #container #controllers #a {
+        flex-grow: 1;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container #controllers #a #h {
+        position: relative;
+        height: 14px;
+        border-radius: 2px;
+        background: linear-gradient(
+            to right,
+            rgb(255, 0, 0),
+            rgb(255, 255, 0),
+            rgb(0, 255, 0),
+            rgb(0, 255, 255),
+            rgb(0, 0, 255),
+            rgb(255, 0, 255),
+            rgb(255, 0, 0)
+        );
+    }
+
+    #container #controllers #a #alpha-container {
+        position: relative;
+        height: 14px;
+        border-radius: 2px;
+        background-color: rgb(255, 255, 255);
+        background-image: conic-gradient(
+            rgba(0, 0, 0, 0.3) 0 25%,
+            transparent 0 50%,
+            rgba(0, 0, 0, 0.3) 0 75%,
+            transparent 0
+        );
+        background-size: 6px 6px;
+    }
+
+    #container #controllers #a #alpha-container #color-gradient {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 2px;
+        pointer-events: none;
+        background-image: linear-gradient(to right, #000, transparent);
+    }
+
+    #container .handle {
+        position: absolute;
+        width: 2px;
+        height: 14px;
+        left: 0px;
+        border: 2px solid #f1f1f1;
+        border-radius: 3px;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        transform: translate(-3px, -2px);
+        pointer-events: none;
+    }
+
+    #container .handle-container:active {
+        cursor: grabbing;
+    }
+
+</style>
+
+<div id="container">
+    <!-- 显示颜色 -->
+    <div id="pan">
+        <div id="pan-handle"></div>
+        <div id="pan-brief"></div>
+    </div>
+
+    <!-- 用来显示颜色和取色器 -->
+    <div id="info-container">
+
+        <!-- hex color -->
+        <div id="hex-color">
+            <div id="text">RGB:</div>
+            <input type="number" id="R" placeholder="" value="255" />
+            <input type="number" id="G" placeholder="" value="255" />
+            <input type="number" id="B" placeholder="" value="255" />
+        </div>
+
+        <!-- 取色器 -->
+        <x-icon-button-borderless id="color-picker" icon="ui/color-picker.svg"></x-icon-button-borderless>
+    </div>
+
+    <!-- 色相和alpha -->
+    <div id="controllers">
+        <div id="a">
+            <!-- 调整色相 -->
+            <div id="h" class="handle-container">
+                <div id="h-handle" class="handle"></div>
+            </div>
+
+            <!-- 调整透明度 -->
+            <div id="alpha-container" class="handle-container">
+                <div id="color-gradient"></div>
+                <div id="alpha-handle" class="handle"></div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>

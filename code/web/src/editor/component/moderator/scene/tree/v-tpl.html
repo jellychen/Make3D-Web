@@ -1,0 +1,102 @@
+<style>
+    :host {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        pointer-events: auto;
+    }
+
+    #container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    #container[has-cell-dragging] {
+        cursor: grabbing;
+    }
+
+    #container #scroll-content-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        right: 0;
+
+        background: transparent;
+        color: transparent;
+        border: none;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        scroll-behavior: auto;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        scrollbar-width: none; /* Firefox */
+        will-change: scroll-position;
+        overflow-anchor: none
+    }
+
+    #container #scroll-content-container::-webkit-scrollbar {
+        display: none
+    }
+
+    #container #scroll-content-container #background-wrapper-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        color: transparent;
+        border: none;
+        overflow-anchor: none
+    }
+
+    #container #scroll-content-container .background-linear-gradient {
+        background: linear-gradient(#282828 50%,#1D1D1D 50%);
+        background-size: 100% 68px;
+        background-position: 0px 0px;
+    }
+
+    #container #content-container {
+        width: 100%;
+    }
+
+    #container #scrollbar-v {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        right: 2px;
+        width: 6px;
+        opacity: 0.5;
+        transition: opacity 300ms;
+    }
+
+    #container:hover .scrollbar-v-hover {
+        opacity: 1 !important;
+    }
+
+</style>
+
+<div id="container">
+
+    <!-- scroll-content-container 高度由外部决定，调整他的scrollTop -->
+    <div id="scroll-content-container">
+
+        <!-- 用来背景图 -->
+        <div id="background-wrapper-container" class="background-linear-gradient">
+
+            <!-- 这里奇怪 需要多套一层才能把 background-wrapper-container 撑开-->
+            <div id="content-container"></div>
+
+        </div>
+
+    </div>
+    
+    <!-- 垂直滚动条 -->
+    <x-biz-scroll-v id="scrollbar-v" class="scrollbar-v-hover"></x-biz-scroll-v>
+    
+</div>

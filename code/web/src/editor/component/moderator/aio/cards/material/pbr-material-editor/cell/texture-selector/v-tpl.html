@@ -1,0 +1,151 @@
+<style>
+    :host {
+        position: relative;
+        display: flex;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+
+    #container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container #label-container {
+        align-self: flex-start;
+        height: 32px;
+        width: 120px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container #label-container #name {
+        align-self: flex-end;
+        max-width: 100px;
+        height: 100%;
+        margin-right: 8px;
+    }
+
+    #container #texture-container {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        margin-right: 10px;
+    }
+
+    #container #texture-container #texture-preview {
+        position: relative;
+        width: 84px;
+        height: 84px;
+        cursor: pointer;
+        border-radius: 4px;
+        overflow: hidden;
+
+        background-color: #363636;
+        background-image: conic-gradient(
+            rgba(0, 0, 0, 0.3) 0 25%,
+            transparent 0 50%,
+            rgba(0, 0, 0, 0.3) 0 75%,
+            transparent 0
+        );
+        background-size: 12px 12px;
+        transition: border 200ms, transform 200ms;
+    }
+
+    #container #texture-container #texture-preview:hover:active {
+        ;
+    }
+
+    #container #texture-container #texture-preview #texture {
+        position: absolute;
+        width: 84px;
+        height: 84px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+
+    #container #texture-container #texture-preview:hover #remove {
+        opacity: 1!important;
+    } 
+
+    #container #texture-container #texture-preview #remove {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        top: 4px;
+        right: 4px;
+        opacity: 0;
+        border-radius: 10px;
+        transition: opacity 200ms, transform 200ms;
+    }
+
+    #container #texture-container #texture-preview #remove:active {
+        transform: translateY(1px);
+    }
+
+    #container #texture-container #texture-preview:hover #setter {
+        opacity: 1!important;
+    } 
+
+    #container #texture-container #texture-preview #setter {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        bottom: 4px;
+        right: 4px;
+        opacity: 0;
+        border-radius: 10px;
+        transition: opacity 200ms, transform 200ms;
+    }
+
+    #container #texture-container #texture-preview #setter:active {
+        transform: translateY(1px);
+    }
+    
+    #container #texture-container #file {
+        width: 22px;
+        height: 22px;
+        align-self: flex-end;
+        margin-left: 10px;
+    }
+
+    #container #texture-container #file-input {
+        width: 0;
+        height: 0;
+    }
+</style>
+
+<div id="container">
+
+    <!-- label -->
+    <div id="label-container">
+        <x-text id="name" color="var(--default-font-color)" data="undefined" size="var(--font-size-2)"></x-text>
+    </div>
+
+    <!-- 文件选择器 -->
+    <div id="texture-container">
+
+        <!-- 图片预览 -->
+        <div id="texture-preview">
+
+            <!-- 图片 -->
+            <x-image-advanced id="texture"></x-image-advanced>
+
+            <!-- 移除 -->
+            <x-icon-button-borderless id="remove" icon="ui/delete.svg" icon-w="14px" icon-h="14px" color="var(--color-principal-red)"></x-icon-button-borderless>
+
+            <!-- 设置 -->
+            <x-icon-button-borderless id="setter" icon="ui/conf.svg" icon-w="14px" icon-h="14px" color="#FFF"></x-icon-button-borderless>
+        </div>
+        
+        <!-- 按钮 -->
+        <x-icon-button-borderless id="file" icon="ui/file.svg"></x-icon-button-borderless>
+        
+        <!-- 文件选择入口 -->
+        <input type="file" id="file-input" accept=".png, .jpg, image/png, image/jpeg" style="display:none;">
+        
+    </div>
+
+</div>

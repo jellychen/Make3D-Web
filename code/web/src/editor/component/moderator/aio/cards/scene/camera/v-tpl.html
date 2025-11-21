@@ -1,0 +1,92 @@
+<style>
+    :host {
+        width: 100%;
+        display: flex;
+    }
+
+    #container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin-left: 8px;
+    }
+
+    #container #cls {
+        display: flex;
+        align-items: center;
+        height: 24px;
+        margin-bottom: 12px;
+    }
+
+    #container #cls #icon {
+        margin-left: 10px;
+        width: 10px;
+        height: 10px;
+    }
+
+    #container #cls #label {
+        height: 22px;
+        margin-left: 8px;
+    }
+
+    #container #content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 22px;
+        margin-bottom: 8px;
+    }
+
+    #container #content #camera-container {
+        display: flex;
+        flex-direction: row;
+        gap: 22px;
+        align-items: center;
+    }
+
+    #container #content #camera-container .s {
+        width: 2px;
+        height: 12px;
+        border-radius: 2px;
+        background-color: rgba(255,255,255,0.3);
+    }
+
+    #container #content #camera-container .button {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        opacity: 1.0;
+        transition: opacity 100ms, transform 100ms;
+    }
+
+    #container #content #camera-container .button:hover {
+        opacity: 1;
+    }
+
+    #container #content #camera-container .button:active {
+        transform: translateY(1px);
+    }
+</style>
+
+<div id="container">
+
+    <!-- 分类 -->
+    <div id="cls">
+        <x-svg id="icon" color="var(--default-svg-color)" src="ui/classification.svg"></x-svg>
+        <x-text id="label" color="var(--default-font-color)" token="camera" size="var(--font-size-0)"></x-text>
+    </div>
+
+    <!-- 调节项目 -->
+    <div id="content">
+        <div id="camera-container">
+            <x-svg id="axis-x" class="button" color="var(--default-svg-color)" icon="ui/axis-x.svg"> </x-svg>
+            <x-svg id="axis-y" class="button" color="var(--default-svg-color)" icon="ui/axis-y.svg"> </x-svg>
+            <x-svg id="axis-z" class="button" color="var(--default-svg-color)" icon="ui/axis-z.svg"> </x-svg>
+            <x-svg id="coordinate-2d-xy" class="button" color="var(--default-svg-color)" icon="ui/coordinate-2d.svg"> </x-svg>
+            <div class="s" style="margin-left: 8px; margin-right: 8px;"></div>
+            <x-svg id="reset" class="button" color="var(--default-svg-color)" icon="ui/reset.svg"> </x-svg>
+        </div>
+    </div>
+</div>

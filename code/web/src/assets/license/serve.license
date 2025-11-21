@@ -1,0 +1,31 @@
+Online 3D Modeling Software Service Statement
+
+=== Welcome to Make3d ===
+Empowering creators, engineers, and designers with a seamless ​online 3D modeling platform, Make3d is committed to safeguarding your privacy and intellectual property. This Service Statement outlines our pledge to protect your data and creative works.
+
+=== Data Collection & Usage Policy ===
+    We do not intentionally store or retain any user-generated data, including 3D models, drafts, or project files, unless explicitly authorized by you or required by law.
+Session-specific data (e.g., unsaved work-in-progress files, editing history) is stored temporarily in memory during your active session and ​permanently deleted upon logout or browser closure.
+No backups or archives: Deleted files, versions, or drafts are ​irretrievable and not retained in any form, including cloud storage or archival systems.
+
+    You may optionally share project files or collaboration permissions with third parties, but all sharing requires ​explicit consent and can be revoked at any time.
+No automatic uploads: Files are ​not synced to external services (e.g., social media, cloud platforms) without your direct action.
+
+    We do not log or analyze your modeling patterns, workflow habits, or file access frequency.
+No metadata retention: Exported files (OBJ, STL, GLB, etc.) are stripped of all metadata tied to your account.
+
+=== Security & Privacy Measures ===
+    End-to-End Encryption: All data transmitted during modeling sessions is encrypted using TLS 1.3+ protocols.
+    
+    Zero-Knowledge Architecture: Our servers act solely as intermediaries; ​we do not decrypt, analyze, or store your files for any purpose.
+
+    Regular Security Audits: Independent third-party auditors conduct annual penetration testing and compliance reviews to ensure adherence to GDPR, CCPA, and ISO 27001 standards.
+
+    AI-Free Surveillance: No machine learning algorithms monitor or profile user behavior or content.
+
+=== User Data Rights ===
+    Account Deletion: You may request the deletion of your account and all associated data within ​7 business days. We guarantee complete erasure of records.
+    
+    Data Portability: Export projects in standard 3D formats (OBJ, STL, GLB) without附加 metadata.
+    
+    Access Logs: Review logs of account activity (IP addresses, timestamps) if required for security investigations.

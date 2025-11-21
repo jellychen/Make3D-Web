@@ -1,0 +1,132 @@
+<style>
+    :host {
+        position: absolute;
+        z-index: 1000000000;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    #container {
+        position: absolute;
+        z-index: 1000000000;
+        width: 320px;
+        height: 180px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 6px;
+        backdrop-filter: blur(8px);
+        border: solid 1px var(--color-gray-300);
+        box-shadow: var(--shadow-100);
+        overflow: hidden;
+        background-color: rgba(32, 32, 32, .2);
+        cursor: default;
+    }
+
+    #container #title {
+        align-self: stretch;
+        display: flex;
+        flex-direction: row;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 8px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #container #title #icon-container {
+        display: flex;
+        flex-direction: row;
+        gap: 6px;
+    }
+
+    #container #title #icon-container .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    #container #title #close-btn {
+        width: 20px;
+        height: 20px;
+        opacity: 0.6;
+        transition: opacity 300ms;
+    }
+
+    #container #title #close-btn:hover {
+        opacity: 1;
+    }
+
+    #container #zone {
+        position: relative;
+        border-radius: 6px;
+        border: 1px dashed #343434;
+        align-self: stretch;
+        height: 220px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background-color: rgba(36, 36, 36, .9);
+        transition: border 400ms;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+    }
+
+    #container #zone[highlight='green'] {
+        border: 1px dashed var(--color-principal-green);
+    }
+
+    #container #zone[highlight='red'] {
+        border: 1px dashed var(--color-principal-red);
+    }
+
+    #container #zone #tips-container {
+        position: absolute;
+        right: 6px;
+        top: 6px;
+        background-color: var(--color-darken-purple);
+        border-radius: 5px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        padding-left: 12px;
+        padding-right: 12px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+    }
+
+    #container #zone #add {
+        margin-top: 16px;
+    }
+
+    #container #zone #tips {
+        
+    }
+</style>
+
+<div id="container">
+    
+    <div id="title">
+        <div id="icon-container">
+            <x-svg class="icon" icon="ui/image-0.svg"></x-svg>
+            <x-svg class="icon" icon="ui/3d-object-0.svg"></x-svg>
+        </div>
+        <x-icon-button-borderless id="close-btn" icon="ui/close.svg"></x-icon-button-borderless>
+    </div>
+
+    <div id="zone">
+        <x-text token="accpet.files.type" color="var(--default-font-color)"></x-text>
+        <x-button id="add" enable-icon="true" icon="ui/folder.svg" text-token="select.file" text-size="10px"></x-button>
+        <input type="file" id="file-input" accept=".png,.jpg,.jpeg,.obj,.stl,.fbx,.gltf,.glb,.m3d" style="display:none;">
+        <div id="tips-container">
+            <x-text id="tips" token="accpet.files" color="var(--default-font-color)"></x-text>
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,63 @@
+<style>
+    :host {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 1000000000;
+        backdrop-filter: blur(3px);   
+    }
+    
+    #container {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 580px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        border-radius: 6px;
+        border: solid 1px var(--color-gray-300);
+        box-shadow: var(--shadow-100);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(32, 32, 32, 1);
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+
+    #icon {
+        width: 100px;
+        height: 60px;
+        border-radius: 80px;
+    }
+
+    #title {
+        user-select: none;
+        margin-top: 30px;
+        color: #f3f3f3;
+        font-size: 11px;
+    }
+
+    #line {
+        width: 280px;
+        height: 1px;
+        margin-bottom: 60px;
+        background: linear-gradient(to right, transparent, var(--color-principal-green), transparent);
+    }
+
+</style>
+
+<div id="container">
+
+    <x-svg id="icon" icon="ui/figma-make3d.svg"></x-svg>
+    <div id="title">Fimag & Make3D.online</div>
+    <div id="line"></div>
+    <x-button id="button" text-data="Start"></x-button>
+    
+</div>

@@ -1,0 +1,41 @@
+<style>
+    :host {
+        z-index: 1000000000;
+        position: absolute;
+        border-radius: 6px;
+        backdrop-filter: blur(8px);
+        border: solid 1px var(--color-gray-300);
+        box-shadow: var(--shadow-100);
+        overflow: hidden;
+        background-color: rgba(32,32,32,0.8);
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        padding: 18px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        background: repeating-linear-gradient(135deg, #161616 0, #242424 1px, transparent 1px, transparent 5px);
+    }
+
+    #container #icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    #container #button {
+        min-width: 180px;
+    }
+</style>
+
+<div id="container">
+
+    <x-svg id="icon" icon="ui/figma-make3d.svg"></x-svg>
+    <x-button id="button" text-data="Extract Figma Selected Elements"></x-button>
+</div>

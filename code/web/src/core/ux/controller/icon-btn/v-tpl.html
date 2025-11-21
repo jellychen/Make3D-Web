@@ -1,0 +1,39 @@
+<style>
+    :host {
+        pointer-events: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: var(--btn-border-radius);
+        transition: background 200ms, box-shadow 200ms;
+    }
+
+    :host([enable="false"]) {
+        pointer-events: none;
+        opacity: 0.3;
+    }
+
+    :host(:hover) {
+        background: var(--btn-bg-color);
+        box-shadow: var(--btn-box-shadow);
+    }
+
+    :host(:active:hover) {
+        background: var(--btn-bg-active-color);
+    }
+
+    :host(:active:hover) .pointer_down {
+        transform: translateY(1px);
+    }
+
+    #icon {
+        pointer-events: none;
+        width: 16px;
+        height: 16px;
+        transition: transform 100ms;
+    }
+</style>
+
+<x-svg id="icon" class="pointer_down" color="var(--default-svg-color)"></x-svg>
+

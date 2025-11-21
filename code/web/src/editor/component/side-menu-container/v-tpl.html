@@ -1,0 +1,174 @@
+<style>
+    :host {
+        position: relative;
+        top: 0;
+        height: 100%;
+        z-index: 1;
+        user-select: none;
+    }
+
+    #container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #container #sub-container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        flex: 1;
+    }
+
+    #container #sub-container #l {
+        position: relative;
+        display: flex;
+        width: 48px;
+        flex-direction: column;
+        align-items: center;
+        border-right: 1px solid var(--color-frame-border);
+    }
+
+    #container #sub-container #r {
+        position: relative;
+        display: flex;
+        width: 36px;
+        flex-direction: column;
+        align-items: center;
+        border-right: 1px solid var(--color-frame-border);
+    }
+
+    #container #sub-container #r #receptacle {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container .separator {
+        height: 2px;
+        width: 8px;
+        align-self: center;
+        margin-left: 12px;
+        margin-right: 12px;
+        margin-bottom: 34px;
+    }
+
+    #container #corner {
+        position: relative;
+        width: 100%;
+        height: var(--nav-h);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid var(--color-frame-border);
+    }
+
+    #container #corner #logo-container {
+        position: relative;
+        width: var(--logo-w);
+        height: var(--logo-h);
+    }
+
+    #container #corner #logo {
+        position: absolute;
+        width: var(--logo-w);
+        height: var(--logo-h);
+    }
+
+    #container #corner #version {
+        position: absolute;
+        color: #A8A8A8;
+        font-size: 6px;
+        padding: 2px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        left: 100%;
+        background-color: rgba(255,255,255,0.1);
+        border-radius: 3px;
+    }
+
+    #container #user {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        margin-top: 58px;
+        margin-bottom: 38px;
+    }
+
+    #container #top-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+
+    #container #top-container .icon-btn {
+        width:  var(--side-menu-icon-btn-w);
+        height: var(--side-menu-icon-btn-h);
+    }
+
+    #container #bottom-container {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 48px;
+        gap: 16px;
+        background-color: var(--color-principal);
+    }
+
+    #container #bottom-container .icon-btn {
+        width: var(--side-menu-bottom-btn-w);
+        height: var(--side-menu-btttom-btn-h);
+    }
+</style>
+
+<div id="container">
+
+    <!-- 左上角 corner -->
+    <div id="corner">
+
+        <!-- 产品 logo -->
+        <div id="logo-container">
+            <x-svg id="logo" icon="ui/logo.svg" color="var(--default-svg-color)"></x-svg>
+            <div id="version"></div>
+        </div>
+
+    </div>
+
+    <div id="sub-container">
+
+        <!-- 左侧 -->
+        <div id="l">
+
+            <!-- 用户数据 -->
+            <x-biz-side-menu-user id="user"></x-biz-side-menu-user>
+
+            <!-- 底部菜单 -->
+            <div id="bottom-container">
+
+                <!-- 语言 -->
+                <x-icon-button-borderless id="lang" class="icon-btn" icon="ui/language.svg"></x-icon-button-borderless>
+                
+            </div>
+        </div>
+
+        <!-- 右侧 -->
+        <div id="r">
+
+            <x-biz-side-menu-container-receptacle id="receptacle"></x-biz-side-menu-container-receptacle>
+
+        </div>
+
+    </div>
+</div>
+

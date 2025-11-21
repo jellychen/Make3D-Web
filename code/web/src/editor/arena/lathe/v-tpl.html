@@ -1,0 +1,228 @@
+<style>
+    :host {
+        position: absolute;
+        z-index: 1000000000;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        cursor: wait;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        border-radius: 6px;
+        backdrop-filter: blur(8px);
+        border: solid 1px var(--color-gray-300);
+        box-shadow: var(--shadow-100);
+        overflow: hidden;
+        background-color: rgba(32, 32, 32, .2);
+        cursor: default;
+    }
+
+    #container #title {
+        align-self: stretch;
+        display: flex;
+        flex-direction: row;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 6px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #container #title #icon-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+    }
+
+    #container #title #icon-container .icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    #container #title #close-btn {
+        opacity: 0.6;
+        transition: opacity 300ms;
+    }
+
+    #container #title #close-btn:hover {
+        opacity: 1;
+    }
+
+    #container #zone {
+        position: relative;
+        overflow: hidden;
+        border-radius: 6px;
+        border: 1px dashed #343434;
+        align-self: stretch;
+        margin: 10px;
+        margin-top: 6px;
+        background-color: rgba(36, 36, 36, .9);
+        transition: border 400ms;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        width: 860px;
+        height: 520px;
+    }
+
+    #container #zone #l {
+        position: relative;
+        width: 580px;
+        align-self: stretch;
+    }
+
+    #container #zone #l #curve-editor {
+        position: absolute;
+        left: 6px;
+        top: 6px;
+        bottom: 6px;
+        right: 0;
+    }
+
+    #container #zone .s {
+        align-self: stretch;
+        margin-top: 36px;
+        margin-bottom: 36px;
+        border: 0;
+        background: linear-gradient(to bottom, transparent, #383838, transparent);
+        padding-right: 1px;
+    }
+
+    #container #zone #r {
+        margin-left: 3px;
+        padding-top: 12px;
+        padding-right: 8px;
+        gap: 12px;
+        flex: 1;
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container #zone #r .label {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+    }
+
+    #container #zone #r .label .dot {
+        width: 4px;
+        height: 4px;
+        border-radius: 4px;
+        background-color: var(--color-principal-green);
+    }
+
+    #container #zone #canvas {
+        border-radius: 6px;
+        width: 256px;
+        height: 256px;
+        background-color: #343434;
+        background-color: #242424 !important;
+        background-image: conic-gradient(rgba(0, 0, 0, .3) 0 25%, transparent 0 50%, rgba(0, 0, 0, .3) 0 75%, transparent 0) !important;
+        background-size: 16px 16px !important;
+    }
+
+    #container #zone #addtoscene {
+        margin-top: 20px;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 抬头 -->
+    <div id="title">
+        <div id="icon-container">
+            <x-svg 
+                class="icon" 
+                icon="ui/lathe.svg">
+            </x-svg>
+            <x-text color="var(--default-font-color)" raw="Lathe" size="12px"></x-text>
+        </div>
+
+        <x-icon-button-borderless 
+            id="close-btn" 
+            icon="ui/close.svg">
+        </x-icon-button-borderless>
+    </div>
+
+    <!-- 中间的区域 -->
+    <div id="zone">
+
+        <!-- 左侧渲染器 -->
+        <div id="l">
+
+            <!-- 曲线编辑器 -->
+            <x-biz-lathe-curve-editor id="curve-editor"></x-biz-lathe-curve-editor>
+
+        </div>
+
+        <div class="s"></div>
+
+        <!-- 右侧 -->
+        <div id="r">
+
+            <!-- label -->
+            <div class="label">
+                <div class="dot"></div>
+                <x-text color="var(--default-font-color)" raw="Curve" size="10px"></x-text>
+            </div>
+
+            <!-- 展示 -->
+            <canvas id="canvas"></canvas>
+
+            <!-- label -->
+            <div class="label">
+                <div class="dot"></div>
+                <x-text color="var(--default-font-color)" raw="Conf" size="10px"></x-text>
+            </div>
+
+            <!-- 曲线分段 -->
+            <x-biz-lathe-integer 
+                id="segments"
+                name-token="curve.segments"
+                token="segments"
+                range-start="1"
+                range-end="16"
+                default="8">
+            </x-biz-lathe-integer>
+
+            <!-- 环绕分段 -->
+            <x-biz-lathe-integer
+                id="steps"
+                name-token="surround.segments"
+                token="steps"
+                range-start="3"
+                range-end="32"
+                default="16">
+            </x-biz-lathe-integer>
+
+            <!-- 添加到场景 -->
+            <x-button 
+                id="addtoscene"
+                fullwidth="true"
+                enable-icon="true" 
+                icon="ui/add.svg" 
+                text-token="svg.convert.polygon.add.scene" 
+                text-size="10px"
+                btn-style="blue"
+                btn-size="small">
+            </x-button>
+
+        </div>
+
+    </div>
+
+</div>

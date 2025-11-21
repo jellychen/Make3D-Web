@@ -1,0 +1,34 @@
+<style>
+    #container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    #container .data {
+        display: flex;
+        justify-content: center;
+        min-width: 24px;
+        padding-left: 6px;
+        padding-right: 6px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        color: white;
+        font-size: 8px;
+        border: 1px dashed rgba(255,255,255,0.1);
+        border-radius: 4px;
+    }
+
+    #container #spring {
+        width: 10px;
+        height: 10px;
+    }
+</style>
+
+<div id="container">
+    <div id="start" class="data">0s</div>
+    <x-svg id="spring" icon="ui/spring.svg" color="white"></x-svg>
+    <div id="end" class="data">0s</div>
+</div>

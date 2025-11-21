@@ -1,0 +1,86 @@
+<style>
+    :host {
+        position: relative;
+        display: flex;
+        height: 32px;
+    }
+
+    #container {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container #name {
+        width: 76px;
+        height: 100%;
+        margin-right: 8px;
+    }
+
+    #container #controller-container {
+        width: 204px;
+        height: 100%;
+    }
+
+    #container #controller-container #controller {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 8px;
+        align-self: stretch;
+    }
+
+    #container .item {
+        user-select: none;
+        height: 20px;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        color: var(--color-white);
+        background-color: var(--color-white-006);
+        transition: background-color 300ms;
+        cursor: pointer;
+    }
+
+    #container .item:hover {
+        background-color: var(--color-white-040);
+    }
+
+    #container .item[selected="true"] {
+        font-weight: bold !important;
+        background-color: var(--color-white-020) !important;
+    }
+
+    #container #controller-container #controller .item:first-child {
+        border-top-left-radius: 3px !important;
+        border-bottom-left-radius: 3px !important;
+    }
+
+    #container #controller-container #controller .item:last-child {
+        border-top-right-radius: 3px !important;
+        border-bottom-right-radius: 3px !important;
+    }
+</style>
+
+<div id="container">
+
+    <!-- label -->
+    <x-text id="name" color="var(--default-font-color)" data="XXX" align="end" size="var(--font-size-0)"></x-text>
+
+    <!-- 元素容器 -->
+    <div id="controller-container">
+        <div id="controller">
+            <div id="px" class="item" selected="true">+X</div>
+            <div id="nx" class="item">-X</div>
+            <div id="py" class="item">+Y</div>
+            <div id="ny" class="item">-Y</div>
+            <div id="pz" class="item">+Z</div>
+            <div id="nz" class="item">-Z</div>
+        </div>
+    </div>
+
+</div>

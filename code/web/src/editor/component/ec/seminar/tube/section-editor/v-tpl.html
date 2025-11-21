@@ -1,0 +1,78 @@
+<style>
+    :host {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+    }
+
+    #container #oper {
+        position: absolute;
+        align-self: flex-start;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        right: 12px;
+        bottom: 4px;
+    }
+
+    #container #oper-selector {
+        padding: 2px;
+        border-radius: 6px;
+        background-color: rgba(255, 255, 255, 0.06);
+    }
+
+    #container #oper .btn {
+        width: 14px;
+        height: 14px;
+        transition: opacity 100ms, transform 100ms;
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    #container #oper .btn:hover {
+        opacity: 1;
+    }
+
+    #container #oper .btn:hover:active {
+        transform: translateY(1px);
+    }
+
+    #canvas {
+        align-self: stretch;
+        flex: 1;
+        background-color: rgba(255, 255, 255, 0.04);
+        transition: background 200ms;
+        border-radius: 6px;
+    }
+</style>
+
+<div id="container">
+    
+    <!-- 选择器 -->
+    <div id="oper">
+        <x-selector-bar id="oper-selector" default="select-point">
+            <x-selector-bar-item icon="curve-oper/select-point.svg"             token="select-point"></x-selector-bar-item>
+            <x-selector-bar-item icon="curve-oper/select-curve.svg"             token="select-curve"></x-selector-bar-item>
+            <x-selector-bar-item icon="curve-oper/curve-center-subdivision.svg" token="subdivision" ></x-selector-bar-item>
+            <x-selector-bar-item icon="curve-oper/curve-delete.svg"             token="delete-curve"></x-selector-bar-item>
+        </x-selector-bar>
+
+        <x-svg id="reset" class="btn" icon="ui/reset.svg" color="var(--default-svg-color)"></x-svg>
+    </div>
+
+    <!-- 画布 -->
+    <canvas id="canvas" class="cursor-pointer"></canvas>
+
+</div>

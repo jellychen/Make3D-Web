@@ -1,0 +1,58 @@
+<style>
+    :host {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--color-principal);
+    }
+
+    #container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container #header {
+        position: relative;
+        align-self: stretch;
+        height: 48px;
+        border-bottom: 1px solid var(--color-frame-border);
+        z-index: 10000;
+    }
+
+    #container #content-container-scrollable {
+        position: absolute;
+        width: 100%;
+        top: 48px;
+        bottom: 0;
+    }
+
+    #container #content-container #content-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 额头内容 -->
+    <div id="header"></div>
+
+    <!-- 内容容器 -->
+    <x-scrollable-container id="content-container-scrollable" enable-scroll-h="false">
+
+        <div id="content-container">
+
+        </div>
+
+    </x-scrollable-container>
+
+</div>

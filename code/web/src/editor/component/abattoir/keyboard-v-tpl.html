@@ -1,0 +1,45 @@
+<style>
+    :host {
+        position: relative;
+    }
+
+    #container {
+        position: relative;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+    }
+
+    #container .icon {
+        width: 16px;
+        height: 16px;
+    }
+</style>
+
+<div id="container">
+    <x-icon-maker
+        class="icon"
+        icon="ui/keyboard-shift.svg"
+        id="shift">
+    </x-icon-maker>
+
+    <x-icon-maker
+        class="icon"
+        icon="ui/keyboard-ctrl.svg"
+        id="ctrl">
+    </x-icon-maker>
+
+    <x-icon-maker
+        class="icon"
+        icon="ui/keyboard-option.svg"
+        id="option">
+    </x-icon-maker>
+
+    <x-icon-maker
+        class="icon"
+        icon="ui/keyboard-command.svg"
+        id="command">
+    </x-icon-maker>
+</div>

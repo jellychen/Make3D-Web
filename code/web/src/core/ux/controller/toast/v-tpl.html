@@ -1,0 +1,145 @@
+<style>
+    :host {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        z-index: 1000000000;
+    }
+
+    #container {
+        position: absolute;
+        pointer-events: auto;
+        min-width: 180px;
+        max-width: 380px;
+        padding: 8px;
+        border-radius: 8px;
+        background-color: rgba(0, 0, 0, 0.95);
+        box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.60);
+
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    #container[type="info"] {
+        border: 1px solid #1777ff !important;
+    }
+
+    #container[type="fail"] {
+        border: 1px solid #ff4d4f !important;
+    }
+
+    #container[type="success"] {
+        border: 1px solid #53c31b !important;
+    }
+
+    #container[type="warn"] {
+        border: 1px solid #faad14 !important;
+    }
+
+    /* 左上 */
+    #container[location="0"],
+    #container[location="top-left"],
+    #container[location="left-top"] {
+        left: 6px;
+        top: 6px;
+    }
+
+    /* 上中 */
+    #container[location="1"],
+    #container[location="top-center"] {
+        top: 6px;
+        left: 50%;
+        transform:translate(-50%, 0%);
+    }
+
+    /* 上右 */
+    #container[location="2"],
+    #container[location="top-right"],
+    #container[location="right-top"] {
+        right: 6px;
+        top: 6px;
+    }
+
+    /* 左中 */
+    #container[location="3"],
+    #container[location="left-center"] {
+        left: 6px;
+        top: 50%;
+        transform:translate(0%, -50%);
+    }
+
+    /* 中间 */
+    #container[location="4"],
+    #container[location="center"] {
+        left: 50%;
+        top: 50%;
+        transform:translate(-50%, -50%);
+    }
+
+    /* 右中 */
+    #container[location="5"],
+    #container[location="right-center"] {
+        right: 6px;
+        top: 50%;
+        transform:translate(0%, -50%);
+    }
+
+    /* 左底 */
+    #container[location="6"],
+    #container[location="bottom-left"],
+    #container[location="left-bottom"] {
+        left: 6px;
+        bottom: 6px;
+    }
+
+    /* 底中 */
+    #container[location="7"],
+    #container[location="bottom-center"] {
+        left: 50%;
+        transform:translate(-50%, 0%);
+        bottom: 6px;
+    }
+
+    /* 底右 */
+    #container[location="8"],
+    #container[location="right-bottom"], 
+    #container[location="bottom-right"] {
+        right: 6px;
+        bottom: 6px;
+    }
+
+    #container #close {
+        width: 16px;
+        height: 16px;
+        align-self: end;
+        opacity: 0.3;
+        transition: 0.3s;
+        margin-bottom: 4px;
+    }
+
+    #container #close:hover {
+        opacity: 1;
+    }
+
+    #container #close:active {
+        opacity: 0.7;
+    }
+
+    #container #text {
+        margin-left: 4px;
+        margin-bottom: 4px;
+    }
+</style>
+
+<div id="container" type="info" location="-1">
+
+    <!-- 关闭按钮 -->
+    <x-svg id="close" icon="ui/close-circle.svg" color="var(--default-svg-color)"></x-svg>
+    
+    <!-- 文本 -->
+    <x-text id="text" color="var(--default-font-color)" clickable="false" data="undefined" size="var(--font-size-0)"></x-text>
+</div>

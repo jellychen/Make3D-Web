@@ -1,0 +1,43 @@
+<style>
+    :host {
+        position: absolute;
+        z-index: 100000;
+        right: 8px;
+        bottom: 8px;
+        display: flex;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        padding: 8px;
+        border-radius: 6px;
+        background-color: rgba(0, 0, 0, 0.8);
+        gap: 6px;
+        align-items: stretch;
+        box-shadow: var(--shadow-060);
+    }
+
+    #container .item {
+        padding-left: 16px;
+        padding-right: 16px;
+        border-radius: 4px;
+        height: 22px;
+        background-color: rgba(0, 0, 0, 1);
+        color: #E3E3E3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    #container .item:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+</style>
+
+<div id="container">
+    <div id="hidden" class="item">隐藏</div>
+</div>

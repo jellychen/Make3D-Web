@@ -1,0 +1,141 @@
+<style>
+    :host {
+        display: flex;
+        height: 100%;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        gap: 12px;
+    }
+
+    #container #add {
+        width: 28px;
+        height: 28px;
+    }
+
+    #container .btn {
+        width : var(--nav-btn-w);
+        height: var(--nav-btn-h);
+    }
+
+    #container .separator {
+        width: 2px;
+        height: 12px;
+        align-self: center;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    #container .switcher-container {
+        height: 100%;
+    }
+
+    #container .switcher-container .icon-switcher {
+        width: 46px;
+        height: 100%;
+    }
+
+    #container .icon-btn {
+        width:  var(--nav-btn-w);
+        height: var(--nav-btn-h);
+        opacity: 0.8;
+        transition: opacity 200ms;
+    }
+
+    #container .icon-btn:hover {
+        opacity: 1;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 通用添加按钮 -->
+    <x-icon-button id="add" class="btn" icon="ui/add.svg"></x-icon-button>
+
+    <!-- 分割 -->
+    <x-separator class="separator"></x-separator>
+
+    <!-- 各种按钮 -->
+    <x-icon-status-switcher-container 
+        id="switcher-container"
+        direction="row" 
+        gap="8px" 
+        enable="true" 
+        class="switcher-container">
+
+        <!-- 鼠标 -->
+        <x-icon-status-switcher 
+            id="pointer" 
+            class="icon-switcher"
+            icon="ui/pointer.svg"
+            selected="true">
+        </x-icon-status-switcher>
+
+        <!-- 分割 -->
+        <x-separator class="separator"></x-separator>
+
+        <!-- 添加立方体 -->
+        <x-icon-status-switcher 
+            id="box" 
+            class="icon-switcher" 
+            icon="shape-3d/box.svg"
+            token="cube">
+        </x-icon-status-switcher>
+
+        <!-- 添加球体 -->
+        <x-icon-status-switcher 
+            id="sphere" 
+            class="icon-switcher" 
+            icon="shape-3d/ball.svg"
+            token="sphere">
+        </x-icon-status-switcher>
+
+        <!-- 添加圆柱体 -->
+        <x-icon-status-switcher 
+            id="cylinder" 
+            class="icon-switcher" 
+            icon="shape-3d/cylinder.svg"
+            token="cylinder">
+        </x-icon-status-switcher>
+
+    </x-icon-status-switcher-container>
+
+    <!-- 分割 -->
+    <x-separator class="separator"></x-separator>
+
+    <!-- SVG -->
+    <x-icon-button-borderless 
+        id="svg" 
+        class="icon-btn" 
+        icon="shape-3d/svg.svg">
+    </x-icon-button-borderless>
+
+    <!-- 车床 -->
+    <x-icon-button-borderless 
+        id="lathe" 
+        class="icon-btn" 
+        icon="shape-3d/lathe.svg">
+    </x-icon-button-borderless>
+
+    <!-- 画笔 -->
+    <!-- <x-icon-button-borderless 
+        id="vector" 
+        class="icon-btn" 
+        icon="ui/pen.svg">
+    </x-icon-button-borderless> -->
+
+    <!-- 分割 -->
+    <x-separator class="separator"></x-separator>
+
+    <!-- 光追渲染 -->
+    <x-icon-button-borderless 
+        id="rt" 
+        class="icon-btn" 
+        icon="ui/rt-renderer.svg">
+    </x-icon-button-borderless>
+
+</div>

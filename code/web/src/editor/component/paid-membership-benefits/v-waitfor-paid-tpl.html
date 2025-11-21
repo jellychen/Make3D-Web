@@ -1,0 +1,83 @@
+<style>
+    :host {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        right: 0;
+        top: 0;
+        z-index: 9999999999999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    #container {
+        background-color: rgba(0,0,0,0.1);
+        border-radius: 6px;
+        backdrop-filter: blur(6px);
+        border: solid 1px var(--color-principal-green);
+        box-shadow: var(--shadow-060);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 16px;
+        gap: 16px;
+        min-width: 420px;
+    }
+
+    #container #header {
+        align-self: stretch;
+        height: 32px;
+        border-bottom: 1px solid var(--color-principal-green);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 8px;
+    }
+
+    #container #header #logo {
+        width: 21px;
+        height: 21px;
+    }
+
+    #container #animation {
+        width: 180px;
+        height: 120px;
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+
+    #container #btns {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+    }
+</style>
+
+<div id="container">
+
+    <!-- header -->
+    <div id="header">
+        <x-svg id="logo" color="var(--default-svg-color)" src="ui/logo.svg"></x-svg>
+    </div>
+
+    <!-- icon logo -->
+    <x-lottie id="animation" src="update.json" autoplay="true" loop="true"></x-lottie>
+
+    <div id="btns">
+        <!-- 关闭按钮 -->
+        <x-button 
+            id="close" 
+            enable-icon="true" 
+            icon="ui/close-circle.svg" 
+            class="btn-item" 
+            text-token="close" 
+            text-size="10px">
+        </x-button>
+    </div>
+</div>

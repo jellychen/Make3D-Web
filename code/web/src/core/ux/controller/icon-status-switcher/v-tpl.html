@@ -1,0 +1,168 @@
+<style>
+    :host {
+        position: relative;
+        transition: opacity 600ms;
+    }
+
+    :host([enable="false"]) {
+        pointer-events: none;
+        opacity: 0.2;
+        display: var(--display-none-if-need)!important;
+    }
+
+    #container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: background 300ms, box-shadow 300ms;
+    }
+
+    #container #icon {
+        pointer-events: none;
+        width: 16px;
+        height: 16px;
+        transition: transform 200ms, background 600ms;
+    }
+
+    #container[selected="false"]:hover {
+        background-color: #282828;
+    }
+
+    #container[selected="false"]:hover .sign-highlight {
+        opacity: 0.4 !important;
+    }
+
+    #container[selected="true"] {
+        background-color: #158d57;
+    }
+
+    #container[selected="true"] .sign-highlight {
+        opacity: 1 !important;
+    } 
+
+    #container #icon {
+        transition: opacity transform 100ms;
+    }
+
+    #container:hover:active .pointer_down {
+        transform: translateY(1px);
+    }
+
+    #container #sign {
+        position: absolute;
+        opacity: 0;
+        display: none;
+        background-color: var(--color-principal-green);
+        transition: opacity 500ms;
+    }
+
+    #container #sign[location='l'] {
+        display: block !important;
+        width: 4px;
+        height: 22px;
+        left: 0px;
+        top: 50%;
+        transform: translate(0, -50%);
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+
+    #container #sign[location='l']::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 5px;
+        height: 5px;
+        border-radius: 1px;
+        transform: rotate(45deg) translate(0, -50%);
+        background-color: var(--color-principal-green);
+    }
+
+    #container #sign[location='t'] {
+        display: block !important;
+        width: 22px;
+        height: 4px;
+        left: 50%;
+        top: 1px;
+        transform: translate(-50%, 0);
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+
+    #container #sign[location='t']::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 3px;
+        width: 5px;
+        height: 5px;
+        border-radius: 1px;
+        transform: rotate(45deg) translate(-50%, 0);
+        background-color: var(--color-principal-green);
+    }
+
+    #container #sign[location='r'] {
+        display: block !important;
+        width: 4px;
+        height: 22px;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
+    }
+
+    #container #sign[location='r']::after {
+        content: '';
+        position: absolute;
+        right: 3px;
+        top: 50%;
+        width: 5px;
+        height: 5px;
+        border-radius: 1px;
+        transform: rotate(45deg) translate(0, -50%);
+        background-color: var(--color-principal-green);
+    }
+
+    #container #sign[location='b'] {
+        display: block !important;
+        width: 22px;
+        height: 4px;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%, 0);
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+
+    #container #sign[location='b']::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        border-radius: 1px;
+        transform: rotate(45deg) translate(-50%, 0);
+        background-color: var(--color-principal-green);
+    }
+
+</style>
+
+<div id="container" selected="false">
+
+    <!-- 图标 -->
+    <x-svg id="icon" class="pointer_down" color="var(--default-svg-color)"></x-svg>
+
+    <!-- 标识 -->
+    <div id="sign" class="sign-highlight" location="none"></div>
+
+</div>
+

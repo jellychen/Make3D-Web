@@ -1,0 +1,108 @@
+<style>
+    :host {
+        display: flex;
+        height: 100%;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        gap: 12px;
+        position: relative;
+    }
+
+    #container .separator {
+        width: 2px;
+        height: 12px;
+        align-self: center;
+        margin-left: 18px;
+        margin-right: 18px;
+    }
+
+    #container #l {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 6px;
+        align-items: center;
+    }
+
+    #container #l #more {
+        width: 24px;
+        height: 24px;
+    }
+
+    #container #r {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 6px;
+        align-items: center;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 左侧 -->
+    <div id="l">
+        <x-button 
+            id="mark" 
+            btn-style="normal" 
+            text-token="uv.add.stitched.edge"
+            enable-icon="true"
+            btn-size="small"
+            icon="ui/edge-mark.svg">
+        </x-button>
+
+        <x-button 
+            id="unmark" 
+            btn-style="normal" 
+            text-token="uv.del.stitched.edge"
+            enable-icon="true"
+            btn-size="small"
+            icon="ui/edge-unmark.svg">
+        </x-button>
+
+        <!-- 分割 -->
+        <x-separator class="separator"></x-separator>
+
+        <!-- 设置 -->
+        <x-icon-button-borderless 
+            id="more" 
+            icon="ui/more.svg">
+        </x-icon-button-borderless>
+
+        <!-- 分割 -->
+        <x-separator class="separator"></x-separator>
+
+        <x-button 
+            id="unfold" 
+            btn-style="normal" 
+            text-token="uv.unfold"
+            enable-icon="true"
+            btn-size="small"
+            icon="ui/uv.svg">
+        </x-button>
+
+        <x-button 
+            id="save" 
+            btn-style="normal" 
+            text-token="uv.export"
+            enable-icon="true"
+            btn-size="small"
+            icon="ui/export-0.svg">
+        </x-button>
+    </div>
+
+    <!-- 右侧 -->
+    <div id="r">
+
+    </div>
+    
+</div>

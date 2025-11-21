@@ -1,0 +1,109 @@
+<style>
+    :host {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #board {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container #content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-top: 18px;
+    }
+
+    #container #content #mask {
+        position: absolute;
+        left: 0;
+        top: 36px;
+        right: 0;
+        bottom: 0;
+        background-color: var(--color-principal);
+        z-index: 100000;
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+    #container #content #cls {
+        display: flex;
+        align-items: center;
+        height: 24px;
+        margin-left: 8px;
+    }
+
+    #container #content #cls #icon {
+        margin-left: 10px;
+        width: 10px;
+        height: 10px;
+    }
+
+    #container #content #cls #label {
+        height: 24px;
+        margin-left: 8px;
+    }
+
+    #container #cls #more {
+        width: 14px;
+        height: 14px;
+        margin-left: 8px;
+        opacity: 0.6;
+        transition: opacity 200ms, transform 200ms;
+        cursor: pointer;
+    }
+
+    #container #cls #more:hover {
+        opacity: 1;
+    }
+
+    #container #cls #more:hover:active {
+        transform: translateY(1px);
+    }
+
+    #container #content #animation-container {
+        padding-top: 32px;
+        display: flex;
+        flex-direction: column;
+        margin-left: 12px;
+        margin-right: 12px;
+        align-self: stretch;
+        gap: 8px;
+    }
+</style>
+
+<div id="board">
+
+    <!-- 内容 -->
+    <x-scrollable-container id="container" enable-scroll-h="false">
+
+        <div id="content">
+
+            <!-- 材质 -->
+            <div id="cls">
+                <x-svg id="icon" color="var(--default-svg-color)" src="ui/classification.svg"></x-svg>
+                <x-text id="label" color="var(--default-font-color)" token="behavior" size="var(--font-size-2)"></x-text>
+                <x-svg id="more" color="var(--default-svg-color)" src="ui/more.svg"></x-svg>
+            </div>
+
+            <!-- 遮罩 -->
+            <div id="mask"></div>
+
+            <!-- 动画容器 -->
+            <div id="animation-container"></div>
+        </div>
+
+    </x-scrollable-container>
+
+</div>

@@ -1,0 +1,93 @@
+<style>
+    :host {
+        z-index: 1000000000;
+        position: absolute;
+        border-radius: 6px;
+        backdrop-filter: blur(4px);
+        border: solid 1px var(--color-gray-300);
+        box-shadow: var(--shadow-100);
+        overflow: hidden;
+        background-color: rgba(32,32,32,0.8);
+    }
+
+    #container {
+        pointer-events: none;
+        display: flex;
+        flex-direction: row;
+        padding: 18px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #container .title {
+        margin-top: 12px;
+    }
+
+    #container #svg-from-figma {
+        width: 400px;
+        height: 200px;
+        margin-bottom: 16px;
+        background-color: #303030;
+        overflow: hidden;
+        border-radius: 6px;
+        border: 1px solid var(--color-gray-300);
+    }
+
+    #container #text-input {
+        align-self: stretch;
+        min-width: 360px;
+        height: 84px;
+        border-radius: 4px;
+        background-color: #222222;
+        border: 1px solid var(--color-gray-300);
+        pointer-events: auto;
+        transition: border 400ms;
+    }
+
+    #container #text-input[status="error"] {
+        border: 1px solid var(--color-principal-red)!important;
+    }
+
+    #container #btn-container {
+        margin-top: 16px;
+        align-self: flex-end;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+    }
+
+    #container #btn-container .btn-item {
+        pointer-events: auto;
+        height: 28px;
+    }
+
+    #container #btn-container #create {
+        align-self: flex-end;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 提示文案 -->
+    <x-text class="title" color="var(--default-font-color)" token="can.from.figma" size="var(--font-size-0)"></x-text>
+
+    <!-- 显示图片 -->
+    <x-image id="svg-from-figma" object-fit="cover"></x-image>
+
+    <!-- 提示文案 -->
+    <x-text class="title" color="var(--default-font-color)" token="copy.paste.svg" size="var(--font-size-0)"></x-text>
+
+    <!-- 输入框 -->
+    <x-text-input-area id="text-input"></x-text-input-area>
+
+    <!-- 按钮 -->
+    <div id="btn-container">
+        <x-button id="create" enable-icon="true" icon="ui/polygon.svg" class="btn-item" text-token="build"></x-button>
+    </div>
+
+</div>

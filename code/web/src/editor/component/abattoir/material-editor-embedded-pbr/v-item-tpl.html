@@ -1,0 +1,66 @@
+<style>
+    :host {
+        position: relative;
+        width: 80px;
+        height: 80px;
+    }
+
+    #container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        overflow: hidden;
+        border-radius: 6px;
+        transition: transform 30ms, border 80ms;
+        background-color: #363636;
+        background-image: conic-gradient(rgba(0, 0, 0, .3) 0 25%, transparent 0 50%, rgba(0, 0, 0, .3) 0 75%, transparent 0);
+        background-size: 8px 8px;
+        border: 1px solid transparent;
+    }
+
+    #container:hover {
+        border: 1px solid #FFF;
+    }
+
+    #container:hover:active {
+        transform: translateY(1px);
+    }
+
+    #container #image {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    #container #name-container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 18px;
+        background-color: rgba(0, 0, 0, 0.2);
+        pointer-events: none;
+        user-select: none;
+    }
+
+    #container #name-container #name {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        user-select: none;
+    }
+</style>
+
+<div id="container">
+    <x-image id="image"></x-image>
+    <div id="name-container">
+        <x-text id="name" color="#FFF" raw="" size="8px"></x-text>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<style>
+    :host {
+        position: absolute;
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.3);
+        backdrop-filter: blur(4px);
+    }
+
+    #container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+    }
+
+    #container #icon {
+        width: 360px;
+        height: 360px;
+        pointer-events: none;
+    }
+</style>
+
+<div id="container">
+    <x-svg id="icon" src="ui/vip-1.svg"></x-svg>
+    <div style="height: 120px;"></div>
+</div>

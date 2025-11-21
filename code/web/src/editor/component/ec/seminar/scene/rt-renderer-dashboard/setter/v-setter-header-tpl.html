@@ -1,0 +1,31 @@
+<style>
+    #container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 18px;
+    }
+
+    #dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+        background-color: var(--color-principal-green);
+        margin-left: 18px;
+    }
+
+</style>
+
+<div id="container">
+
+    <div id="dot"></div>
+
+    <!-- 名称 -->
+    <x-text id="title" color="var(--default-font-color)" token="rt"></x-text>
+
+</div>

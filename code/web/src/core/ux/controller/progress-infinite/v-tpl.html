@@ -1,0 +1,17 @@
+<style>
+    @keyframes progress-linear-stripes {
+        0% {
+            background-position-x: -8px;
+        }
+    }
+    
+    :host {
+        background-color: #333;
+        border-radius: 2px;
+        height: 8px;
+        background-image: linear-gradient(135deg, hsla(0, 0%, 100%, 0.25) 25%, transparent 0, transparent 50%, hsla(0, 0%, 100%, 0.25) 0, hsla(0, 0%, 100%, 0.25) 75%, transparent 0, transparent);
+        background-repeat: repeat;
+        background-size: 8px;
+        animation: progress-linear-stripes 300ms infinite linear;
+    }
+</style>

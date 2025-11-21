@@ -1,0 +1,50 @@
+<style>
+    :host {
+        position: relative;
+        width: 28px;
+        height: 28px;
+    }
+
+    #btn {
+        position: absolute;
+        border-width: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: var(--btn-font-color);
+        cursor: pointer;
+        transition: transform 200ms, opacity 200ms;
+    }
+
+    #btn[enable='false'] {
+        opacity: 0.3;
+        pointer-events: none!important;
+    }
+
+    #btn[enable='true'] {
+        pointer-events: auto!important;
+    }
+
+    #btn[enable='true']:hover {
+        opacity: 1;
+    }
+
+    #btn[enable='true']:hover:active {
+        transform: translateY(1px);
+    }
+
+    #btn #icon {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<div id="btn" enable="true">
+    <x-svg id="icon" color="var(--default-svg-color)"></x-svg>
+    <slot></slot>
+</div>

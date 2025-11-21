@@ -1,0 +1,56 @@
+<style>
+    :host {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1000000000;
+    }
+
+    #container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #container #panel {
+        width: 400px;
+        height: 300px;
+        border-radius: 24px;
+        background-color: #EFEFEF;
+        box-shadow: var(--shadow-060);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #container #panel #icon {
+        width: 300px;
+        height: 225px;
+    }
+
+    #container #panel #close {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        right: 16px;
+        top: 16px;
+        cursor: pointer;
+        transition: transform 100ms;
+    }
+
+    #container #panel #close:active {
+        transform: translateY(2px);
+    }
+</style>
+
+<div id="container">
+    <div id="panel">
+        <x-svg id="icon" src="ui/vip-1.svg"></x-svg>
+        <x-svg id="close" color="#323232" src="ui/close.svg"></x-svg>
+    </div>
+</div>

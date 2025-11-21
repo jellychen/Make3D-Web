@@ -1,0 +1,92 @@
+<style>
+    :host {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 1000000000000;
+        backdrop-filter: blur(6px);
+    }
+
+    #container {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 980px;
+        display: flex;
+        flex-direction: column;
+        padding: 64px;
+        background-color: #2f2a28;
+        border-radius: 6px;
+        border: 3px solid #000;
+        box-shadow: 0px 0px 20px #000;
+        user-select: none;
+    }
+
+    #container .title-0 {
+        height: 46px;
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        border-bottom: 2px solid #434343;
+        margin-bottom: 24px;
+    }
+
+    #container .title-1 {
+        color: #fff;
+        height: 64px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    #container .content {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 100;
+        margin-bottom: 18px;
+    }
+
+    #container #close {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 26px;
+        height: 26px;
+        color: #AAA;
+        cursor: pointer;
+        transition: color 300ms;
+    }
+
+    #container #close:hover {
+        color: #fff;
+    }
+
+    #container #close:hover:active {
+        transform: translateY(1px);
+    }
+</style>
+
+<div id="container">
+
+    <div class="title-0">Privacy Policy</div>
+    <div class="title-1">No Data Collection</div>
+    <div class="content">We do not collect, store, or process any personal or usage data from our users. Your interactions with the application remain entirely anonymous and private.</div>
+    <div class="title-1">No Third-Party Sharing</div>
+    <div class="content">Since we do not collect any data, there is no sharing, selling, or transferring of information to third parties.</div>
+    <div class="title-1">Secure Experience</div>
+    <div class="content">Our application is designed to function independently without requiring access to your personal device data or network information.</div>
+    <div class="title-1">Updates to This Policy</div>
+    <div class="content">If there are any updates to this privacy policy, they will be reflected within the application to ensure transparency.</div>
+
+
+    <svg id="close" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3.5 3.5L12.5 12.5" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3.5 12.5L12.5 3.5" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+
+</div>

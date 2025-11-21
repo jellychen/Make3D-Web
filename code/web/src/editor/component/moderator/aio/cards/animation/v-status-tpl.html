@@ -1,0 +1,24 @@
+<style>
+    :host {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+    }
+
+    #container .icon {
+        width: 16px;
+        height: 16px;
+    }
+</style>
+
+<div id="container">
+    <x-svg class="icon" id="pingpong" icon="ui/ping-pong.svg" color="var(--default-svg-color)"></x-svg>
+    <x-svg class="icon" id="loop"     icon="ui/loop.svg"      color="var(--default-svg-color)"></x-svg>
+    <x-biz-moderator-cards-tween class="icon" id="tween"></x-biz-moderator-cards-tween>
+</div>

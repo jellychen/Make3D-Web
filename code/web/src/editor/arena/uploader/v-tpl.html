@@ -1,0 +1,157 @@
+<style>
+    :host {
+        position: absolute;
+        z-index: 1000000000;
+        user-select: none;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    #container {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        backdrop-filter: blur(8px);
+        border-radius: 8px;
+        border: solid 1px var(--color-gray-300);
+        box-shadow: var(--shadow-100);
+        overflow: hidden;
+        background-color: rgba(32, 32, 32, .6);
+        transition: border 300ms;
+    }
+
+    #container[outline] {
+        border: solid 1px var(--color-principal-green) !important;
+    }
+
+    #container[red-outline] {
+        border: solid 1px var(--color-principal-red) !important;
+    }
+
+    #container #title-container {
+        position: relative;
+        align-self: stretch;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        pointer-events: none;
+    }
+
+    #container #title-container #title {
+        display: flex;
+        flex-direction: row;
+        padding-left: 12px;
+    }
+
+    #container #title-container #title #icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    #container #title-container #btns {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        padding-right: 12px;
+        pointer-events: auto;
+    }
+
+    #container #title-container #btns .item {
+        width: 14px;
+        height: 14px;
+        opacity: 0.6;
+        transition: opacity 300ms, transform 200ms;
+    }
+
+    #container #title-container #btns .item:hover {
+        opacity: 1;
+    }
+
+    #container #title-container #btns .item:hover:active {
+        transform: translateY(1px);
+    }
+
+    #container #content {
+        cursor: default;
+        width: 420px;
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        /* background-color: #131313 !important; */
+    }
+
+    #container #content #packing {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 36px;
+        padding-bottom: 48px;
+        gap: 8px;
+    }
+
+    #container #content #packing #lottie {
+        width: 100%;
+        height: 32px;
+        margin-bottom: 6px;
+    }
+
+    #container #content #packing #title-packing-data {
+        width: 360px;
+    }
+
+    #container #content #upload {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 36px;
+        padding-bottom: 48px;
+        gap: 8px;
+    }
+
+    #container #content #upload #progress {
+        width: 80px;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 标题 -->
+    <div id="title-container">
+        <!-- 左侧的标题 -->
+        <div id="title">
+            <x-svg id="icon" icon="ui/cloud.svg" color="var(--default-svg-color)"></x-svg>
+        </div>
+
+        <!-- 右侧的按钮 -->
+        <div id="btns">
+            <x-icon-button-borderless 
+                id="close" 
+                class="item" 
+                icon="ui/close-circle.svg">
+            </x-icon-button-borderless>
+        </div>
+    </div>
+
+    <!-- 内容 -->
+    <div id="content">
+
+        <!-- 打包动画 -->
+        <div id="packing">
+            <x-lottie id="lottie" src="scan-files.json" autoplay="true" loop="true"></x-lottie>
+            <x-text id="title-packing-data" size="8px" color="var(--color-principal-green)"></x-text>
+        </div>
+
+        <!-- 打包上传 -->
+        <div id="upload">
+            <x-progress-infinite-line id="progress" color="var(--color-white)"></x-progress-infinite-line>
+            <x-button class="btn" id="start-upload" enable-icon="true" icon="ui/upload.svg" text-token="upload" text-size="10px" btn-style="blue"> </x-button>
+        </div>
+    </div>
+
+</div>

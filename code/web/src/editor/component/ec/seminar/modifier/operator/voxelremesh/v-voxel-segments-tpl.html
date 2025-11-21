@@ -1,0 +1,72 @@
+<style>
+    :host {
+        position: relative;
+        display: flex;
+        height: 28px;
+    }
+
+    #container {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container #name {
+        width: 76px;
+        height: 100%;
+        margin-right: 8px;
+    }
+
+    #container #controller-container {
+        width: 200px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container #number {
+        min-width: 36px;
+        height: 24px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        color: white;
+        font-size: 10px;
+        margin-left: 8px;
+    }
+
+    #container #more {
+        margin-left: 54px;
+        width: 14px;
+        height: 14px;
+        cursor: pointer;
+        transition: transform 100ms;
+    }
+
+    #container #more:hover {
+        
+    }
+
+    #container #more:hover:active {
+        transform: translateY(1px);
+    }
+</style>
+
+<div id="container">
+
+    <!-- label -->
+    <x-text id="name" color="var(--default-font-color)" token="modifier.voxelremesh.segments" align="end" size="var(--font-size-0)"></x-text>
+
+    <!-- -->
+    <div id="controller-container">
+
+        <!-- 数值 -->
+        <div id="number">16</div>
+
+        <!-- 下拉框 -->
+        <x-svg id="more" color="var(--default-svg-color)" src="ui/down-more.svg"></x-svg>
+    </div>
+
+</div>

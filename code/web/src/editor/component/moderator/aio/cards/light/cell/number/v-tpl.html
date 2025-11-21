@@ -1,0 +1,75 @@
+<style>
+    :host {
+        position: relative;
+        display: flex;
+        height: 22px;
+        align-self: flex-start;
+    }
+
+    #container {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container #name {
+        align-self: flex-end;
+        width: 84px;
+        height: 100%;
+        margin-right: 8px;
+    }
+
+    #container #controller-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container #numizer {
+        width: 80px;
+        height: 16px;
+        margin-right: 6px;
+        opacity: 0.5;
+        transition: opacity 300ms;
+    }
+
+    #container #numizer:hover {
+        opacity: 1;
+    }
+
+    #container #input {
+        width: 50px;
+        height: 16px;
+        background-color: var(--color-gray-5);
+        border-radius: 3px;
+        border: solid 1px var(--color-gray-100);
+        transition: border 300ms;
+    }
+
+    #container #input:hover {
+        border: solid 1px var(--color-principal-green);
+    }
+
+    #container #input:focus {
+        border: solid 1px var(--color-principal-green);
+    }
+</style>
+
+<div id="container">
+
+    <!-- label -->
+    <x-text id="name" color="var(--default-font-color)" data="XXX" size="var(--font-size-2)" align="end"></x-text>
+
+    <!-- -->
+    <div id="controller-container">
+
+        <!-- 数值调整 -->
+        <x-numizer id="numizer"></x-numizer>
+        
+        <!-- 数值 -->
+        <x-text-input-number id="input" enable-title="false" font-size="var(--font-size-2)"></x-text-input-number>
+
+    </div>
+
+</div>

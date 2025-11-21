@@ -1,0 +1,32 @@
+<style>
+    :host {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    #content {
+        opacity: 0.7;
+        width:  var(--side-menu-vip-w);
+        height: var(--side-menu-vip-h);
+        transition: opacity 200ms;
+        cursor: pointer;
+    }
+
+    #content:hover {
+        opacity: 1;
+    }
+
+</style>
+
+<div id="container">
+    <x-svg id="content" src="ui/vip.svg" color="#484848"></x-svg>
+</div>

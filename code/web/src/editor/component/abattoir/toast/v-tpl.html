@@ -1,0 +1,28 @@
+<style>
+    :host {
+        pointer-events: none;
+        position: absolute;
+        z-index: 999999999;
+        left: 0;
+        top: 0;
+        border-radius: 3px;
+        backdrop-filter: blur(8px);
+        background-color: var(--color-gray-200);
+        border: solid 1px var(--color-gray-300);
+        box-shadow: var(--shadow-060);
+        overflow: hidden;
+    }
+
+    #container {
+        display: flex;
+        padding: 6px;
+    }
+
+</style>
+
+<div id="container">
+
+    <!-- 文本 -->
+    <x-text id="text" color="var(--default-font-color)" clickable="false" data="30" size="10"></x-text>
+
+</div>

@@ -1,0 +1,144 @@
+<style>
+    :host {
+        position: absolute;
+        z-index: 999999999;
+        display: flex;
+    }
+
+    .hidden {
+        visibility: hidden;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding-bottom: 20px;
+        border-radius: 4px;
+        transition: border 0.3s; 
+    }
+
+    .moving {
+        border: 1px solid var(--color-principal-green) !important;
+    }
+
+    /*
+     * 普通风格
+     */
+    #container[window-style='normal'] {
+        background-color: var(--color-bg);
+        border: solid 1px var(--color-gray-300);
+        box-shadow: var(--shadow-050);
+    }
+
+    /*
+     * 普通风格
+     */
+     #container[window-style='black'] {
+        background-color: rgba(0, 0, 0, 0.95);
+        border: solid 1px var(--color-gray-500);
+        box-shadow: var(--shadow-050);
+    }
+
+    /*
+     * 玻璃风格
+     */
+    #container[window-style='glass'] {
+        backdrop-filter: blur(8px);
+        background-color: var(--color-gray-200);
+        border: solid 1px var(--color-gray-300);
+        box-shadow: var(--shadow-060);
+    }
+
+    #container #header {
+        padding-left: 16px;
+        padding-right: 8px;
+        min-width: 160px;
+        position: relative;
+        height: 42px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        cursor: grab;
+    }
+
+    #container #header:hover:active {
+        cursor: grabbing;
+    }
+
+    #container #header #circle {
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+        background-color: var(--color-principal-green);
+        margin-right: 12px;
+    }
+
+    #container #header #title {
+        font-size: 12px;
+        color: #fff;
+        left: 0;
+        user-select: none;
+        -user-select: none;
+        -webkit-user-select: none; /* Chrome/Safari */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+ */
+        pointer-events: none;
+    }
+
+    #container #header #close-btn {
+        position: absolute;
+        transform: translateY(-50%);
+        top: 50%;
+        width: 22px;
+        height: 22px;
+        right: 8px;
+        opacity: 0.5;
+        transition: opacity 0.5s;
+        pointer-events: auto;
+    }
+
+    #container #header #close-btn:hover {
+        opacity: 1;
+    }
+
+    #container #content {
+        display: flex;
+        align-items: stretch;
+        min-width: 120px;
+        min-height: 60px;
+        cursor: default;
+        pointer-events: auto;
+    }
+
+    #container #content .loading {
+        align-self: center;
+        margin-top: 24px;
+        width: 64px;
+        height: 8px;
+        border: solid 1px var(--color-gray-400);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+</style>
+
+<div id="container" class="container" window-style="normal">
+
+    <!-- 额头 -->
+    <div id="header">
+
+        <!-- 圆点装饰 -->
+        <div id="circle"></div>
+
+        <!-- 标题 -->
+        <x-text id="title" raw="" color="var(--default-font-color)"></x-text>
+
+        <!-- 关闭按钮 -->
+        <x-icon-button-borderless id="close-btn" icon="ui/close.svg"></x-icon-button-borderless>
+
+    </div>
+
+    <!-- 核心内容 -->
+    <div id="content"></div>
+    
+</div>

@@ -1,0 +1,29 @@
+<style>
+    :host {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        z-index: 9999999999;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        border-radius: 6px;
+        border: 1px solid rgba(255,255,255,0.2);
+        background-color: rgba(0, 0, 0, 0.3);
+        box-shadow: var(--shadow-060);
+        backdrop-filter: blur(8px);
+    }
+
+    #container #numizer {
+        width: 120px;
+        height: 26px;
+    }
+</style>
+
+<div id="container">
+    <x-numizer id="numizer" integer="false" scale="1"></x-numizer>
+</div>

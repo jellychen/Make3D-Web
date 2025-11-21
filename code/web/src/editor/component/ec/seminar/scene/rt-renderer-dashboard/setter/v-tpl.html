@@ -1,0 +1,290 @@
+<style>
+    :host {
+        display: flex;
+        flex-direction: column;
+        align-self: stretch;
+    }
+
+    #container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 3px;
+        padding-top: 16px;
+    }
+
+    #container .section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container .section .label_container {
+        width: 120px;
+        align-self: flex-start;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container .section .label_container .label {
+        margin-left: 10px;
+        margin-right: 8px;
+        align-self: flex-end;
+        height: 24px!important;
+    }
+
+    #container .section .content {
+        display: flex;
+        flex-direction: column;
+        border-radius: 5px;
+    }
+
+    #container .section .content #hdr_preview_container {
+        position: relative;
+        width: 120px;
+        height: 84px;
+        border-radius: 3px;
+    }
+
+    #container .section .content #hdr_preview_container #hdr_setter {
+        position: absolute;
+        right: 2px;
+        bottom: 2px;
+    }
+
+    #container .section .content #hdr_preview {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 4px;
+        background-color: #363636 !important;
+        background-image: conic-gradient(rgba(0, 0, 0, .3) 0 25%, transparent 0 50%, rgba(0, 0, 0, .3) 0 75%, transparent 0) !important;
+        background-size: 19px 19px !important;
+    }
+
+    #container .section .content #hdr_selector {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        width: 480px;
+        margin-top: 20px;
+    }
+
+    #container .section .content #hdr_selector .item {
+        width: 100px;
+        height: 60px;
+        border-radius: 6px;
+        border: 1px solid transparent;
+
+        cursor: pointer;
+
+        background-color: #363636;
+        background-image: conic-gradient(
+            rgba(0, 0, 0, 0.3) 0 25%,
+            transparent 0 50%,
+            rgba(0, 0, 0, 0.3) 0 75%,
+            transparent 0
+        );
+        background-size: 8px 8px;
+        
+        opacity: 0.6;
+        transition: border 300ms, transform 300ms, opacity 300ms;
+    }
+
+    #container .section .content #hdr_selector .item:hover {
+        opacity: 1;
+        border: 1px solid var(--color-principal-green);
+    }
+
+    #container .section .content #hdr_selector .item:hover:active {
+        opacity: 1;
+        transform: translateY(1px);
+    }
+
+    #container .section .content #submit {
+        width: 160px;
+        margin-top: 12px;
+    }
+
+    #container .section .row {
+        flex-direction: row!important;
+        align-items: center;
+        gap: 12px;
+    }
+
+    #container .section .input-0 {
+        height: 16px;
+        width: 48px;
+        border: 1px solid #595959;
+        border-radius: 4px;
+        overflow: hidden;
+        transition: border 300ms;
+        background-color: var(--color-gray-100);
+    }
+
+    #container .section .input-0:hover {
+        border: 1px solid var(--color-principal-green);
+    }
+
+    #container .section .input-0:focus {
+        border: 1px solid var(--color-principal-green);
+    }
+
+    #container .section .numizer {
+        height: 18px;
+        width: 80px;
+        opacity: 0.5;
+        transition: opacity 300ms;
+    }
+
+    #container .section .numizer:hover {
+        opacity: 1;
+    }
+
+    #container .section #tiled-switcher {
+        height: 24px;
+    }
+
+    #container .section #background-transparent-switcher {
+        height: 24px;
+    }
+
+    #container #mask {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(3px);
+    }
+
+    #container #mask #progress-container {
+        height: 16px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 4px;
+    }
+
+    #container #mask #progress {
+        width: 64px;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+</style>
+
+<div id="container">
+
+    <!-- bounces 数量 -->
+    <div class="section">
+        <div class="label_container">
+
+            <!-- 名称 -->
+            <x-text class="label" color="var(--default-font-color)" token="rt.bounces" size="var(--font-size-0)"></x-text>
+
+        </div>
+        
+        <!-- 内容 -->
+        <div class="content row">
+            
+            <!-- 数值器 -->
+            <x-numizer class="numizer" id="numizer-bounces-count" integer="true"></x-numizer>
+
+            <!-- 值输入框 -->
+            <x-text-input-number class="input-0" id="input-bounces-count" min="1" enable-title="false" font-size="var(--font-size-2)"></x-text-input-number>
+
+        </div>
+    </div>
+
+    <!-- 分块渲染 -->
+    <div class="section">
+        <div class="label_container">
+
+            <!-- 名称 -->
+            <x-text class="label" color="var(--default-font-color)" token="rt.tile" size="var(--font-size-0)"></x-text>
+
+        </div>
+        
+        <!-- 内容 -->
+        <div class="content">
+            <x-switcher id="tiled-switcher"></x-switcher>
+        </div>
+    </div>
+
+    <!-- 背景透明 -->
+    <div class="section">
+        <div class="label_container">
+
+            <!-- 名称 -->
+            <x-text class="label" color="var(--default-font-color)" token="rt.background.transparent" size="var(--font-size-0)"></x-text>
+
+        </div>
+        
+        <!-- 内容 -->
+        <div class="content">
+            <x-switcher id="background-transparent-switcher"></x-switcher>
+        </div>
+    </div>
+
+    <!-- Env -->
+    <div class="section">
+        <div class="label_container">
+
+            <!-- 名称 -->
+            <x-text class="label" color="var(--default-font-color)" token="rt.env" size="var(--font-size-0)"></x-text>
+            
+        </div>
+        
+        <!-- 内容 -->
+        <div class="content">
+
+            <!-- hdr -->
+            <div id="hdr_preview_container">
+
+                <!-- hdr 预览 -->
+                <x-image-advanced id="hdr_preview"></x-image-advanced>
+
+                <!-- hdr 设置 -->
+                <x-icon-button-borderless id="hdr_setter" icon="ui/reset.svg"></x-icon-button-borderless>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Env 能量 -->
+    <div class="section">
+        <div class="label_container">
+
+            <!-- 名称 -->
+            <x-text class="label" color="var(--default-font-color)" token="rt.env_intensity" size="var(--font-size-0)"></x-text>
+
+        </div>
+        
+        <!-- 内容 -->
+        <div class="content row">
+            
+            <!-- 数值器 -->
+            <x-numizer class="numizer" id="numizer-env-intensity"></x-numizer>
+
+            <!-- 值输入框 -->
+            <x-text-input-number class="input-0" id="input-env-intensity" min="0" enable-title="false" font-size="var(--font-size-2)"></x-text-input-number>
+
+        </div>
+    </div>
+
+    <!-- mask -->
+    <div id="mask">
+        <div id="progress-container">
+            <x-progress-infinite-line id="progress" color="var(--color-principal-green)"></x-progress-infinite-line>
+        </div>
+    </div>
+
+</div>

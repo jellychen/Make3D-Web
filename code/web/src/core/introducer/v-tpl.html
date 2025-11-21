@@ -1,0 +1,35 @@
+<style>
+    :host {
+        position: absolute;
+        z-index: 99999999999;
+        display: flex;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    #container #hover {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        width: 100px;
+        height: 100px;
+        border-radius: 8px;
+        border: 1px dashed #FFF;
+    }
+</style>
+
+<div id="container">
+    <div id="hover"></div>
+    <x-introducer-hover-tips id="tips"></x-introducer-hover-tips>
+</div>

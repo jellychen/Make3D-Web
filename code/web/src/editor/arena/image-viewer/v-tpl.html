@@ -1,0 +1,105 @@
+<style>
+    :host {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1000000000;
+        user-select: none;
+    }
+
+    #container {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        backdrop-filter: blur(8px);
+        border-radius: 8px;
+        border: solid 1px var(--color-gray-300);
+        box-shadow: var(--shadow-100);
+        overflow: hidden;
+        background-color: rgba(32, 32, 32, .6);
+        cursor: grab;
+        transition: border 300ms;
+    }
+
+    #container:active {
+        cursor: grabbing;
+    }
+
+    #container[outline] {
+        border: solid 1px var(--color-principal-green) !important;
+    }
+
+    #container #image {
+        background-color: #363636 !important;
+        background-image: conic-gradient(rgba(0, 0, 0, .3) 0 25%, transparent 0 50%, rgba(0, 0, 0, .3) 0 75%, transparent 0) !important;
+        background-size: 26px 26px !important;
+        width: 600px;
+        height: 400px;
+        margin-bottom: 10px;
+        cursor: auto;
+        box-shadow: inset 0px 0px 3px 2px rgba(0,0,0,0.27);
+    }
+
+    #container #title-container {
+        position: relative;
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        pointer-events: none;
+    }
+
+    #container #title-container #btns {
+        align-self: flex-end;
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        padding-right: 12px;
+        pointer-events: auto;
+    }
+
+    #container #title-container #btns .item {
+        width: 14px;
+        height: 14px;
+        opacity: 0.6;
+        transition: opacity 300ms, transform 200ms;
+    }
+
+    #container #title-container #btns .item:hover {
+        opacity: 1;
+    }
+
+    #container #title-container #btns .item:hover:active {
+        transform: translateY(1px);
+    }
+</style>
+
+<div id="container">
+    <!-- 标题 -->
+    <div id="title-container">
+        <div id="btns">
+
+            <!-- 保存 -->
+            <x-icon-button-borderless 
+                id="download" 
+                class="item" 
+                icon="ui/download-2.svg">
+            </x-icon-button-borderless>
+
+            <!-- 关闭 -->
+            <x-icon-button-borderless 
+                id="close" 
+                class="item" 
+                icon="ui/close-circle.svg">
+            </x-icon-button-borderless>
+
+        </div>
+    </div>
+
+    <!-- 图片 -->
+    <x-image id="image" object-fit="contain"></x-image>
+</div>

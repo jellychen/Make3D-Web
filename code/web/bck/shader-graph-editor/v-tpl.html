@@ -1,0 +1,264 @@
+<style>
+    :host {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    #container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--color-principal);
+        border-top: 1px solid var(--color-frame-border);
+        display: flex;
+        flex-direction: row;
+    }
+
+    #container #left-side-panel {
+        position: relative;
+        min-width: 160px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        border-right: 1px solid var(--color-frame-border);
+    }
+
+    #container #left-side-panel .item {
+        border-bottom: 1px solid var(--color-frame-border);
+        opacity: 0.6;
+        transition: opacity 200ms;
+        cursor: pointer;
+    }
+
+    #container #left-side-panel .item:hover {
+        opacity: 1;
+    }
+
+    #container #left-side-panel #scrollable {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    #container #left-side-panel #scrollable #scrollable-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #container #dashboard {
+        position: relative;
+        flex: 1;
+        height: 100%;
+        overflow: hidden;
+        user-select: none;
+        background-image: radial-gradient(circle at center, #3F3F3F 1px, transparent 1px);
+        background-size: 16px 16px;
+        background-position: 0 0;
+    }
+
+    #container #dashboard #content {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        will-change: transform;
+        cursor: default!important;
+    }
+
+    #container #dashboard #content #nodes_link {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+    }
+
+    #container #dashboard #content #nodes {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+    }
+
+    #container #dashboard #nodes-link {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+    }
+
+</style>
+
+<div id="container">
+    <!-- 内置节点 -->
+    <div id="left-side-panel">
+
+        <!-- 滚动 -->
+        <x-scrollable-container id="scrollable">
+            <div id="scrollable-content">
+            
+                <!-- 常量 -->
+                <x-biz-shader-graph-node-drawer text="shader.node.constants">
+                    <x-biz-sgd-item class="item" text="epsion"            ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="infinity"            ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="bool"            ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="bvec2"            ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="bvec3"            ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="bvec4"            ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="float"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="vec2"            ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="vec3"            ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="vec4"            ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="int"            ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="ivec2"            ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="ivec3"            ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="ivec4"            ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="uint"            ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="uvec2"            ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="uvec3"            ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="uvec4"            ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="color"           ></x-biz-sgd-item>
+                </x-biz-shader-graph-node-drawer>
+
+                <!-- 数学 -->
+                <x-biz-shader-graph-node-drawer text="shader.node.math">
+                    <x-biz-sgd-item class="item" text="add"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="sub"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="mul"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="div"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="mod"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="equal"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="notEqual"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="lessThan"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="greaterThan"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="lessThanEqual"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="greaterThanEqual"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="and"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="or"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="not"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="xor"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="bitAnd"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="bitNot"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="bitOr"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="bitXor"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="shiftLeft"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="shiftRight"           ></x-biz-sgd-item>
+                </x-biz-shader-graph-node-drawer>
+
+                <x-biz-shader-graph-node-drawer text="shader.node.math">
+                    <x-biz-sgd-item class="item" text="abs"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="acos"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="all"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="any"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="asin"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="atan"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="bitcast"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="cbrt"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="ceil"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="clamp"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="cos"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="cross"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="dFdx"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="dFdy"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="degrees"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="difference"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="distance"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="dot"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="equals"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="exp"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="exp2"           ></x-biz-sgd-item>
+
+                    <x-biz-sgd-item class="item" text="faceforward"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="floor"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="fract"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="fwidth"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="inverseSqrt"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="invert"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="length"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="lengthSq"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="log"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="log2"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="max"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="min"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="mix"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="negate"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="normalize"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="oneMinus"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="pow"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="pow2"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="pow3"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="pow4"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="radians"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="reciprocal"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="reflect"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="refract"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="round"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="saturate"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="sign"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="sin"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="smoothstep"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="sqrt"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="step"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="tan"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="transformDirection"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="trunc"           ></x-biz-sgd-item>
+                </x-biz-shader-graph-node-drawer>
+
+                <!-- 材质 -->
+                <x-biz-shader-graph-node-drawer text="shader.node.surface">
+                    <x-biz-sgd-item class="item" text="texture"           ></x-biz-sgd-item>
+                </x-biz-shader-graph-node-drawer>
+
+                <!-- 材质 -->
+                <x-biz-shader-graph-node-drawer text="shader.node.surface">
+                    <x-biz-sgd-item class="item" text="uv"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="vertexColor"           ></x-biz-sgd-item>
+                </x-biz-shader-graph-node-drawer>
+
+                <!-- 材质 -->
+                <x-biz-shader-graph-node-drawer text="shader.node.surface">
+                    <x-biz-sgd-item class="item" text="positionGeometry"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="positionLocal"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="positionWorld"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="positionWorldDirection"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="positionView"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="positionViewDirection"           ></x-biz-sgd-item>
+                </x-biz-shader-graph-node-drawer>
+
+                <!-- 材质 -->
+                <x-biz-shader-graph-node-drawer text="shader.node.surface">
+                    <x-biz-sgd-item class="item" text="normalGeometry"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="normalLocal"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="normalView"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="normalWorld"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="transformedNormalView"           ></x-biz-sgd-item>
+                    <x-biz-sgd-item class="item" text="transformedNormalWorld"           ></x-biz-sgd-item>
+                </x-biz-shader-graph-node-drawer>
+            </div>
+        </x-scrollable-container>
+    </div>
+
+    <!-- 中间的节点 -->
+    <div id="dashboard">
+        <canvas id="nodes-link"></canvas>
+        <div id="content">
+            <div id="nodes"></div>
+        </div>
+    </canvas>
+
+</div>

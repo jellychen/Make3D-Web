@@ -1,0 +1,58 @@
+<style>
+    :host {
+        position: absolute;
+        z-index: 1000000;
+        left: 18px;
+        top: 18px;
+        display: flex;
+        pointer-events: none;
+        opacity: 0.4;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #container .column {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+        margin-right: 8px;
+    }
+
+    #container .cell {
+        height: 16px;
+    }
+</style>
+
+<div id="container">
+    
+    <!-- 左侧 K -->
+    <div class="column">
+        <x-text class="cell" color="var(--default-font-color)" token="name"     size="10px"></x-text>
+        <x-text class="cell" color="var(--default-font-color)" token="uuid"     size="10px"></x-text>
+        <x-text class="cell" color="var(--default-font-color)" token="vertex"   size="10px"></x-text>
+        <x-text class="cell" color="var(--default-font-color)" token="triangle" size="10px"></x-text>
+        <x-text class="cell" color="var(--default-font-color)" token="editable" size="10px"></x-text>
+    </div>
+
+    <div class="column">
+        <x-text class="cell" color="var(--default-font-color)" data=":" size="10px"></x-text>
+        <x-text class="cell" color="var(--default-font-color)" data=":" size="10px"></x-text>
+        <x-text class="cell" color="var(--default-font-color)" data=":" size="10px"></x-text>
+        <x-text class="cell" color="var(--default-font-color)" data=":" size="10px"></x-text>
+        <x-text class="cell" color="var(--default-font-color)" data=":" size="10px"></x-text>
+    </div>
+
+    <!-- 右侧 V -->
+    <div class="column">
+        <x-text id="name"     class="cell" color="var(--default-font-color)" data  ="undefined" size="10px"></x-text>
+        <x-text id="uuid"     class="cell" color="var(--default-font-color)" data  ="undefined" size="10px"></x-text>
+        <x-text id="vertex"   class="cell" color="var(--default-font-color)" data  ="0"         size="10px"></x-text>
+        <x-text id="triangle" class="cell" color="var(--default-font-color)" data  ="0"         size="10px"></x-text>
+        <x-text id="editable" class="cell" color="var(--default-font-color)" token ="support"   size="10px"></x-text>
+    </div>
+    
+</div>

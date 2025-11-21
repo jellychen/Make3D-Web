@@ -1,0 +1,29 @@
+<style>
+    :host {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 64px;
+        height: 32px;
+        backdrop-filter: blur(6px);
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 6px;
+        box-shadow: var(--shadow-090);
+        color: white;
+        font-size: 12px;
+    }
+</style>
+
+<div id="container"></div>

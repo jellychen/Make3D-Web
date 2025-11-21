@@ -1,0 +1,106 @@
+<style>
+    :host {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        user-select: none;
+        background-color: #212121;
+    }
+
+    #container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        overflow: auto;
+    }
+
+    #container #title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        margin-top: 80px;
+        margin-bottom: 64px;
+        gap: 2px;
+    }
+
+    #container #controller {
+        position: relative;
+        width: 1040px;
+        min-height: 64px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #container #controller #input {
+        display: none;
+    }
+
+    #container #controller #content {
+        margin-top: 12px;
+        align-self: stretch;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    #container #controller #content #upload-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        min-height: 32px;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding-left: 16px;
+        padding-right: 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 200ms;
+        box-shadow: var(--btn-box-shadow);
+        background: var(--color-principal-purple);
+    }
+
+    #container #controller #content #upload-container:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    #container #controller #content #upload-container #icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    #container #preview {
+        width: 1040px;
+        height: 580px;
+        border-radius: 4px;
+    }
+
+    #container #features {
+        margin-top: 120px;
+    }
+</style>
+
+<div id="container">
+    <x-biz-header id="header"></x-biz-header>
+    <x-biz-title></x-biz-title>
+
+    <div id="controller">
+        <input id="input" type="file" accept=".obj,.stl,.fbx,.glb,.gltf" multiple />
+        <div id="content">
+            <x-button id="upload"  enable-icon="true" icon="ui/3d-object.svg"     text-token="select.file" btn-style="purple"></x-button>
+            <x-button id="process" enable-icon="true" icon="repairman/repair.svg" text-token="repair"      btn-style="blue"  ></x-button>  
+        </div>
+    </div>
+    
+    <x-biz-preview id="preview"></x-biz-preview>
+    <x-biz-features id="features"></x-biz-features>
+    <x-biz-footer></x-biz-footer>
+</div>

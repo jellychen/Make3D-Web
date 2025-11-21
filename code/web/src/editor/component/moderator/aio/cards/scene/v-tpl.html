@@ -1,0 +1,73 @@
+<style>
+    :host {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #board {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container #content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-top: 18px;
+        gap: 16px;
+    }
+
+    #container #content .s {
+        width: 100%;
+        border-bottom: solid 1px var(--color-frame-border);
+    }
+
+    #board #gray_mask {
+        position: absolute;
+        z-index: 100000000;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(2px);
+        cursor: default;
+        display: none;
+    }
+</style>
+
+<div id="board">
+
+    <!-- 内容 -->
+    <x-scrollable-container id="container" enable-scroll-h="false">
+
+        <div id="content">
+
+            <!-- 环境 -->
+            <x-biz-moderator-scene-camera id="camera"></x-biz-moderator-scene-camera>
+            <div class="s"></div>
+
+            <!-- 杂项 -->
+            <x-biz-moderator-scene-misc id="misc"></x-biz-moderator-scene-misc>
+            <div class="s"></div>
+            
+            <!-- 环境 -->
+            <x-biz-moderator-scene-env id="env"></x-biz-moderator-scene-env>
+            <div class="s"></div>
+
+        </div>
+
+    </x-scrollable-container>
+
+    <!-- 灰度遮罩 -->
+    <div id="gray_mask"></div>
+
+</div>

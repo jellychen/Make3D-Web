@@ -1,0 +1,42 @@
+<style>
+    :host {
+        height: 100%;
+        display: flex;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        gap: 8px;
+        align-items: center;
+    }
+
+    #container .icon-btn {
+        width: 14px;
+        height: 14px;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 折叠 -->
+    <x-icon-button-borderless 
+        id="collapsible" 
+        class="icon-btn" 
+        icon="ui/collapsible.svg"
+        icon-w="11px"
+        icon-h="11px">
+    </x-icon-button-borderless>
+
+    <!-- 刷新 -->
+    <x-icon-button-borderless 
+        id="refresh" 
+        class="icon-btn" 
+        icon="ui/refresh.svg"
+        icon-w="11px"
+        icon-h="11px">
+    </x-icon-button-borderless>
+
+</div>
+

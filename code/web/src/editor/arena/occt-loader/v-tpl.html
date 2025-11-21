@@ -1,0 +1,48 @@
+<style>
+    :host {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 999999999999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: wait;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 8px;
+        backdrop-filter: blur(6px);
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 6px;
+        box-shadow: var(--shadow-090);
+        border: 1px solid #646464;
+        cursor: default;
+    }
+
+    #container #progress {
+        margin-top: 20px;
+        width: 120px;
+        background-color: #323232;
+        margin-bottom: 12px;
+    }
+
+    #container #prompter {
+        margin-top: 12px;
+        
+    }
+</style>
+
+<div id="container">
+
+    <!-- 提示词 -->
+    <x-text id="prompter" color="var(--default-font-color)" clickable="false" token="occt.loading" size="10px"></x-text>
+    
+    <!-- 进度 -->
+    <x-progress-infinite-line id="progress" color="#f1f1f1"></x-progress-infinite-line>
+    
+</div>

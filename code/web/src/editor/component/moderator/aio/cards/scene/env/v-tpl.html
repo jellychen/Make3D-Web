@@ -1,0 +1,165 @@
+<style>
+    :host {
+        width: 100%;
+        display: flex;
+    }
+
+    #container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin-left: 8px;
+    }
+
+    #container #cls {
+        display: flex;
+        align-items: center;
+        height: 24px;
+        margin-bottom: 12px;
+    }
+
+    #container #cls #icon {
+        margin-left: 10px;
+        width: 10px;
+        height: 10px;
+    }
+
+    #container #cls #label {
+        height: 24px;
+        margin-left: 8px;
+    }
+
+    #container #content {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container #content .cell {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container #content .cell .key {
+        width: 84px;
+        height: 22px;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        margin-right: 8px;
+    }
+
+    #container #content .cell .key .text {
+        max-width: 76px;
+    }
+
+    #container #content .cell .key > x-text {
+        max-width: 84px;
+    }
+
+    #container #content .cell .value-content {
+        flex: 1;
+        height: 100%;
+    }
+
+    #container .color-transparent {
+        background-color: #363636 !important;
+        background-image: conic-gradient(
+            rgba(0, 0, 0, 0.3) 0 25%,
+            transparent 0 50%,
+            rgba(0, 0, 0, 0.3) 0 75%,
+            transparent 0
+        ) !important;
+        background-size: 19px 19px!important;
+    }
+
+    #container #content .cell #hdr {
+        position: relative;
+        width: 120px;
+        height: 84px;
+        border-radius: 3px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+
+    #container #content .cell #hdr #texture {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 3px;
+    }
+
+    #container #content .cell #hdr #hdr-setter {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        right: 6px;
+        bottom: 6px;
+    }
+
+    #container #content .cell #intensity-slider {
+        height: 16px;
+        margin-right: 32px;
+        width: 120px;
+    }
+
+</style>
+
+<div id="container">
+
+    <!-- 分类 -->
+    <div id="cls">
+        <x-svg id="icon" color="var(--default-svg-color)" src="ui/classification.svg"></x-svg>
+        <x-text id="label" color="var(--default-font-color)" token="env" size="var(--font-size-0)"></x-text>
+    </div>
+
+    <!-- 调节项目 -->
+    <div id="content">
+        <!-- 阴影 -->
+        <div class="cell">
+            
+            <div class="key">
+                <x-text class="text" color="var(--default-font-color)" token="shadow" size="var(--font-size-2)"></x-text>
+            </div>
+
+            <!-- 开关 -->
+            <x-switcher id="switcher"></x-switcher>
+
+        </div>
+
+        <!-- 选择的HDR -->
+        <div class="cell">
+
+            <div class="key">
+                <x-text class="text" color="var(--default-font-color)" data="HDR" size="var(--font-size-2)"></x-text>
+            </div>
+
+            <!-- hdr -->
+            <div id="hdr">
+
+                <!-- 显示 HDR -->
+                <x-image-advanced id="texture" class="color-transparent"></x-image-advanced>
+
+                <!-- 设置按钮 -->
+                <x-icon-button-borderless id="hdr-setter" icon="ui/reset.svg"></x-icon-button-borderless>
+
+            </div>
+
+        </div>
+
+        <!-- 环境光的能量 -->
+        <div class="cell">
+            
+            <div class="key">
+                <x-text class="text" color="var(--default-font-color)" token="intensity" size="var(--font-size-2)"></x-text>
+            </div>
+
+            <!-- 数值调整 -->
+            <x-slider id="intensity-slider"></x-slider>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,199 @@
+<style>
+    :host {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 99999999999999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    #container {
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        padding: 24px;
+        background-color: rgba(255, 255, 255, 0.01);
+        box-shadow: var(--shadow-060);
+        border: 1px solid #282828;
+        backdrop-filter: blur(4px);
+        gap: 6px;
+    }
+
+    #container #header {
+        height: 28px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+    }
+
+    #container #header #label {
+
+    }
+
+    #container #header #close {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+    }
+
+    #container #content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 32px;
+        margin-bottom: 48px;
+    }
+
+    #container #content #l {
+        padding-left: 24px;
+        padding-right: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 24px;
+    }
+
+    #container #content #s {
+        align-self: stretch;
+        border: 0;
+        background: linear-gradient(to bottom, transparent, #383838, transparent);
+        padding-right: 1px;
+    }
+
+    #container #content #r {
+        min-width: 240px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #container #content #r svg {
+        padding: 4px;
+        border-radius: 6px;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    #container #content #r .pay {
+        width: 120px;
+        gap: 16px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 20px;
+        padding-right: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        transition: border 200ms, transform 100ms;
+    }
+
+    #container #content #r .pay:hover {
+        border: 1px solid var(--color-principal-green);
+        background-color: rgba(255,255,255,0.1);
+    }
+
+    #container #content #r .pay:hover:active {
+        transform: translateY(1px);
+    }
+
+    #container .desc {
+        display: flex;
+        align-self: stretch;
+        background-color: rgba(255, 255, 255, 0.06);
+        border-radius: 4px;
+        margin-left: 24px;
+        margin-right: 24px;
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        padding: 6px;
+    }
+
+    #container .desc .icon {
+        width: 14px;
+        height: 14px;
+    }
+</style>
+
+<div id="container">
+    <div id="header">
+        <x-text id="label" color="#E3E3E3" size="14px" align="start" bold="true" Raw="Payment Detail"></x-text>
+        <x-svg id="close"  color="#E3E3E3" src="ui/close.svg"></x-svg>
+    </div>
+
+    <div id="content">
+
+        <!-- 年月日 -->
+        <div id="l">
+            
+            <x-biz-paid-membership-benefits-payment-item
+                id="m"
+                price="$12.0"
+                period="/month"
+                selected="true">
+            </x-biz-paid-membership-benefits-payment-item>
+            
+            <x-biz-paid-membership-benefits-payment-item
+                id="q"
+                price="$30.0"
+                period="/3 months"
+                discount="-16.7%">
+            </x-biz-paid-membership-benefits-payment-item>
+
+            <x-biz-paid-membership-benefits-payment-item
+                id="y"
+                price="$115.0"
+                period="/year"
+                discount="-20%">
+            </x-biz-paid-membership-benefits-payment-item>
+        </div>
+
+        <div id="s"></div>
+
+        <div id="r">
+
+            <!-- 支付宝 -->
+            <div class="pay" id="alipay">
+                <x-text color="var(--default-font-color)" raw="支付宝" size="11px"></x-text>
+                <svg width="32" height="16" viewBox="0 0 32 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.41013 8.43208C4.16232 8.45687 3.69721 8.56757 3.44288 8.79431C2.68041 9.46441 3.13662 10.6901 4.67935 10.6901C5.57597 10.6901 6.47224 10.1117 7.17607 9.18627C6.17506 8.69352 5.32653 8.34084 4.41013 8.43208ZM10.1646 9.27898C11.5926 9.76128 11.9164 9.78717 11.9164 9.78717V4.60201C11.9164 3.71711 11.2061 3 10.3285 3H3.58846C2.71073 3 2 3.71711 2 4.60201V11.3982C2 12.2827 2.71072 13 3.58847 13H10.3285C11.2061 13 11.9164 12.2829 11.9164 11.3982V11.3326C11.9164 11.3326 9.33712 10.2483 8.03457 9.6168C7.16118 10.7004 6.03419 11.3583 4.86433 11.3583C2.88574 11.3583 2.21385 9.61239 3.1506 8.46293C3.35502 8.2127 3.70248 7.9733 4.24183 7.8391C5.08528 7.63017 6.42812 7.96963 7.68638 8.3884C7.91258 7.96779 8.10301 7.50496 8.24497 7.01184H4.36692V6.61564H6.3664V5.9057H3.94465V5.50933H6.3664V4.49645C6.3664 4.49645 6.3664 4.32571 6.53796 4.32571H7.51518V5.50932H9.9097V5.90569H7.51518V6.61563H9.46983C9.28284 7.38819 8.99855 8.09941 8.64219 8.72381C9.23527 8.94008 9.76792 9.14515 10.1646 9.27898ZM26.0312 4.56769H28.8699V5.1359H29.8836V4.46267C29.8833 4.46101 29.8833 4.46046 29.8833 4.45862C29.8833 4.30735 29.766 4.18489 29.6208 4.18232H27.98V3.65248H26.9191V4.18232H25.0175V5.1359H26.0312V4.56768V4.56769ZM19.8897 3.7015L18.8502 6.1875H19.6475V9.14588H20.5194V5.22182H20.2038L20.8606 3.7015H19.8897H19.8897ZM30 9.01002L29.6814 7.92207C29.6605 7.85267 29.5981 7.80236 29.5244 7.80218H28.6804L28.9249 8.63789H27.9326V7.01934H29.8815V6.6338H27.9326V5.87208H29.8815V5.48673H25.0175V5.87208H26.9661V6.6338H25.0175V7.01935H26.9661V8.63789H25.0175V9.02343H30L29.996 9.01021H30V9.01002ZM22.1195 5.73936C22.0863 5.67106 22.0186 5.62388 21.9402 5.62333H21.1853L21.7732 7.49595H22.6663L22.1195 5.73936ZM24.0304 3.74666H23.1242V4.70428H20.8907V5.08963H23.1242V8.53214C23.1164 8.61071 23.055 8.6724 22.9779 8.67644H22.5175V9.07538H23.6919C23.8776 9.06749 24.0264 8.91144 24.0304 8.7183V5.08963H24.3984V4.70428H24.0304V3.74666ZM18.376 5.49114H16.6352V4.86032H18.6536V4.46744H16.6352V3.66809H15.7355L15.7353 3.66827C15.6367 3.66827 15.557 3.75162 15.557 3.85479V4.46744H13.5528V4.86032H15.557V5.49114H13.8654V5.88384H17.2348C17.2348 5.88384 17.0482 6.62096 16.124 7.41333C15.296 6.77939 15.0191 6.27452 15.0191 6.27452H14.1153C14.4809 6.91544 15.0006 7.42876 15.5601 7.83596C15.0462 8.17377 14.3796 8.49946 13.5176 8.75979V9.23033C13.5176 9.23033 14.8474 8.97661 16.1325 8.21085C17.4196 8.97056 18.7124 9.23033 18.7124 9.23033V8.78494C17.8851 8.48036 17.2296 8.14549 16.7147 7.8222C17.4607 7.2639 18.114 6.50548 18.376 5.49114ZM15.5191 11.7734L15.6696 12.233H16.0915L15.2606 9.95129H14.938L14.1102 12.233H14.5323L14.6893 11.7734H15.5191ZM15.111 10.5393L15.4231 11.4856H14.7877L15.111 10.5393ZM17.4227 9.95129V12.233H18.7886V11.9223H17.8285V9.9513L17.4227 9.95129ZM20.2773 9.95129H20.6834V12.2328H20.2773V9.95129ZM23.2053 9.95129H22.3285V12.233H22.7342V11.3559H23.2053C23.6428 11.3559 23.9485 11.0672 23.9485 10.6537C23.9485 10.2403 23.6428 9.95129 23.2053 9.95129H23.2053ZM23.1826 11.0424H22.7342V10.2617H23.1826C23.4077 10.2617 23.5423 10.4609 23.5423 10.6537C23.5423 10.8421 23.4163 11.0424 23.1826 11.0424ZM26.3316 11.7734L26.4821 12.233H26.904L26.0729 9.95129H25.7505L24.9227 12.233H25.345L25.5016 11.7734H26.3316H26.3316ZM25.9235 10.5393L26.2356 11.4856H25.6002L25.9235 10.5393ZM29.1645 9.95129L28.7218 10.9234L28.2725 9.95129H27.8339L28.517 11.2957V12.233H28.9198V11.2957L28.9224 11.2906L29.6032 9.95129H29.1645Z" fill="#25ABEE"/>
+                </svg>    
+            </div>
+
+            <!-- 信用卡 -->
+            <div class="pay" id="card">
+                <x-text color="var(--default-font-color)" raw="Card" size="11px"></x-text>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 12.2153C1 12.65 1.36408 13 1.81322 13H14.1868C14.6363 13 15 12.6487 15 12.2153V7.11765H1V12.2153ZM11.3478 9.47058H13.5797L13.1739 11.2353H10.942L11.3478 9.47058ZM14.1868 3H1.81322C1.36371 3 1.00002 3.35131 1.00002 3.78469V5.94117H15V3.78469C15 3.35004 14.6359 3 14.1868 3Z" fill="white"/>
+                </svg>    
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 详细描述 -->
+    <div class="desc">
+        <x-svg class="icon" src="ui/alipay.svg"></x-svg>
+        <x-text color="#A8A8A8" raw="大陆地区建议使用支付宝，美元汇率按照7.0计算。 通常还会附带额外的优惠。" size="11px"></x-text>
+    </div>
+
+    <!-- 详细描述 -->
+    <div class="desc">
+        <x-svg class="icon" color="#E3E3E3" src="ui/pay.svg"></x-svg>
+        <x-text color="#A8A8A8" raw="Continue your payment. (opens in new browser tab)" size="11px"></x-text>
+    </div>
+
+</div>

@@ -1,0 +1,188 @@
+<style>
+    :host {
+        display: flex;
+        width: 100%;
+    }
+
+    #container {
+        width: 100%;
+        cursor: default;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding-bottom: 16px;
+    }
+</style>
+
+<div id="container">
+
+    <x-biz-material-editor-number
+        id="alpha"
+        name-token="material.alpha"
+        token="alpha"
+        range-start="0"
+        range-end="1">
+    </x-biz-material-editor-number>
+
+    <x-biz-material-editor-color
+        id="base-color"
+        name-token="material.color"
+        token="base-color"
+        default="#000000">
+    </x-biz-material-editor-color>
+
+    <x-biz-material-editor-number
+        id="metalness"
+        name-token="material.metalness"
+        token="metalness"
+        range-start="0"
+        range-end="1">
+    </x-biz-material-editor-number>
+
+    <x-biz-material-editor-number
+        id="roughness"
+        name-token="material.roughness"
+        token="roughness"
+        range-start="0"
+        range-end="1">
+    </x-biz-material-editor-number>
+
+    <x-biz-material-editor-texture
+        id="base-color-texture" 
+        name-token="material.color.texture"
+        token="base-color-texture">
+    </x-biz-material-editor-texture>
+
+    <x-biz-material-editor-texture
+        id="metalness-texture" 
+        name-token="material.metalness.texture"
+        token="metalness-texture">
+    </x-biz-material-editor-texture>
+
+    <x-biz-material-editor-texture
+        id="roughness-texture" 
+        name-token="material.roughness.texture"
+        token="roughness-texture">
+    </x-biz-material-editor-texture>
+
+    <x-biz-material-editor-texture
+        id="normal-texture" 
+        name-token="material.normal.texture"
+        token="normal-texture">
+    </x-biz-material-editor-texture>
+
+    <x-biz-material-editor-number
+        id="clearcoat"
+        name-token="material.clearcoat"
+        token="clearcoat"
+        range-start="0"
+        range-end="1">
+    </x-biz-material-editor-number>
+
+    <x-biz-material-editor-number
+        id="ior"
+        name-token="material.ior"
+        token="ior"
+        range-start="1"
+        range-end="2.333">
+    </x-biz-material-editor-number>
+
+    <x-biz-material-editor-number
+        id="thickness"
+        name-token="material.thickness"
+        token="thickness">
+    </x-biz-material-editor-number>
+
+    <x-biz-material-editor-number
+        id="transmission"
+        name-token="material.transmission"
+        token="transmission"
+        range-start="0"
+        range-end="1">
+    </x-biz-material-editor-number>
+
+    <x-biz-material-editor-separator token="advanced"></x-biz-material-editor-separator>
+
+    <x-biz-material-editor-color
+        id="emissive"
+        name-token="material.emissive.color"
+        token="emissive"
+        default="#000000">
+    </x-biz-material-editor-color>
+
+    <x-biz-material-editor-number
+        id="emissive-intensity"
+        name-token="material.emissive.intensity"
+        token="emissive-intensity"
+        range-start="0"
+        range-end="200"
+        default="1">
+    </x-biz-material-editor-number>
+
+    <x-biz-material-editor-separator token="advanced"></x-biz-material-editor-separator>
+
+    <x-biz-material-editor-color
+        id="subsurface-color"
+        name-token="material.subsurface.color"
+        token="subsurface-color"
+        default="#000000">
+    </x-biz-material-editor-color>
+
+    <x-biz-material-editor-number
+        id="subsurface"
+        name-token="material.subsurface"
+        token="subsurface"
+        range-start="0"
+        range-end="1">s
+    </x-biz-material-editor-number>
+
+    <x-biz-material-editor-number
+        id="subsurface-mfp"
+        name-token="material.subsurface.mfp"
+        token="subsurface-mfp"
+        range-start="0"
+        range-end="1">
+    </x-biz-material-editor-number>
+
+    <x-biz-material-editor-color
+        id="absorption"
+        name-token="material.absorption.color"
+        token="absorption"
+        default="#FFFFFF">
+    </x-biz-material-editor-color>
+    
+    <x-biz-material-editor-number
+        id="absorption-distance"
+        name-token="material.absorption.distance"
+        token="absorption-distance"
+        range-start="0"
+        range-end="10"
+        default="1">
+    </x-biz-material-editor-number>
+
+    <x-biz-material-editor-separator token="experimental"></x-biz-material-editor-separator>
+
+    <x-biz-material-editor-number
+        id="sheen"
+        name-token="material.sheen"
+        token="sheen"
+        range-start="0"
+        range-end="1">
+    </x-biz-material-editor-number>
+
+    <x-biz-material-editor-color
+        id="sheen-color"
+        name-token="material.sheen.color"
+        token="sheen-color"
+        default="#000000">
+    </x-biz-material-editor-color>
+
+    <x-biz-material-editor-color
+        id="specular-color"
+        name-token="material.specular.color"
+        token="specular-color"
+        default="#000000">
+    </x-biz-material-editor-color>
+
+
+</div>

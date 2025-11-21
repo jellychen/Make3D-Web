@@ -1,0 +1,78 @@
+<style>
+    :host {
+        position: relative;
+        display: none;
+        min-height: 16px;
+    }
+
+    #container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    #container[useContentSize="true"] {
+        position: relative !important;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #slider {
+        position: absolute;
+        width: 64px;
+        height: 6px;
+        border-radius: 3px;
+        background-color: var(--color-principal-green);
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%, 0);
+        opacity: 0;
+        transition: opacity 300ms;
+        cursor: row-resize;
+        z-index: 1000000000;
+    }
+
+    #slider:hover {
+        opacity: 1!important;
+    }
+
+    #container:hover #slider {
+        opacity: 0.2;
+    }
+
+    #container #content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    #container #content[useContentSize="true"] {
+        position: relative !important;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container #mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 100000;
+        background-color: var(--color-principal-red);
+        opacity: 0.2;
+        display: none;
+    }
+</style>
+
+<div id="container">
+    <div id="slider"></div>
+    <div id="content"></div>
+    <div id="mask"></div>
+</div>

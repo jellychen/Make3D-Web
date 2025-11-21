@@ -1,0 +1,59 @@
+<style>
+    :host {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    #container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    #container #label {
+        height: 38px;
+        border-radius: 6px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: rgba(0,0,0,0.2);
+        gap: 6px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    #container #label .icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    #container #desc {
+        margin-left: 12px;
+        margin-right: 12px;
+        margin-bottom: 80px;
+    }
+
+    #container #download {
+        position: absolute;
+        bottom: 4px;
+        left: 6px;
+        right: 6px;
+    }
+</style>
+
+<div id="container">
+    <div id="label">
+        <x-svg class="icon" icon="ui/bundle.svg" color="var(--default-svg-color)"></x-svg>
+        <x-text color="var(--default-font-color)" token="export.bundle" size="var(--font-size-0)"></x-text>
+    </div>
+    <x-text-multiline id="desc" color="#848484" size="10px" token="export.bundle.desc"></x-text-multiline> 
+    <x-button id="download" fullwidth="true" enable-icon="true" icon="ui/download-2.svg" text-token="packing" btn-style="blue"></x-button>
+</div>

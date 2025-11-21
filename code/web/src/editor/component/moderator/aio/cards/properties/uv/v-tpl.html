@@ -1,0 +1,123 @@
+<style>
+    :host {
+        width: 100%;
+        display: flex;
+    }
+
+    #container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin-left: 8px;
+    }
+
+    #container #cls {
+        display: flex;
+        align-items: center;
+        height: 24px;
+        margin-bottom: 12px;
+    }
+
+    #container #cls #icon {
+        margin-left: 10px;
+        width: 10px;
+        height: 10px;
+    }
+
+    #container #cls #label {
+        height: 24px;
+        margin-left: 8px;
+    }
+
+    #container #content {
+        position: relative;
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+    }
+
+    #container #content #mask {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--color-principal);
+        z-index: 100000;
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+    #container #content #has-uv {
+        width: 160px;
+        display: flex;
+        flex-direction: column;
+        margin-left: 92px;
+    }
+
+    #container #content #has-no-uv {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-left: 92px;
+    }
+
+    #container #content #has-no-uv #tips {
+        align-self: flex-start;
+        margin-right: 6px;
+        border: 1px dashed var(--color-principal-red);
+        border-radius: 3px;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+        padding: 3px;
+        padding-left: 6px;
+        padding-right: 6px;
+        background-color: rgba(255,200,200,0.1);
+    }
+
+    #container #content #has-no-uv #tips #icon {
+        width: 8px;
+        height: 8px;
+    }
+</style>
+
+<div id="container">
+    
+    <!-- 分类 -->
+    <div id="cls">
+        <x-svg id="icon" color="var(--default-svg-color)" src="ui/classification.svg"></x-svg>
+        <x-text id="label" color="var(--default-font-color)" token="uv" size="var(--font-size-0)"></x-text>
+    </div>
+
+    <!-- 调节项目 -->
+    <div id="content">
+
+        <!-- 遮罩 -->
+        <div id="mask"></div>
+
+        <!-- 存在UV -->
+        <div id="has-uv" style="display: none;">
+            <!-- 移除UV -->
+            <x-button id="del" enable-icon="true" icon="ui/delete-solid.svg" text-token="uv.remove" text-size="10px"></x-button>
+        </div>
+
+        <!-- 不存在 UV -->
+        <div id="has-no-uv" style="display: flex;">
+            <!-- tips -->
+            <div id="tips">
+                <x-svg id="icon" icon="ui/info-0.svg" color="var(--color-principal-red)"></x-svg>
+                <x-text-multiline raw="No UV" size="9px" color="var(--color-principal-red)"></x-text-multiline>
+            </div>
+
+            <!-- 添加UV -->
+            <x-button id="compute" enable-icon="true" icon="ui/add.svg" text-token="uv.simple.compute" text-size="10px"></x-button>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,32 @@
+<style>
+    :host {
+        max-width: 360px;
+        display: flex;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    #container {
+        width: 100%;
+        display: flex;
+        flex-direction: column; 
+        align-items: stretch;
+        padding-left: 16px;
+        padding-right: 16px;
+        gap: 3px;
+    }
+
+    #container #commit {
+        margin-top: 16px;
+    }
+</style>
+
+<div id="container">
+
+    <x-biz-ec-cell-button token="x" name-token="modifier.flip" button-token="X"></x-biz-ec-cell-button>
+    <x-biz-ec-cell-button token="y" name-token="___EMPTY___" button-token="Y"></x-biz-ec-cell-button>
+    <x-biz-ec-cell-button token="z" name-token="___EMPTY___" button-token="Z"></x-biz-ec-cell-button>
+
+    <!-- 提交 -->
+    <x-biz-ec-cell-commit id="commit"> </x-biz-ec-cell-commit>
+</div>

@@ -1,0 +1,82 @@
+<style>
+    :host {
+        position: relative;
+        height: 14px;
+    }
+
+    #container {
+        position: absolute;
+        border-radius: 3px;
+        width: 100%;
+        height: 100%;
+        transition: background 300ms;
+    }
+
+    #container[enable="true"] {
+        cursor: col-resize;
+    }
+
+    #container[enable="true"]:hover {
+        background: var(--slider-bg-hover-color);
+    }
+
+    #container[enable="false"] {
+        opacity: 0.4;
+        cursor: not-allowed !important;
+    }
+
+    #container #bar-container {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        border-radius: 3px;
+        background: var(--slider-bg-color);
+        transition: background 300ms;
+    }
+
+    #container #bar {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        pointer-events: none;
+        transition: background 300ms;
+    }
+
+    #container[enable="true"] #bar {
+        background: var(--slider-handle-bg-color);
+    }
+
+    #container[enable="true"]:hover #bar {
+        background: #fff;
+    }
+
+    #container #tips {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 40px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        right: 0;
+        bottom: calc(100% + 5px);
+        background-color: var(--color-black);
+        color: #fff;
+        border-radius: 4px;
+        z-index: 999999;
+        font-size: 10px;
+        visibility: hidden;
+    }
+</style>
+
+<div id="container" enable="true">
+    <div id="bar-container">
+        <div id="bar"></div>
+    </div>
+    <div id="tips">0%</div>
+</div>

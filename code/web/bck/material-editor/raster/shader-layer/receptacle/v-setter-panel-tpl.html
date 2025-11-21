@@ -1,0 +1,63 @@
+<style>
+    :host {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        z-index: 1000000000;
+        border: 1px solid var(--color-principal-green);
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.90);
+        backdrop-filter: blur(4px);
+        background-color: rgba(0,0,0,0.1);
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container #content {
+        display: flex;
+        flex-direction: column;
+        margin-top: 16px;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    #container #s {
+        height: 1px;
+        background: linear-gradient(to right, transparent, var(--color-principal-green), transparent);
+        margin-left: 8px;
+        margin-right: 8px;
+        margin-top: 18px;
+        margin-bottom: 18px;
+    }
+
+    #container #bottom-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        margin-bottom: 12px;
+        margin-right: 8px;
+    }
+
+    #container #bottom-container #button {
+        height: 23px;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 内容 -->
+    <div id="content"></div>
+    
+    <!-- 分割线 -->
+    <div id="s"></div>
+
+    <!-- 底部容器 -->
+    <div id="bottom-container">
+        <x-button enable-icon="true" icon="ui/ok.svg" id="button" text-token="confirm"></x-button>
+    </div>
+
+</div>

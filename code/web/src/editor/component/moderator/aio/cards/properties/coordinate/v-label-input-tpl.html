@@ -1,0 +1,29 @@
+<style>
+    :host {
+        display: flex;
+        height: 24px;
+        background-color: var(--color-white-006);
+        overflow: hidden;
+    }
+
+    #container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        transition: 300ms;
+    }
+
+    #container:focus-within {
+        background-color: #464646;
+    }
+
+    #container #input {
+        height: 100%;
+        flex: 1;
+    }
+</style>
+
+<div id="container">
+    <!-- 输入框 -->
+    <x-text-input-number id="input" title-color="#FFF" title-data="X" font-size="var(--font-size-2)"></x-text-input-number>
+</div>

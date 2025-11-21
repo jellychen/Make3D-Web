@@ -1,0 +1,103 @@
+<style>
+    :host {
+        display: flex;
+        align-self: stretch;
+    }
+
+    #container {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        align-self: stretch;
+    }
+
+    #container #mask {
+        position: absolute;
+        left: 0;
+        top: 30px;
+        right: 0;
+        bottom: 0;
+        background-color: var(--color-principal);
+        z-index: 100000;
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+    #container #cls {
+        display: flex;
+        align-items: center;
+        height: 24px;
+        margin-bottom: 24px;
+    }
+
+    #container #cls #icon {
+        margin-left: 10px;
+        width: 10px;
+        height: 10px;
+    }
+
+    #container #cls #label {
+        height: 24px;
+        margin-left: 8px;
+    }
+
+    #container #content {
+        position: relative;
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        width: 260px;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+    }
+
+    #container #content #back {
+        position: absolute;
+        width: 160px;
+        height: 160px;
+        opacity: 0.8;
+    }
+
+    #container #content #blur {
+        display: flex;
+        flex-direction: column;
+        align-self: stretch;
+        min-height: 120px;
+        backdrop-filter: blur(2px);
+        justify-content: center;
+        align-items: center;
+    }
+
+    #container #content #blur #open {
+        opacity: 1;
+    }
+
+</style>
+
+<div id="container">
+
+    <!-- 材质 -->
+    <div id="cls">
+        <x-svg id="icon" color="var(--default-svg-color)" src="ui/classification.svg"></x-svg>
+        <x-text id="label" color="var(--default-font-color)" token="raster" size="var(--font-size-0)"></x-text>
+    </div>
+
+    <!-- 遮罩 -->
+    <div id="mask"></div>
+
+    <!-- 启动 shader node editor 按钮-->
+    <div id="content">
+
+        <!-- 背景图 -->
+        <x-svg id="back" icon="ui/shader-graph.svg"></x-svg>
+
+        <!-- blur -->
+        <div id="blur">
+            <x-button id="open" enable-icon="true" icon="ui/graph.svg" text-token="raster.material.editor.open" text-size="10px" btn-style="blue"></x-button>
+        </div>
+    </div>
+
+</div>

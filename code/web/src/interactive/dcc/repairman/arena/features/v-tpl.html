@@ -1,0 +1,90 @@
+<style>
+    :host {
+        display: flex;
+        flex-direction: column;
+        align-self: stretch;
+        align-items: center;
+    }
+
+    #container {
+        width: 980px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: stretch;
+        gap: 40px;
+    }
+
+    #container .cell {
+        width: 300px;
+        min-height: 220px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    #container .icon {
+        width: 42px;
+        height: 42px;
+        opacity: 0.8;
+    }
+
+    #container .desc {
+        margin-left: 32px;
+        margin-right: 32px;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 多种格式支持 -->
+    <div class="cell">
+        <x-svg class="icon" color="var(--default-svg-color)" src="repairman/format.svg"></x-svg>
+        <x-text class="title" color="var(--default-font-color)" token="repair.multiple.formats.title" size="14px"></x-text>
+        <x-text-multiline class="desc" color="#A8A8A8" token="repair.multiple.formats.desc" size="11px"></x-text-multiline>
+    </div>
+
+    <!-- 简单便捷 -->
+    <div class="cell">
+        <x-svg class="icon" color="var(--default-svg-color)" src="repairman/simple.svg"></x-svg>
+        <x-text class="title" color="var(--default-font-color)" token="repair.simple.title" size="14px"></x-text>
+        <x-text-multiline class="desc" color="#A8A8A8" token="repair.simple.desc" size="11px"></x-text-multiline>
+    </div>
+
+    <!-- 智能拓扑修复 -->
+    <div class="cell">
+        <x-svg class="icon" color="var(--default-svg-color)" src="repairman/topo.svg"></x-svg>
+        <x-text class="title" color="var(--default-font-color)" token="repair.topology.title" size="14px"></x-text>
+        <x-text-multiline class="desc" color="#A8A8A8" token="repair.topology.desc" size="11px"></x-text-multiline>
+    </div>
+
+    <!-- 孔洞修补 -->
+    <div class="cell">
+        <x-svg class="icon" color="var(--default-svg-color)" src="repairman/hole-fill.svg"></x-svg>
+        <x-text class="title" color="var(--default-font-color)" token="repair.hole.fill.title" size="14px"></x-text>
+        <x-text-multiline class="desc" color="#A8A8A8" token="repair.hole.fill.desc" size="11px"></x-text-multiline>
+    </div>
+
+    <!-- 最小化破坏 -->
+    <div class="cell">
+        <x-svg class="icon" color="var(--default-svg-color)" src="repairman/protect.svg"></x-svg>
+        <x-text class="title" color="var(--default-font-color)" token="repair.protect.title" size="14px"></x-text>
+        <x-text-multiline class="desc" color="#A8A8A8" token="repair.protect.desc" size="11px"></x-text-multiline>
+    </div>
+
+    <!-- 本地执行，数据安全 -->
+    <div class="cell">
+        <x-svg class="icon" color="var(--default-svg-color)" src="repairman/safe.svg"></x-svg>
+        <x-text class="title" color="var(--default-font-color)" token="repair.safe.title" size="14px"></x-text>
+        <x-text-multiline class="desc" color="#A8A8A8" token="repair.safe.desc" size="11px"></x-text-multiline>
+    </div>
+
+    <!-- 跨平台 -->
+    <div class="cell">
+        <x-svg class="icon" color="var(--default-svg-color)" src="repairman/platform.svg"></x-svg>
+        <x-text class="title" color="var(--default-font-color)" token="repair.platform.title" size="14px"></x-text>
+        <x-text-multiline class="desc" color="#A8A8A8" token="repair.platform.desc" size="11px"></x-text-multiline>
+    </div>
+
+</div>

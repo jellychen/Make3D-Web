@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-780C3VC6KM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-780C3VC6KM');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <title>Make3D</title>
+</head>
+
+<style>
+    html,
+    body {
+        margin:0;
+        padding: 0;
+        height: 100%;
+        overscroll-behavior: none;
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    hr,
+    p,
+    blockquote,
+    dl,
+    dt,
+    dd,
+    ul,
+    ol,
+    li,
+    pre,
+    form,
+    fieldset,
+    legend,
+    button,
+    input,
+    textarea,
+    th,
+    td {
+        margin: 0;
+        padding: 0;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+        font: 12px/1.5tahoma, arial, \5b8b\4f53;
+    }
+
+    body {
+        font: 12px/1.5tahoma, arial, \5b8b\4f53;
+        overflow-x:hidden;
+        overflow-y:hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 100%;
+    }
+
+    address,
+    cite,
+    dfn,
+    em,
+    var {
+        font-style: normal;
+    }
+
+    code,
+    kbd,
+    pre,
+    samp {
+        font-family: couriernew, courier, monospace;
+    }
+
+    small {
+        font-size: 12px;
+    }
+
+    ul,
+    ol {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    sup {
+        vertical-align: text-top;
+    }
+
+    sub {
+        vertical-align: text-bottom;
+    }
+
+    legend {
+        color: #000;
+    }
+
+    fieldset,
+    img {
+        border: 0;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+        font-size: 100%;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+</style>
+
+<style>
+    #container {
+        z-index: 1;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #232323;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container #header {
+        width: 100%;
+        height: 48px;
+        border-bottom: 1px solid #424242;
+    }
+
+    #container #center {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+    }
+
+    #container #center #l {
+        width: 64px;
+        height: 100%;
+        align-self: center;
+        border-right: 1px solid #424242;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #container #center #l .icon {
+        margin-top: 32px;
+        width: 24px;
+        height: 24px;
+        border-radius: 6px;
+        border: 1px dashed #3ecf8e;
+        background-color: var(--color-gray-100);
+    }
+
+    #container #center #c {
+        position: relative;
+        flex: 1;
+        height: 100%;
+        margin-left: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #container #center #c #d-0 {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        width: 80px;
+        height: 80px;
+        border-top: 1px dashed #3ecf8e;
+        border-right: 1px dashed #3ecf8e;
+    }
+
+    #container #center #c #d-1 {
+        position: absolute;
+        right: 16px;
+        bottom: 16px;
+        width: 80px;
+        height: 80px;
+        border-bottom: 1px dashed #3ecf8e;
+        border-right: 1px dashed #3ecf8e;
+    }
+
+    #container #center #c #content {
+        width: 480px;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #container #center #c #content #logo {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 30px;
+    }
+
+    #container #center #c #content #progress {
+        position: relative;
+        margin-top: 20px;
+        width: 200px;
+        height: 2px;
+        border-radius: 1px;
+        will-change: auto;
+        background-color: #323232;
+    }
+
+    #container #center #c #content #progress #bar {
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 30%;
+        border-radius: 8px;
+        background-color: #FFF;
+        animation: progress-linear-stripes 3s infinite linear;
+    }
+
+    #container #center #c #content #desc {
+        margin-top: 320px;
+        width: 100%;
+        min-height: 30px;
+        font-size: 12px;
+        font-weight: bold;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #container #center #c #content .typed-cursor {
+        visibility: hidden;
+    }
+
+    #container #center #r {
+        width: 320px;
+        height: 100%;
+        border-left: 1px solid #424242;
+    }
+
+    #container #center #r .line {
+        width: 100%;
+        height: 1px;
+        border-bottom: 1px solid #424242;
+    }
+
+    #container #center #r .round-span {
+        height: 16px;
+        border-radius: 2px;
+        margin-left: 6px;
+        background-color: #343434;
+        margin-top: 14px;
+    }
+
+    #container #footer {
+        width: 100%;
+        height: 32px;
+        border-top: 1px solid #424242;
+    }
+
+    @keyframes progress-linear-stripes {
+        0% {
+            left: 0;
+        }
+
+        50% {
+            left: 100%;
+            transform: translateX(-100%);
+        }
+
+        100% {
+            left: 0%;
+            transform: auto;
+        }
+    }
+</style>
+
+<body class="theme-dark" tabindex="0">
+
+    <!-- 引导页面 -->
+    <div id="container" style="">
+        <!-- 额头 -->
+        <div id="header"></div>
+
+        <!-- 中间 -->
+        <div id="center">
+            <!-- 左侧骨架 -->
+            <div id="l">
+                <div class="icon"></div>
+                <div class="icon"></div>
+                <div class="icon"></div>
+            </div>
+    
+            <!-- 中间部分 -->
+            <div id="c">
+                <div id="d-0"></div>
+                <div id="d-1"></div>
+    
+                <!-- 中间真正的内容 -->
+                <div id="content">
+    
+                    <!-- logo -->
+                    <div id="logo" style="display: block;">
+                        <svg width="80" height="80" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g filter="url(#filter0_d_0_1)">
+                            <path d="M1 3C0.920491 3.92308 1.25597 4.92692 1.98293 6.01154C2.70988 7.09615 3.75488 7.75384 5.11793 7.98461L3.34597 9.49038C3.67538 10.0673 4.37394 10.5692 5.44165 10.9962C6.00018 11.2195 6.63059 11.3176 7.33287 11.2904C8.08255 11.2904 8.82655 11.0712 9.56487 10.6327L9.19003 12.9692C9.30266 12.9692 9.43991 12.9755 9.59069 12.9823C9.94166 12.9983 10.3659 13.0177 10.7234 12.9692C11.2346 12.9 11.3709 12.8308 11.848 12.675C12.4085 12.4487 12.8742 12.166 13.2451 11.8269C14.2674 10.8923 15 9.57693 15 7.98461C15 6.39231 14.3185 5.37116 13.8414 4.8C13.4867 4.37537 12.7898 3.78841 12.1887 3.48461C11.5341 3.15375 10.8683 3 10.4849 3C9.97378 3 6.8043 3.03462 1 3Z" fill="#3ECF8E"/>
+                            </g>
+                            <circle cx="11" cy="6" r="2" fill="white" fill-opacity="0.61"/>
+                            <path d="M13 7C13 7.55228 12.5523 8 12 8C11.4477 8 11 7.55228 11 7C11 6.44772 11.4477 6 12 6C12.5523 6 13 6.44772 13 7Z" fill="white"/>
+                            <defs>
+                            <filter id="filter0_d_0_1" x="-1.01144" y="3" width="16.0114" height="12" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feOffset dx="-1" dy="1"/>
+                            <feGaussianBlur stdDeviation="0.5"/>
+                            <feComposite in2="hardAlpha" operator="out"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+                            </filter>
+                            </defs>
+                        </svg>                            
+                    </div>
+                    <!-- 进度条 -->
+                    <div id="progress"><div id="bar"></div></div>
+                    <!-- 描述 -->
+                    <div id="desc"></div>
+
+                </div>
+            </div>
+    
+            <!-- 右边侧骨架 -->
+            <div id="r">
+                <div class="round-span" style="width: 30%; opacity: 1.0;"></div>
+                <div class="round-span" style="width: 70%; opacity: 0.3;"></div>
+                <div class="line" style="margin-top: 48px; opacity: 0.8;"></div>
+                
+                <div class="round-span" style="width: 30%; opacity: 0.2;"></div>
+                <div class="round-span" style="width: 70%; opacity: 0.9;"></div>
+                <div class="round-span" style="width: 20%; opacity: 1.0;"></div>
+                <div class="round-span" style="width: 30%; opacity: 0.3;"></div>
+                <div class="line" style="margin-top: 48px; opacity: 0.5;"></div>
+    
+                <div class="round-span" style="width: 30%; opacity: 1.0;"></div>
+                <div class="round-span" style="width: 70%; opacity: 0.6;"></div>
+                <div class="round-span" style="width: 10%; opacity: 0.3;"></div>
+                <div class="round-span" style="width: 20%; opacity: 1.0;"></div>
+                <div class="round-span" style="width: 30%; opacity: 0.7;"></div>
+                <div class="line" style="margin-top: 48px; opacity: 1.0;"></div>
+    
+                <div class="round-span" style="width: 30%; opacity: 0.9;"></div>
+                <div class="round-span" style="width: 70%; opacity: 1.0;"></div>
+                <div class="round-span" style="width: 30%; opacity: 1.0;"></div>
+                <div class="round-span" style="width: 90%; opacity: 0.2;"></div>
+                <div class="round-span" style="width: 20%; opacity: 0.1;"></div>
+                <div class="round-span" style="width: 30%; opacity: 0.8;"></div>
+                <div class="round-span" style="width: 70%; opacity: 1.0;"></div>
+                <div class="round-span" style="width: 20%; opacity: 0.8;"></div>
+                <div class="line" style="margin-top: 40px; opacity: 1.0;"></div>
+            </div>
+        </div>
+    
+        <!-- 页脚 -->
+        <div id="footer"></div>
+    </div>
+</body>
+
+</html>

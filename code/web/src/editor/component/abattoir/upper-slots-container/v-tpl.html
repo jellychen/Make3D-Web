@@ -1,0 +1,53 @@
+<style>
+    :host {
+        position: relative;
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, .2);
+        min-height: 200px;
+        height: 300px;
+        max-height: 80%;
+    }
+
+    #container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-bottom: 1px solid rgba(0, 0, 0, .8);
+        overflow: hidden;
+        z-index: 1000;
+    }
+
+    #container #content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container #bar {
+        position: absolute;
+        bottom: 6px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 4px;
+        border-radius: 2px;
+        background-color: var(--color-principal-green);
+        opacity: 0.4;
+        transition: opacity 120ms;
+        cursor: row-resize;
+        z-index: 100000000;
+    }
+
+    #container #bar:hover {
+        opacity: 1;
+    }
+</style>
+
+<div id="container">
+    <div id="content"></div>
+    <!-- 拖动 -->
+    <div id="bar"></div>
+</div>
+
+

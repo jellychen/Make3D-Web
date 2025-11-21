@@ -1,0 +1,110 @@
+<style>
+    :host {
+        position: absolute;
+        left: 9px;
+        bottom: 32px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.01);
+        border-radius: 3px;
+        border: 1px solid #464646;
+
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    #container #header {
+        align-self: stretch;
+        display: flex;
+        flex-direction: row;
+        height: 16px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #container #header #dot {
+    }
+
+    #container #header #fold {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 100ms, transform 100ms;
+    }
+
+    #container #header #fold:hover {
+        opacity: 1;
+    }
+
+    #container #header #fold:hover:active {
+        transform: translateY(1px);
+    }
+
+    #container #content {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+    }
+
+    #container #content #label-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-right: 8px;
+        gap: 8px;
+    }
+
+    #container #content #label-container .label {
+        height: 22px;
+    }
+
+    #container #content #items-container {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+        pointer-events: auto!important;
+    }
+
+    #container #content #items-container .item {
+        height: 22px;
+    }
+
+    #container #content #items-container .item-stretch {
+        align-self: stretch !important;
+    }
+</style>
+
+<div id="container">
+    <div id="header">
+        <div id="dot"></div>
+        <x-svg id="fold" color="var(--default-svg-color)" icon="ui/down.svg"></x-svg>
+    </div>
+    <div id="content">
+        <div id="label-container">
+            <x-text class="label" color="var(--default-font-color)" token="show.coordinate" size="var(--font-size-0)"></x-text>
+            <x-text class="label" color="var(--default-font-color)" token="show.only" size="var(--font-size-0)"></x-text>
+            <x-text class="label" color="var(--default-font-color)" token="perspective.selection" size="var(--font-size-0)"></x-text>
+            <x-text class="label" color="var(--default-font-color)" token="view.subdivision" size="var(--font-size-0)"></x-text>
+            <x-text class="label" color="var(--default-font-color)" token="base.subdivision" size="var(--font-size-0)"></x-text>
+        </div>
+    
+        <div id="items-container">
+            <x-switcher class="item" id="show-coordinate"></x-switcher>
+            <x-switcher class="item" id="show-only"></x-switcher>
+            <x-switcher class="item" id="see-through-selection"></x-switcher>
+            <x-integer id="view-subdivision" class="item" min="0" max="5"></x-integer>
+            <x-button id="add-base-subdivision"  class="item item-stretch" enable-icon="true" icon="ui/add.svg" text-token="add" text-size="var(--font-size-0)"></x-button>
+        </div>
+    </div>
+</div>

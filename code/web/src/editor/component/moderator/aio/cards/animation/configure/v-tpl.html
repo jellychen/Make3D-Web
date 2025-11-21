@@ -1,0 +1,113 @@
+<style>
+    :host {
+        position: absolute;
+        z-index: 1000000000;
+        user-select: none;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        backdrop-filter: blur(3px);
+        border-radius: 6px;
+        border: 1px solid #464646;
+        box-shadow: var(--shadow-100);
+        overflow: hidden;
+        background-color: rgba(32, 32, 32, .6);
+        padding-top: 12px;
+        padding-bottom: 6px;
+        gap: 6px;
+    }
+
+    #container .row {
+        margin-left: 6px;
+        margin-right: 6px;
+        align-self: stretch;
+        border-bottom: 1px solid var(--color-frame-border);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    #container .row:last-child {
+        border-bottom: 1px solid transparent;
+    }
+
+    #container .row .title {
+        height: 100%;
+        height: 24px;
+        width: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #container .row .container {
+        min-height: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #container .row .container #duration {
+        width: 120px;
+        height: 22px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,0.1);
+        transition: background-color 200ms;
+    }
+
+    #container .row .container #duration:hover {
+        background-color: rgba(255,255,255,0.2);
+    }
+</style>
+
+<div id="container">
+    <!-- 持续时间 -->
+    <div class="row">
+        <x-text class="title" color="var(--default-svg-color)" raw="Duration"></x-text>
+        <div class="container">
+            <x-text-input-number id="duration" enable-title="false"></x-text-input-number>
+        </div>
+    </div>
+
+    <!-- Repeat -->
+    <div class="row">
+        <x-text class="title" color="var(--default-svg-color)" raw="Repeat"></x-text>
+        <div class="container">
+            <x-switcher id="repeat" checked="true"></x-switcher>
+        </div>
+    </div>
+
+    <!-- PingPong -->
+    <div class="row">
+        <x-text class="title" color="var(--default-svg-color)" raw="PingPong"></x-text>
+        <div class="container">
+            <x-switcher id="pingpong" checked="true"></x-switcher>
+        </div>
+    </div>
+
+    <!-- 动画函数 -->
+    <div class="row">
+        <x-text class="title" color="var(--default-svg-color)" raw="Easing"></x-text>
+        <div class="container">
+            <x-biz-moderator-cards-tween-selector id="easing">
+            </x-biz-moderator-cards-tween-selector>
+        </div>
+    </div>
+
+    <!-- 确认 -->
+    <div class="row">
+        <x-text class="title" color="var(--default-svg-color)" raw=""></x-text>
+        <div class="container">
+            <x-button id="ok" enable-icon="true" icon="ui/selected-bold.svg" text-token="upload" text-size="10px" btn-style="blue"> </x-button>
+        </div>
+    </div>
+</div>

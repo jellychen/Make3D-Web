@@ -1,0 +1,60 @@
+<style>
+    :host {
+        max-width: 360px;
+        display: flex;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    #container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding-left: 16px;
+        padding-right: 16px;
+        gap: 3px;
+    }
+
+    #container #rebuild {
+        height: 23px;
+    }
+
+    #container #commit {
+        height: 23px;
+    }
+
+    #container #btns {
+        margin-top: 16px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+</style>
+
+<div id="container">
+    <!-- tips -->
+    <x-biz-ec-modifier-voxelremesh-tips></x-biz-ec-modifier-voxelremesh-tips>
+
+    <!-- boundbox -->
+    <x-biz-ec-modifier-voxelremesh-boundbox id="boundbox"></x-biz-ec-modifier-voxelremesh-boundbox>
+
+    <!-- 分段数 -->
+    <x-biz-ec-modifier-voxelremesh-segments id="segments"></x-biz-ec-modifier-voxelremesh-segments>
+
+    <!-- 带宽数量 -->
+    <x-biz-ec-cell-integer
+        id="band"
+        name-token="modifier.voxelremesh.band"
+        default="1"
+        max="3"
+        min="1">
+    </x-biz-ec-cell-integer>
+
+    <!-- 提交 -->
+    <div id="btns">
+        <x-button id="rebuild" enable-icon="true" icon="ui/build.svg" text-token="remesh"  btn-style="purple"></x-button>
+        <x-button id="commit"  enable-icon="true" icon="ui/ok.svg"    text-token="confirm" btn-style="blue"></x-button>
+    </div>
+</div>

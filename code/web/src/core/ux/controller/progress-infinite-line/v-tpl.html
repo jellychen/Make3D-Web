@@ -1,0 +1,36 @@
+<style>
+    @keyframes progress-linear-stripes {
+        0% {
+            left: 0;
+        }
+
+        50% {
+            left: 100%;
+            transform: translateX(-100%);
+        }
+
+        100% {
+            left: 0%;
+            transform: auto;
+        }
+    }
+    
+    :host {
+        position: relative;
+        border-radius: 1px;
+        height: 2px;
+        will-change: auto;
+    }
+
+    #bar {
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 30%;
+        border-radius: 8px;
+        background-color: #0F0;
+        animation: progress-linear-stripes 3s infinite linear;
+    }
+</style>
+
+<div id="bar"></div>

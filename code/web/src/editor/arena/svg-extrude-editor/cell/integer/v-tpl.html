@@ -1,0 +1,44 @@
+<style>
+    :host {
+        position: relative;
+        height: 22px;
+    }
+
+    #container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container #label-container {
+        height: 100%;
+        width: 120px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container #label-container #name {
+        align-self: flex-end;
+        max-width: 100px;
+        height: 100%;
+        margin-right: 8px;
+    }
+
+    #container #number {
+        ;
+    }
+</style>
+
+<div id="container">
+
+    <!-- label -->
+    <div id="label-container">
+        <x-text id="name" color="var(--default-font-color)" data="undefined" size="var(--font-size-2)"></x-text>
+    </div>
+
+    <!-- 数值调整 -->
+    <x-integer id="number" size="var(--font-size-2)"></x-integer>
+</div>

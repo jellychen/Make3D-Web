@@ -1,0 +1,57 @@
+<style>
+    :host {
+        display: flex;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 6px;
+    }
+
+    #container .icon-btn {
+        width: 18px;
+        height: 18px;
+        background: var(--btn-bg-color);
+        box-shadow: var(--btn-box-shadow);
+    }
+
+    #container #text-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex: 1;
+        min-width: 48px;
+        margin-left: 6px;
+        margin-right: 6px;
+    }
+
+    #container .icon-btn[enable="false"] {
+        pointer-events: none;
+        opacity: 0.2;
+    }
+</style>
+
+<div id="container">
+    <!-- 左侧按钮 -->
+    <x-icon-btn 
+        id="l" 
+        class="icon-btn" 
+        icon="ui/left.svg"
+        enable="true">
+    </x-icon-btn>
+
+    <!-- 文本 -->
+    <div id="text-container">
+        <x-text id="text" color="var(--default-font-color)" data="0" size="11"></x-text>
+    </div>
+
+    <!-- 右侧按钮 -->
+    <x-icon-btn 
+        id="r" 
+        class="icon-btn" 
+        icon="ui/right.svg"
+        nable="true">
+    </x-icon-btn>
+</div>

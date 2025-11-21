@@ -1,0 +1,143 @@
+<style>
+    :host {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        z-index: 1000000;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--color-principal);
+        border-radius: 6px;
+        border: 1px solid var(--color-frame-border);
+        padding: 8px;
+        padding-top: 16px;
+        box-shadow: var(--shadow-090);
+        user-select: none;
+        gap: 16px;
+    }
+
+    #container #content {
+        max-width: 260px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    #container #content .item {
+        flex: 1 1 25%;
+        height: 24px;
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 9px;
+        color: white;
+        background-color: rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        transition: background 150ms;
+    }
+
+    #container #content .item:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    #container #content .item:hover:active {
+        background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    #container #input-container {
+        align-self: stretch;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container #input-container .i {
+        flex: 1;
+        height: 24px;
+        border: 1px solid #323232;
+        border-radius: 4px;
+    }
+
+    #container #input-container .i:hover {
+        
+    }
+
+    #container #input-container #sep {
+        width: 8px;
+        border-bottom: 1px solid #848484;
+        margin-left: 6px;
+        margin-right: 6px;
+    }
+
+    #container #input-container #btn {
+        height: 24px;
+        margin-left: 12px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-left: 12px;
+        padding-right: 12px;
+        gap: 8px;
+        background: var(--color-principal-blue);
+        box-shadow: var(--btn-box-shadow);
+        color: var(--btn-font-color);
+        border-radius: var(--btn-border-radius);
+        cursor: pointer;
+        transition: background 100ms;
+    }
+
+    #container #input-container #btn #btn-icon {
+        width: 10px;
+        height: 10px;
+    }
+
+    #container #input-container #btn:hover {
+        background: var(--color-darken-blue);
+    }
+
+    #container #input-container #btn:hover:active {
+        background: var(--color-principal-blue);
+    }
+
+    #container .s {
+        align-self: stretch;
+        border: 0;
+        padding-top: 1px;
+        background: linear-gradient(to right, transparent, #484848, transparent);
+    }
+</style>
+
+<div id="container">
+    <!-- 选择尺寸 -->
+    <div id="content">
+        <div class="item" size="32,32"    >32/32</div>
+        <div class="item" size="64,64"    >64/64</div>
+        <div class="item" size="256,256"  >256/256</div>
+        <div class="item" size="800,600"  >800/600</div>
+        <div class="item" size="1024,1024">1024/1024</div>
+        <div class="item" size="1200,800" >1200/800</div>
+        <div class="item" size="2048,1024">2048/1024</div>
+        <div class="item" size="2048,2048">2048/2048</div>
+    </div>
+
+    <!-- 分割线 -->
+    <div class="s"></div>
+
+    <!-- 输入框 -->
+    <div id="input-container">
+        <x-text-input-number id="w" class="i" title-data="w"></x-text-input-number>
+        <div id="sep"></div>
+        <x-text-input-number id="h" class="i" title-data="h"></x-text-input-number>
+        <div id="btn">
+            <x-svg id="btn-icon" icon="ui/size.svg" color="white"></x-svg>
+            <x-text id="btn-text" raw="Apply" color="var(--default-font-color)"></x-text>
+        </div>
+    </div>
+</div>

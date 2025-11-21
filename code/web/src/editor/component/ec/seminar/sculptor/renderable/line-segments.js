@@ -1,0 +1,109 @@
+/* eslint-disable no-unused-vars */
+
+import XThree       from '@xthree/basic';
+import LineMaterial from '@xthree/material/line-simple';
+import Constants    from './constants';
+
+/**
+ * 线段
+ */
+export default class LineSegments extends XThree.LineSegments {
+    /**
+     * 材质
+     */
+    #material                 = new LineMaterial();
+
+    /**
+     * 索引
+     */
+    #buffer_attribute_i       = new XThree.BufferAttribute(new Uint32Array(), 1);
+    #buffer_attribute_i_count = 0;
+    
+    /**
+     * 
+     * 构造函数
+     * 
+     * @param {*} vertices 
+     */
+    constructor(vertices) {
+        super();
+
+        // 渲染次序
+        this.renderOrder = 2;
+
+        // 关闭踢出
+        this.frustumCulled = false;
+
+        // 规避Threejs自动计算
+        this.geometry = new XThree.BufferGeometry();
+        this.geometry.boundingBox = new XThree.Box3();
+        this.geometry.boundingSphere = new XThree.Sphere();
+        this.geometry.setAttribute('position', vertices);
+        this.geometry.setIndex(this.#buffer_attribute_i);
+        this.geometry.setDrawRange(0, 0);
+
+        // 关闭深度写入
+        this.material = this.#material;
+        this.material.setColor(Constants.COLOR_LINE_SEGMENT);
+        this.material.depthWrite = true;
+    }
+
+    /**
+     * 
+     * 更新几何
+     * 
+     * @param {*} attribute_points 
+     */
+    updateAttributePoints(attribute_points) {
+        this.geometry.setAttribute('position', attribute_points);
+    }
+
+    /**
+     * 
+     * 设置渲染的索引
+     * 
+     * @param {*} indices32 
+     */
+    setIndices(indices32) {
+        if (indices32) {
+            // 判断是不是需要更新几何体尺寸
+            if (this.#buffer_attribute_i.count < indices32.length) {
+                this.#buffer_attribute_i_count = Math.NextPowerOfTwo(indices32.length);
+                this.#buffer_attribute_i = new XThree.BufferAttribute(
+                    new Uint32Array(this.#buffer_attribute_i_count), 1);
+                this.#buffer_attribute_i.setUsage(XThree.StreamDrawUsage);
+                this.geometry.setIndex(this.#buffer_attribute_i);
+            }
+
+            // 更新几何体
+            this.#buffer_attribute_i.set(indices32, 0);
+            this.#buffer_attribute_i.addUpdateRange(0, indices32.length);
+            this.#buffer_attribute_i.needsUpdate = true;
+
+            // 更新渲染区域
+            this.geometry.setDrawRange(0, indices32.length);
+        } else {
+            this.geometry.setDrawRange(0, 0);
+        }
+    }
+
+    /**
+     * 
+     * 渲染之前准备
+     * 
+     * @param {*} renderer_pipeline 
+     * @param {*} renderer 
+     * @param {*} camera 
+     */
+    onFrameBegin(renderer_pipeline, renderer, camera) {
+        ;
+    }
+
+    /**
+     * 销毁
+     */
+    dispose() {
+        this.material.dispose();
+        this.geometry.dispose();
+    }
+};

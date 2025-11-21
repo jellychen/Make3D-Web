@@ -1,0 +1,70 @@
+<style>
+    :host {
+        display: flex;
+        flex-direction: column;
+        height: 28px;
+        justify-content: center;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 16px;
+        padding-right: 8px;
+        border: 1px solid #323232;
+        border-radius: 12px;
+        cursor: pointer;
+        user-select: auto;
+    }
+
+    #container #dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 12px;
+        border: 4px solid #323232;
+    }
+
+    #container[selected] {
+        user-select: none;
+        border: 1px solid var(--color-principal-purple);
+        background-color: rgba(255,255,255,0.1);
+    }
+
+    #container:not([selected]):hover {
+        background-color: rgba(255,255,255,0.06);
+    }
+
+    #container[selected] #dot {
+        border: 4px solid var(--color-principal-purple);
+        background-color: #E3E3E3;
+    }
+
+    #container #price {
+        width: 48px;
+    }
+
+    #container #period {
+        width: 64px;
+    }
+
+    #container #discount {
+        display: flex;
+        width: 42px;
+        height: 16px;
+        flex-direction: column;
+        border-radius: 6px;
+        background-color: #6952dc59;
+        visibility: hidden;
+    }
+</style>
+
+<div id="container">
+    <div id="dot"></div>
+    <x-text id="price"    color="#E3E3E3" size="12px" align="start" bold="true"></x-text>
+    <x-text id="period"   color="#848484" size="10px" align="start"></x-text>
+    <x-text id="discount" color="#FFF"    size="9px" align="center"></x-text>
+</div>

@@ -1,0 +1,78 @@
+<style>
+    :host {
+        display: flex;
+        height: 32px;
+        font-size: 12px;
+        font-weight: 500px;
+        font: var(-font);
+        align-items: stretch;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    #container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-left: 16px;
+        padding-right: 16px;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    #container[enable="true"]:hover {
+        background-color: var(--color-blue-600);
+    }
+
+    #container[enable="false"] {
+        pointer-events: none;
+        opacity: 0.4;
+    }
+
+    #container #icon {
+        pointer-events: none;
+        width: 14px;
+        height: 14px;
+        margin-right: 14px;
+    }
+
+    #container #sub_container {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        align-items: stretch;
+    }
+
+    #container #text {
+        min-width: 32px;
+        flex: 1;
+        pointer-events: none;
+    }
+
+    #container #more {
+        pointer-events: none;
+        width: 16px;
+        height: 16px;
+        margin-left: 14px;
+        opacity: 0.5;
+    }
+</style>
+
+<!-- 外部容器 -->
+<div id="container" enable="true">
+
+    <!-- 业务逻辑Logo -->
+    <x-svg id="icon" icon="" color="var(--default-svg-color)"></x-svg>
+
+    <!-- 内部容器 -->
+    <div id="sub_container">
+
+        <!-- 文本 -->
+        <x-text id="text" color="var(--default-font-color)" raw="drop-menu-item"></x-text>
+
+        <!-- 子集 -->
+        <x-svg id="more" icon="ui/right.svg" color="var(--default-svg-color)"></x-svg>
+
+    </div>
+</div>

@@ -1,0 +1,99 @@
+<style>
+    :host {
+        position: fixed;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #343434;
+        z-index: 1000000000;
+        backdrop-filter: blur(3px);
+    }
+
+    #container {
+        position: relative;
+        width: 1120px;
+        display: flex;
+        flex-direction: row;
+        height: 68px;
+    }
+
+    #container #right-container {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 18px;
+    }
+
+    #container #right-container .item {
+        display: block;
+        height: 68px;
+        line-height: 68px;
+        color: #fff;
+        font-size: 0.8em;
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: pointer;
+        user-select: none;
+        padding-left: 16px;
+        padding-right: 16px;
+        transition: background 200ms;
+        text-decoration: none;
+    }
+
+    #container #right-container .item:hover {
+        background-color: #000;
+    }
+
+    #container #right-container #drop-container {
+        position: absolute;
+        top: 68px;
+        right: 0;
+        height: 64px;
+        padding-left: 26px;
+        padding-right: 26px;
+        background-color: #343434;
+        z-index: 1000000000;
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 16px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+    }
+
+    #container #right-container #try {
+        text-decoration: underline;
+        text-decoration-color: #3ecf8e;
+        text-decoration-style: double;
+    }
+
+    #container #right-container #try[disable] {
+        pointer-events: none;
+        opacity: 0.1;
+    }
+
+</style>
+
+<div id="container">
+    <div id="right-container">
+        <a class="item" href="//doc.make3d.online/en/" target="_blank">Manual</a>
+        <a class="item" id="try" href="./editor" target="_blank">Try Now !</a>
+        <a class="item">Contact US</a>
+        
+        <div id="drop-container">
+            <svg class="item" id="x" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.7237 2.0625H19.756L13.1313 9.63417L20.9248 19.9375H14.8225L10.043 13.6886L4.5742 19.9375H1.54004L8.62587 11.8388L1.14954 2.0625H7.4067L11.727 7.77425L16.7237 2.0625ZM15.6595 18.1225H17.3397L6.4937 3.78217H4.69062L15.6595 18.1225Z" fill="white"/>
+            </svg>
+            <svg class="item" id="discord" width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.6242 1.99207C17.2038 1.24514 15.6976 0.710201 14.1464 0.401671C14.1324 0.398933 14.118 0.401178 14.1054 0.408071C14.0928 0.415281 14.0826 0.426432 14.076 0.440071C13.8701 0.867114 13.6836 1.30498 13.5172 1.75207C11.8508 1.46231 10.1528 1.46231 8.48647 1.75207C8.31982 1.30381 8.13082 0.865825 7.92034 0.440071C7.91366 0.42649 7.90346 0.41536 7.89101 0.408071C7.87785 0.400941 7.86291 0.398694 7.84847 0.401671C6.30259 0.705671 4.79778 1.24167 3.37069 1.99207C3.35815 1.99769 3.34779 2.00786 3.34135 2.02087C0.490124 6.90087 -0.293084 11.6593 0.0911868 16.3569C0.0926532 16.3809 0.105853 16.4017 0.12052 16.4161C1.76776 17.817 3.62657 18.8935 5.61324 19.5969C5.62791 19.6017 5.64258 19.6017 5.65724 19.5969C5.67068 19.5907 5.68197 19.5801 5.68951 19.5665C6.11485 18.9057 6.49032 18.2065 6.81445 17.4737C6.82108 17.4586 6.82336 17.4416 6.82101 17.425C6.81865 17.4085 6.81177 17.3931 6.80126 17.3809C6.79408 17.3737 6.78558 17.3682 6.77632 17.3649C6.1822 17.103 5.60835 16.7895 5.0603 16.4273C5.04487 16.4172 5.03339 16.4012 5.02804 16.3825C5.02264 16.3628 5.02421 16.3417 5.03244 16.3233C5.03696 16.3115 5.044 16.3011 5.05297 16.2929C5.1703 16.1937 5.2847 16.0897 5.39471 15.9873C5.40432 15.9784 5.41601 15.9727 5.42845 15.9707C5.44089 15.9687 5.45358 15.9706 5.46511 15.9761C9.06581 17.8593 12.9643 17.8593 16.521 15.9761C16.5329 15.9701 16.5461 15.968 16.5591 15.97C16.5721 15.972 16.5843 15.978 16.5943 15.9873C16.7055 16.092 16.819 16.1939 16.9346 16.2929C16.9439 16.3011 16.9514 16.3116 16.9563 16.3236C16.9613 16.3355 16.9636 16.3486 16.963 16.3617C16.9625 16.3748 16.959 16.3876 16.953 16.399C16.9471 16.4104 16.9387 16.4201 16.9287 16.4273C16.3825 16.7926 15.8084 17.1058 15.2127 17.3633C15.2031 17.3672 15.1945 17.3734 15.1873 17.3814C15.1803 17.3894 15.1748 17.3991 15.1716 17.4097C15.1652 17.4306 15.1662 17.4535 15.1746 17.4737C15.5046 18.2065 15.883 18.9057 16.2981 19.5665C16.3066 19.58 16.319 19.5901 16.3333 19.5953C16.3465 19.6017 16.3626 19.6017 16.3758 19.5953C18.3653 18.8944 20.2269 17.8184 21.8758 16.4161C21.8843 16.4094 21.8912 16.4007 21.8963 16.3908C21.9013 16.3808 21.9044 16.3698 21.9052 16.3585C22.3642 10.9249 21.1366 6.20487 18.6521 2.02247C18.6497 2.0155 18.646 2.00917 18.6412 2.00393C18.6364 1.99868 18.6305 1.99463 18.6242 1.99207ZM7.35273 13.4961C6.26738 13.4961 5.37564 12.3569 5.37564 10.9585C5.37564 9.55847 6.25125 8.41927 7.35273 8.41927C8.46154 8.41927 9.34744 9.56807 9.32984 10.9585C9.32984 12.3569 8.45421 13.4961 7.35273 13.4961ZM14.6627 13.4961C13.5774 13.4961 12.6856 12.3569 12.6856 10.9585C12.6856 9.55847 13.5612 8.41927 14.6627 8.41927C15.7715 8.41927 16.6574 9.56807 16.6398 10.9585C16.6398 12.3569 15.7715 13.4961 14.6627 13.4961Z" fill="#F73263"/>
+            </svg> 
+        </div>
+    </div>
+</div>

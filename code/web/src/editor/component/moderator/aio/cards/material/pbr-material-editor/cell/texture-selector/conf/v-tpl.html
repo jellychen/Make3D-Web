@@ -1,0 +1,92 @@
+<style>
+    :host {
+        position: absolute;
+        display: flex;
+        z-index: 100000000;
+    }
+
+    #container {
+        display: flex;
+        border-radius: 4px;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 6px;
+        transition: border 0.3s;
+        background-color: var(--color-bg);
+        border: solid 1px var(--color-gray-100);
+        box-shadow: var(--shadow-050);
+        gap: 4px;
+    }
+
+    #container .item {
+        height: 22px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        padding-left: 12px;
+        padding-right: 12px;
+        border-radius: 4px;
+        transition: background 200ms;
+        cursor: pointer;
+        pointer-events: auto;
+    }
+
+    #container .item:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    #container .item .select-icon {
+        width: 10px;
+        height: 10px;
+    }
+
+    #container .item .title {
+        color: var(--default-font-color);
+        font-size: 10px;
+    }
+
+    #container .s {
+        border-bottom: dashed 1px var(--color-gray-100);
+    }
+
+    #container #flip-y-container {
+        height: 22px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    #container #flip-y-container .title {
+        color: var(--default-font-color);
+        font-size: 10px;
+    }
+</style>
+
+<div id="container">
+    
+    <!-- FlipY -->
+    <div id="flip-y-container">
+        <div class="title">FlipY</div>
+        <x-switcher id="flip-y"></x-switcher>
+    </div>
+
+    <div class="s"></div>
+
+    <!-- srgb -->
+    <div id="srgb" class="item">
+        <x-svg class="select-icon" id="srgb-selected" color="var(--default-svg-color)" src="ui/selected.svg"></x-svg>
+        <div class="title">srgb</div>
+    </div>
+
+    <!-- srgb-linear -->
+    <div id="srgb-linear" class="item">
+        <x-svg class="select-icon" id="srgb-linear-selected" color="var(--default-svg-color)" src="ui/selected.svg"></x-svg>
+        <div class="title">srgb-linear</div>
+    </div>
+
+    
+</div>

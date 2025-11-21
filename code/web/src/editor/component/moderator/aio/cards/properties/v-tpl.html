@@ -1,0 +1,62 @@
+<style>
+    :host {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #board {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container #content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-top: 18px;
+        gap: 16px;
+    }
+
+    #container #content .s {
+        width: 100%;
+        border-bottom: solid 1px var(--color-frame-border);
+    }
+</style>
+
+<div id="board">
+
+    <!-- 内容 -->
+    <x-scrollable-container id="container" enable-scroll-h="false">
+
+        <div id="content">
+
+            <!-- 位置信息 -->
+            <x-biz-moderator-cards-coordinate id="coordinate"></x-biz-moderator-cards-coordinate>
+            <div class="s"></div>
+
+            <!-- 可见性 -->
+            <x-biz-moderator-cards-visibility id="visibility"></x-biz-moderator-cards-visibility>
+            <div class="s"></div>
+
+            <!-- 可见性 -->
+            <x-biz-moderator-cards-smoothing-level id="smoothing-level"></x-biz-moderator-cards-smoothing-level>
+            <div class="s"></div>
+
+            <!-- UV -->
+            <x-biz-moderator-cards-uv id="uv"></x-biz-moderator-cards-uv>
+            <div class="s"></div>
+
+        </div>
+
+    </x-scrollable-container>
+
+</div>

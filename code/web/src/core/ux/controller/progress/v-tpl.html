@@ -1,0 +1,20 @@
+<style>
+    :host {
+        position: relative;
+        background-color: var(--progress-bg-color);
+        border-radius: 2px;
+    }
+
+    #bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: var(--progress-bar-bg-color);
+        border-radius: 2px;
+        transition: width 200ms;
+    }
+</style>
+
+<div id="bar"></div>

@@ -1,0 +1,37 @@
+<style>
+    :host {
+        cursor: pointer;
+        width: 100%;
+    }
+
+    #container {
+        position: relative;
+        display: flex;
+        height: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.3;
+        min-width: 30px;
+    }
+
+    #container[selected="false"]:hover {
+        opacity: 0.6;
+    }
+
+    #container[selected="true"] {
+        opacity: 1;
+    }
+
+    #container #icon {
+        width: 14px;
+        height: 14px;
+        margin-right: 6px;
+        pointer-events: none;
+    }
+</style>
+
+<div id="container" selected="false">
+    <x-svg id="icon" color="var(--default-svg-color)"></x-svg>
+</div>

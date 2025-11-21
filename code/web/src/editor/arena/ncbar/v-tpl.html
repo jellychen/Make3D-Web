@@ -1,0 +1,40 @@
+<style>
+    :host {
+        position: relative;
+        height: 100%;
+        align-self: stretch;
+    }
+
+    #container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    #container #menu {
+        -webkit-app-region: no-drag;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 100ms, transform 100ms;
+    }
+
+    #container #menu:hover {
+        opacity: 1;
+    }
+
+    #container #menu:active {
+        transform: translateY(1px);
+    }
+</style>
+
+<div id="container">
+    <x-text color="var(--default-font-color)" size="12px" data="Craft3d" bold="true"></x-text>
+    <x-svg id="menu" color="var(--default-svg-color)" src="ui/down-more.svg"></x-svg>
+</div>

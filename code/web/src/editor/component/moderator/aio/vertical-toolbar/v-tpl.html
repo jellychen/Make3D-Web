@@ -1,0 +1,69 @@
+<style>
+    #container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 22px;
+        padding-top: 16px;
+    }
+
+    #container .separator {
+        align-self: center;
+        height: 2px;
+        width: 12px;
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+</style>
+
+<div id="container">
+    <!-- 用来配置场景信息 -->
+    <x-biz-moderator-toolbar-item 
+        id="scene"
+        icon="ui/sence.svg" 
+        token="scene" 
+        tips-data-token="scene"
+        tips-placement="left"
+        selected="true">
+    </x-biz-moderator-toolbar-item>
+
+    <x-separator class="separator"></x-separator>
+
+    <!-- 属性 -->
+    <x-biz-moderator-toolbar-item 
+        id="properties"
+        icon="ui/properties.svg" 
+        token="properties"
+        tips-data-token="element.properties"
+        tips-placement="left">
+    </x-biz-moderator-toolbar-item>
+
+    <!-- 材质 -->
+    <x-biz-moderator-toolbar-item 
+        id="material"
+        icon="ui/material.svg" 
+        token="material"
+        tips-data-token="element.material"
+        tips-placement="left">
+    </x-biz-moderator-toolbar-item>
+
+    <!-- 动画 -->
+    <!-- <x-biz-moderator-toolbar-item 
+        id="animation"
+        icon="ui/animation.svg" 
+        token="animation"
+        tips-data-token="element.material"
+        tips-placement="left">
+    </x-biz-moderator-toolbar-item> -->
+
+    <x-separator class="separator"></x-separator>
+
+    <!-- 灯光属性 -->
+    <x-biz-moderator-toolbar-item 
+        id="light"
+        icon="ui/light-0.svg" 
+        token="light">
+    </x-biz-moderator-toolbar-item>
+</div>

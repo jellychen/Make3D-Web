@@ -1,0 +1,47 @@
+<style>
+    :host {
+        position: relative;
+        width: 680px;
+        height: 380px;
+    }
+
+    #input {
+        appearance: none;
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        top: 0px;
+        bottom: 0px;
+        background-color: #848484;
+        border: 0;
+        border-radius: 2px;
+        box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.8);
+        overflow: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #232323 transparent;
+        padding: 4px;
+
+        outline-style: none;
+        font-size: 10px;
+        font-family: var(--font);
+        resize: none;
+
+        scrollbar-width: thin;
+        scrollbar-color: #323232 transparent;
+    }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #000;
+    }
+</style>
+
+<textarea id="input" readonly></textarea>

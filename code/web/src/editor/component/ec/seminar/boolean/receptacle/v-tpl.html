@@ -1,0 +1,125 @@
+<style>
+    :host {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        padding: 18px;
+        padding-right: 8px;
+    }
+
+    #container #controller {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: 32px;
+        margin-bottom: 8px;
+    }
+
+    #container #controller #icon {
+        width: 10px;
+        height: 10px;
+        margin-left: 6px;
+        margin-right: 8px;
+    }
+
+    #container #panel {
+        position: relative;
+        display: flex;
+        align-self: stretch;
+        margin-left: 6px;
+        flex-direction: column;
+        border: dashed 1px var(--color-white-015);
+        transition: border 600ms;
+        border-radius: 4px;
+    }
+
+    #container #panel:hover {
+        border: dashed 1px var(--color-principal-green);
+    }
+
+    #container #panel[status="highlight"] {
+        border: dashed 1px var(--color-principal-green);
+    }
+
+    #container #panel[status="error"] {
+        border: dashed 1px var(--color-principal-red);
+    }
+
+    #container #panel #content {
+        align-self: stretch;
+        min-height: 160px;
+        padding: 2px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+    }
+
+    #container #add {
+        align-self: flex-end;
+        margin-top: 6px;
+        height: 24px;
+    }
+
+    #container #drop-in-box {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 32px;
+        height: 32px;
+    }
+
+    .if-dragging {
+        border: solid 1px var(--color-principal-green);
+    }
+
+    .sortable-drag {
+        background-color: #050505!important;
+        border: 1px solid #ff0505!important;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.80)!important;
+        pointer-events: auto!important;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 顶层控制器 -->
+    <div id="controller">
+
+        <!-- icon -->
+        <x-svg id="icon" color="var(--default-svg-color)" src="ui/classification.svg"></x-svg>
+
+        <!-- 名称 -->
+        <x-text id="label" color="var(--default-font-color)" token="boolean" size="var(--font-size-0)"></x-text>
+
+    </div>
+
+    <!-- 用来存储进行布尔的元素池子 -->
+    <div id="panel">
+
+        <!-- segmentation -->
+        <div id="segmentation"></div>
+        
+        <!-- 用来存放 Item -->
+        <div id="content"></div>
+
+        <!-- icon -->
+        <x-svg id="drop-in-box" src="ui/box.svg" color="#626262"></x-svg>
+
+    </div>
+
+    <!-- 添加按钮 -->
+    <x-button enable="false" id="add" enable-icon="true" icon="ui/insert-into-scene.svg" text-token="boolean.result.add.scene" text-size="10px"></x-button>
+    
+</div>

@@ -1,0 +1,25 @@
+<style>
+    :host {
+        position: absolute;
+        z-index: 1000000001;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container {
+        position: absolute;
+        z-index: 1000000001;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-bg);
+        pointer-events: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+</style>
+
+<div id="container">
+    <x-biz-nav-toolbar-setter-header></x-biz-nav-toolbar-setter-header>
+    <x-biz-tube-section-editor></x-biz-tube-section-editor>
+</div>

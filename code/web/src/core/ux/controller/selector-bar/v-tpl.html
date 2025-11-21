@@ -1,0 +1,24 @@
+<style>
+    :host {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+
+    #container[dir='v'] {
+        flex-direction: column;
+    }
+
+    #container[dir='r'] {
+        flex-direction: row;
+    }
+</style>
+
+<div id="container" dir="r">
+    <slot></slot>
+</div>

@@ -1,0 +1,36 @@
+<style>
+    :host {
+        position: absolute;
+        z-index: 1000000000;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: wait;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    #container {
+        padding: 6px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(2px);
+        border-radius: 3px;
+        box-shadow: var(--shadow-050);
+    }
+
+    #container #progress {
+        width: 120px;
+    }
+</style>
+
+<div id="container">
+    <x-progress-infinite-line id="progress" color="#FFF"></x-progress-infinite-line>
+</div>

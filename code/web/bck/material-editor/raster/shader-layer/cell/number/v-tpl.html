@@ -1,0 +1,68 @@
+<style>
+    :host {
+        position: relative;
+        height: 22px;
+    }
+
+    #container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container #label-container {
+        height: 100%;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container #label-container #name {
+        align-self: flex-end;
+        max-width: 100px;
+        height: 100%;
+        margin-right: 8px;
+    }
+
+    #container #slider {
+        flex: 1;
+        height: 16px;
+        max-width: 120px;
+        margin-right: 6px;
+    }
+
+    #container #input {
+        width: 46px;
+        height: 16px;
+        background-color: var(--color-gray-5);
+        border-radius: 3px;
+        border: solid 1px var(--color-gray-100);
+        transition: border 300ms;
+    }
+
+    #container #input:hover {
+        border: solid 1px var(--color-principal-green);
+    }
+
+    #container #input:focus {
+        border: solid 1px var(--color-principal-green);
+    }
+</style>
+
+<div id="container">
+
+    <!-- label -->
+    <div id="label-container">
+        <x-text id="name" color="var(--default-font-color)" data="undefined" size="var(--font-size-2)"></x-text>
+    </div>
+
+    <!-- 数值调整 -->
+    <x-slider id="slider"></x-slider>
+
+    <!-- 数值 -->
+    <x-text-input-number id="input" enable-title="false"></x-text-input-number>
+
+</div>

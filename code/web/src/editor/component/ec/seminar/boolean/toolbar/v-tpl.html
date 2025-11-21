@@ -1,0 +1,108 @@
+<style>
+    :host {
+        display: flex;
+        height: 100%;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        gap: 18px;
+    }
+
+    #container .btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    #container .separator {
+        width: 2px;
+        height: 12px;
+        align-self: center;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    #container .switcher-container {
+        height: 100%;
+    }
+
+    #container .switcher-container .icon-switcher {
+        width: 46px;
+        height: 100%;
+    }
+
+</style>
+
+<div id="container">
+
+    <!-- 各种按钮 -->
+    <x-icon-status-switcher-container id="switcher" direction="row" gap="8px" enable="true" class="switcher-container">
+
+        <!-- 鼠标 -->
+        <x-icon-status-switcher 
+            id="pointer"
+            token="none"
+            class="icon-switcher"
+            icon="ui/pointer.svg"
+            selected="true">
+        </x-icon-status-switcher>
+
+        <!-- 分割 -->
+        <x-separator class="separator"></x-separator>
+
+        <!-- 并集 -->
+        <x-icon-status-switcher 
+            id="union" 
+            token="union"
+            class="icon-switcher" 
+            icon="boolean/union.svg"
+            tips-placement="bottom-start"
+            tips-data-token="boolean.union">
+        </x-icon-status-switcher>
+        
+        <!-- 差集 -->
+        <x-icon-status-switcher 
+            id="a-not-b" 
+            token="a-not-b"
+            class="icon-switcher" 
+            icon="boolean/a-not-b.svg"
+            tips-placement="bottom-start"
+            tips-data-token="boolean.difference">
+        </x-icon-status-switcher>
+
+        <!-- 差集 -->
+        <x-icon-status-switcher 
+            id="b-not-a" 
+            token="b-not-a"
+            class="icon-switcher" 
+            icon="boolean/b-not-a.svg"
+            tips-placement="bottom-start"
+            tips-data-token="boolean.difference">
+        </x-icon-status-switcher>
+
+        <!-- 交集 -->
+        <x-icon-status-switcher 
+            id="intersection" 
+            token="intersection"
+            class="icon-switcher" 
+            icon="boolean/intersection.svg"
+            tips-placement="bottom-start"
+            tips-data-token="boolean.intersection">
+        </x-icon-status-switcher>
+
+        <!-- xor -->
+        <x-icon-status-switcher 
+            id="xor"
+            token="xor"
+            class="icon-switcher" 
+            icon="boolean/xor.svg"
+            tips-placement="bottom-start"
+            tips-data-token="boolean.intersection">
+        </x-icon-status-switcher>
+
+    </x-icon-status-switcher-container>
+
+</div>

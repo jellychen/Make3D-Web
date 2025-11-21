@@ -1,0 +1,22 @@
+<style>
+    :host {
+        flex-grow: 1;
+        cursor: pointer;
+    }
+
+    #container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #container:hover {
+        background-color: aquamarine;
+    }
+</style>
+
+<div id="container">
+    <x-text id="text" raw="Item" color="var(--default-font-color)"></x-text>
+</div>

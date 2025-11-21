@@ -1,0 +1,85 @@
+<style>
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-top: 18px;
+        padding-bottom: 18px;
+        gap: 24px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        background-color: var(--color-principal);
+        border-left: 1px solid #000;
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+    }
+
+    #container .separator {
+        width: 60%;
+        height: 2px;
+        border-radius: 2px;
+        background-color: var(--color-white-010);
+    }
+
+    #container .switcher {
+        width: 14px;
+        height: 14px;
+    }
+
+    #container .button {
+        width: 14px;
+        height: 14px;
+        cursor: pointer;
+    }
+
+    #container .button:hover:active {
+        transform: translateY(1px);
+    }
+
+</style>
+
+<div id="container">
+    <x-svg 
+        id="coordinate-2d-xy" 
+        class="button" 
+        color="var(--default-svg-color)"
+        icon="ui/coordinate-2d.svg">
+    </x-svg>
+
+    <!-- 分 -->
+    <div class="separator"></div>
+
+    <!-- 用来调整 正交/透视投影 -->
+    <x-switcher-icon
+        id="view-projection"
+        class="switcher"
+        enable="true"
+        checked-icon="ui/view-perspective.svg"
+        unchecked-icon="ui/view-ortho.svg"
+        checked="true">
+    </x-switcher-icon>
+
+    <!-- 看向指定的元素 -->
+    <x-svg 
+        id="focues" 
+        class="button" 
+        icon="ui/fouces.svg" 
+        color="var(--default-svg-color)"
+        enable="true">
+    </x-svg>
+
+    <!-- 分 -->
+    <div class="separator"></div>
+
+    <!-- 保存当前整个画布的数据 -->
+    <x-svg 
+        id="take-photo" 
+        class="button" 
+        icon="ui/take-photo.svg" 
+        color="var(--default-svg-color)"
+        enable="true">
+    </x-svg>
+
+</div>

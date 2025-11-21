@@ -1,0 +1,44 @@
+<style>
+    :host {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    #container #label-container {
+        height: 22px;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #container #label-container #name {
+        align-self: flex-end;
+        max-width: 100px;
+        height: 100%;
+        margin-right: 8px;
+    }
+
+    #container #selector {
+        margin-bottom: 6px;
+    }
+</style>
+
+<div id="container">
+
+    <!-- label -->
+    <div id="label-container">
+        <x-text id="name" color="var(--default-font-color)" token="color" size="var(--font-size-2)"></x-text>
+    </div>
+
+    <!-- 颜色板 -->
+    <x-color-selector id="selector"></x-color-selector>
+
+</div>

@@ -1,0 +1,46 @@
+<style>
+    :host {
+        position: relative;
+        display: flex;
+        height: 28px;
+    }
+
+    #container {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container #name {
+        width: 76px;
+        height: 100%;
+        margin-right: 8px;
+    }
+
+    #container #controller-container {
+        width: 204px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #container #switcher {
+        margin-left: 8px;
+    }
+</style>
+
+<div id="container">
+
+    <!-- label -->
+    <x-text id="name" color="var(--default-font-color)" data="XXX" align="end" size="var(--font-size-0)"></x-text>
+
+    <!-- -->
+    <div id="controller-container">
+
+        <!-- 开关 -->
+        <x-switcher id="switcher"></x-switcher>
+
+    </div>
+
+</div>

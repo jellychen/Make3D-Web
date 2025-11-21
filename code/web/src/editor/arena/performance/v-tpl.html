@@ -1,0 +1,73 @@
+<style>
+    #container {
+        position: absolute;
+        z-index: 1000000;
+        width: 120px;
+        left: 100px;
+        top: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        font-size: 10px;
+        color: #F1F1F1;
+        padding: 10px;
+        padding-top: 10px;
+        padding-bottom: 6px;
+        background-color: #000;
+        border-radius: 6px;
+        border: 1px solid #3F3F3F;
+        box-shadow: 0px 0px 6px rgba(0,0,0,1.0);
+        cursor: grab;
+    }
+
+    #container:hover:active {
+        cursor: grabbing;
+    }
+
+    #container .info-item {
+        pointer-events: none;
+        display: flex;
+        flex-direction: row;
+    }
+
+    #container .title {
+        width: 32px;
+        font-weight: bold;
+    }
+
+    #container span[type="info"] {
+        color: #00FF00;
+    }
+
+    #container span[type="warn"] {
+        color: #FF0000;
+    }
+
+    #container .info-item #fps-value {
+        width: 120px;
+    }
+
+    #container #chart {
+        cursor: default !important;
+        width: 100%;
+        height: 40px;
+    }
+
+</style>
+
+<div id="container">
+
+    <!-- FPS -->
+    <div id="fps" class="info-item">
+        <span class="title">FPS</span>
+        <span style="margin-right: 5px;">-</span>
+        <span id="fps-value" type="info">0</span>
+    </div>
+
+    <!-- 可视化 -->
+    <canvas id="chart">
+
+    </canvas>
+
+</div>

@@ -1,0 +1,154 @@
+<style>
+    :host {
+        position: relative;
+    }
+
+    #icon {
+        margin-right: 6px;
+        width: 12px;
+        height: 12px;
+        display: none;
+    }
+
+    #btn {
+        position: relative;
+        height: 100%;
+        border-width: 0;
+        box-shadow: var(--btn-box-shadow);
+        color: var(--btn-font-color);
+        line-height: 1rem;
+        white-space: nowrap;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        transition: background 400ms;
+    }
+
+    #btn[fullwidth="true"] {
+        width: 100%;
+    }
+
+    #btn[size="normal"] {
+        border-radius: var(--btn-border-radius);
+        padding: 8px 14px 8px 14px;
+    }
+
+    #btn[size="small"] {
+        border-radius: 3px;
+        padding: 6px 6px 6px 6px;
+    }
+
+    /** normal **/
+    #btn[btn-style="normal"] {
+        background: var(--btn-bg-color);
+    }
+
+    #btn[btn-style="normal"]:hover:enabled {
+        background: var(--btn-bg-hover-color);
+    }
+
+    #btn[btn-style="normal"]:active:hover:enabled {
+        background: var(--btn-bg-active-color);
+    }
+
+    /** green **/
+    #btn[btn-style="green"] {
+        background: var(--color-principal-green);
+    }
+
+    #btn[btn-style="green"]:hover:enabled {
+        background: var(--color-darken-green);
+    }
+
+    #btn[btn-style="green"]:active:hover:enabled {
+        background: var(--color-principal-green);
+    }
+
+    /** red **/
+    #btn[btn-style="red"] {
+        background: var(--color-principal-red);
+    }
+
+    #btn[btn-style="red"]:hover:enabled {
+        background: var(--color-darken-red);
+    }
+
+    #btn[btn-style="red"]:active:hover:enabled {
+        background: var(--color-principal-red);
+    }
+
+    /** blue **/
+    #btn[btn-style="blue"] {
+        background: var(--color-principal-blue);
+    }
+
+    #btn[btn-style="blue"]:hover:enabled {
+        background: var(--color-darken-blue);
+    }
+
+    #btn[btn-style="blue"]:active:hover:enabled {
+        background: var(--color-principal-blue);
+    }
+
+    /** purple **/
+    #btn[btn-style="purple"] {
+        background: var(--color-principal-purple);
+    }
+
+    #btn[btn-style="purple"]:hover:enabled {
+        background: var(--color-darken-purple);
+    }
+
+    #btn[btn-style="purple"]:active:hover:enabled {
+        background: var(--color-principal-purple);
+    }
+
+    /** yellow **/
+    #btn[btn-style="yellow"] {
+        background: var(--color-principal-yellow);
+    }
+
+    #btn[btn-style="yellow"]:hover:enabled {
+        background: var(--color-darken-yellow);
+    }
+
+    #btn[btn-style="yellow"]:active:hover:enabled {
+        background: var(--color-principal-yellow);
+    }
+
+    /** orange **/
+    #btn[btn-style="orange"] {
+        background: var(--color-principal-orange);
+    }
+
+    #btn[btn-style="orange"]:hover:enabled {
+        background: var(--color-darken-orange);
+    }
+
+    #btn[btn-style="orange"]:active:hover:enabled {
+        background: var(--color-principal-orange);
+    }
+
+    #btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    #btn[size="normal"] #text {
+        font-size: var(--font-size-0);
+    }
+
+    #btn[size="small"] #text {
+        font-size: var(--font-size-1);
+    }
+</style>
+
+<button id="btn" type="button" size="normal" btn-style="normal" tabindex="-1">
+
+    <x-svg id="icon" color="var(--default-svg-color)"></x-svg>
+    <x-text id="text" raw="Button" color="var(--default-font-color)"></x-text>
+    <slot></slot>
+    
+</button>

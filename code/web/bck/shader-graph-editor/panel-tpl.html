@@ -1,0 +1,178 @@
+<style>
+    :host {
+        position: absolute;
+        pointer-events: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        cursor: default;
+        transform: translateZ(0);
+        will-change: transform;
+    }
+
+    #container {
+        background-color: #0F0F0F;
+        min-width: 180px;
+        box-shadow: var(--shadow-50);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding-bottom: 6px;
+        margin-left: 4px;
+        margin-right: 4px;
+        border-radius: 8px;
+        border: 1px solid var(--color-frame-border);
+        opacity: .8;
+        transition: border 200ms, opacity 150ms;
+    }
+
+    #container:hover {
+        opacity: 1;
+        border: 1px solid #646464;
+    }
+
+    #container[status="error"] {
+        border: 1px solid #EE0000;
+        background-color: #2f0000!important;
+    }
+
+    .dragging {
+        opacity: 1;
+        border: 1px solid var(--color-principal-green)!important;
+    }
+
+    #container #header {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 11px;
+        color: #fff;
+        padding-left: 16px;
+        padding-right: 16px;
+        height: 26px;
+        min-width: 120px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        cursor: grab;
+    }
+
+    #container #btns {
+        position: absolute;
+        padding: 4px;
+        right: 6px;
+        top: 8px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 6px;
+        border-radius: 12px;
+        opacity: 0;
+        transition: opacity 200ms;
+    }
+
+    #container:hover #btns {
+        opacity: 1;
+    }
+
+    #container #btns .btn {
+        width: 8px;
+        height: 8px;
+        border-radius: 8px;
+        opacity: 1;
+        transition: opacity 200ms, transform 200ms;
+        cursor: pointer;
+        box-shadow: var(--shadow-100);
+    }
+
+    #container #btns .btn:hover {
+        opacity: 0.5;
+    }
+
+    #container #btns .btn:active {
+        transform: translateY(1px);
+    }
+
+    #container #btns #fold {
+        background-color: #FFBC25;
+    }
+
+    #container #btns #remove {
+        background-color: #FF565E;
+    }
+
+    #container #header:active {
+        cursor: grabbing;
+    }
+
+    #container #content {
+        position: relative;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container #content #borad {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        pointer-events: auto;
+    }
+
+    #container #content #line {
+        border-bottom: 1px solid var(--color-frame-border);
+    }
+
+    #container #content #port-container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container #content #port-container #in {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #container #content #port-container #out {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+</style>
+
+<div id="container" status="normal">
+
+    <!-- 额头 -->
+    <div id="header"></div>
+
+    <!-- 额头 -->
+    <div id="btns">
+        <div class="btn" id="fold"></div>
+        <div class="btn" id="remove"></div>
+    </div>
+
+    <!-- 实际内容 -->
+    <div id="content">
+
+        <!-- 值区域 -->
+        <div id="board"></div>
+
+        <!-- 分割线 -->
+        <div id="line"></div>
+
+        <!-- port 端口 -->
+        <div id="port-container">
+            <div id="in"></div>
+            <div id="out"></div>
+        </div>
+
+    </div>
+
+</div>

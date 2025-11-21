@@ -1,0 +1,114 @@
+<style>
+    :host {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #container #bottom {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+        margin-bottom: 6px;
+        padding-top: 6px;
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+</style>
+
+<div id="container">
+
+    <!-- 基础设置 -->
+    <x-biz-svg-extrude-editor-separator token="svg.extruder.base"></x-biz-svg-extrude-editor-separator>
+
+    <!-- 深度 -->
+    <x-biz-svg-extrude-editor-number 
+        id="depth"
+        token="depth" 
+        name-token="depth"
+        range-start="0"
+        range-end="2">
+    </x-biz-svg-extrude-editor-number>
+
+    <x-biz-svg-extrude-editor-integer
+        id="curve-segments"
+        token="curve.segments"
+        name-token="curve.segments"
+        range-start="8"
+        range-end="16">
+    </x-biz-svg-extrude-editor-integer>
+
+    <!-- 倒角 -->
+    <x-biz-svg-extrude-editor-separator token="svg.extruder.bevel"></x-biz-svg-extrude-editor-separator>
+
+    <x-biz-svg-extrude-editor-integer
+        id="bevel-segments"
+        token="bevel.segments"
+        name-token="bevel.segments"
+        range-start="0"
+        range-end="16">
+    </x-biz-svg-extrude-editor-integer>
+
+    <x-biz-svg-extrude-editor-number 
+        id="bevel-thickness"
+        token="bevel.thickness" 
+        name-token="bevel.thickness"
+        range-start="0"
+        range-end="0.2">
+    </x-biz-svg-extrude-editor-number>
+
+    <x-biz-svg-extrude-editor-number 
+        id="bevel-size"
+        token="bevel.size" 
+        name-token="bevel.size"
+        range-start="0"
+        range-end="0.2">
+    </x-biz-svg-extrude-editor-number>
+
+    <x-biz-svg-extrude-editor-number 
+        id="bevel-offset"
+        token="bevel.offset" 
+        name-token="bevel.offset"
+        range-start="0"
+        range-end="0.2">
+    </x-biz-svg-extrude-editor-number>
+
+    <!-- 底部 -->
+    <div id="bottom">
+        <x-button 
+            id="add-scene"
+            fullwidth="true"
+            enable-icon="true" 
+            icon="ui/add.svg" 
+            text-token="svg.add.scene" 
+            text-size="10px" 
+            btn-style="purple"
+            btn-size="small">
+        </x-button>
+
+        <x-button 
+            id="convert-polygon-add-scene"
+            fullwidth="true"
+            enable-icon="true" 
+            icon="ui/repair.svg" 
+            text-token="svg.convert.polygon.add.scene" 
+            text-size="10px"
+            btn-style="blue"
+            btn-size="small">
+        </x-button>
+    </div>
+</div>
